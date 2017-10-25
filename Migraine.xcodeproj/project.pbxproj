@@ -15,6 +15,9 @@
 		00130DCE1FA1041800D8FBB6 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 00130DCC1FA1041800D8FBB6 /* LaunchScreen.storyboard */; };
 		00130DD91FA1041800D8FBB6 /* MigraineTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00130DD81FA1041800D8FBB6 /* MigraineTests.swift */; };
 		00130DE41FA1041800D8FBB6 /* MigraineUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00130DE31FA1041800D8FBB6 /* MigraineUITests.swift */; };
+		00130DF21FA11B7000D8FBB6 /* QuickAddMigraineViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00130DF11FA11B7000D8FBB6 /* QuickAddMigraineViewController.swift */; };
+		00130DF31FA11B7000D8FBB6 /* QuickAddMigraineViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00130DF11FA11B7000D8FBB6 /* QuickAddMigraineViewController.swift */; };
+		00130DF41FA11B7000D8FBB6 /* QuickAddMigraineViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00130DF11FA11B7000D8FBB6 /* QuickAddMigraineViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -49,6 +52,7 @@
 		00130DDF1FA1041800D8FBB6 /* MigraineUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MigraineUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		00130DE31FA1041800D8FBB6 /* MigraineUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MigraineUITests.swift; sourceTree = "<group>"; };
 		00130DE51FA1041800D8FBB6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		00130DF11FA11B7000D8FBB6 /* QuickAddMigraineViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuickAddMigraineViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -102,6 +106,7 @@
 				00130DC11FA1041800D8FBB6 /* AppDelegate.swift */,
 				00130DC31FA1041800D8FBB6 /* FirstViewController.swift */,
 				00130DC51FA1041800D8FBB6 /* SecondViewController.swift */,
+				00130DF11FA11B7000D8FBB6 /* QuickAddMigraineViewController.swift */,
 				00130DC71FA1041800D8FBB6 /* Main.storyboard */,
 				00130DCA1FA1041800D8FBB6 /* Assets.xcassets */,
 				00130DCC1FA1041800D8FBB6 /* LaunchScreen.storyboard */,
@@ -262,6 +267,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				00130DF21FA11B7000D8FBB6 /* QuickAddMigraineViewController.swift in Sources */,
 				00130DC61FA1041800D8FBB6 /* SecondViewController.swift in Sources */,
 				00130DC21FA1041800D8FBB6 /* AppDelegate.swift in Sources */,
 				00130DC41FA1041800D8FBB6 /* FirstViewController.swift in Sources */,
@@ -272,6 +278,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				00130DF31FA11B7000D8FBB6 /* QuickAddMigraineViewController.swift in Sources */,
 				00130DD91FA1041800D8FBB6 /* MigraineTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -280,6 +287,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				00130DF41FA11B7000D8FBB6 /* QuickAddMigraineViewController.swift in Sources */,
 				00130DE41FA1041800D8FBB6 /* MigraineUITests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
