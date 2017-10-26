@@ -10,15 +10,28 @@ import UIKit
 
 class QuickAddMigraineViewController: UIViewController {
 
+    var isQuickAddMigraine: Bool = true
+    
+    @IBOutlet weak var continueButton: UIButton!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
+        let nextButtonTitle = isQuickAddMigraine ? "Save" : "Next"
+        continueButton.setTitle(nextButtonTitle, for: .normal)
+        if isQuickAddMigraine { addCancelButton() }
     }
-
+    
+    func addCancelButton() {
+        let backbutton = UIButton(type: .custom)
+        backbutton.setTitle("Cancel", for: .normal)
+        backbutton.setTitleColor(backbutton.tintColor, for: .normal)
+        backbutton.addTarget(self, action:#selector(self.cancelButtonPressed(_:)), for: .touchUpInside)
+        self.navigationItem.leftBarButtonItem = UIBarButtonItem(customView: backbutton)
+    }
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
     }
 
     @IBAction func cancelButtonPressed(_ sender: Any) {
@@ -26,17 +39,18 @@ class QuickAddMigraineViewController: UIViewController {
     }
     
     @IBAction func saveButtonPressed(_ sender: Any) {
-        self.navigationController?.dismiss(animated: true, completion: nil)
+        if isQuickAddMigraine {
+            self.navigationController?.dismiss(animated: true, completion: nil)
+        } else {
+            performSegue(withIdentifier: "ContinueDiarySeque", sender: nil)
+        }
     }
     
-    /*
+    
     // MARK: - Navigation
 
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
+//    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+// 
+//    }
 
 }

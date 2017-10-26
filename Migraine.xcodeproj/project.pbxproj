@@ -26,6 +26,21 @@
 		00130E001FA11FB300D8FBB6 /* MigraineEntry.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00130DFE1FA11FB300D8FBB6 /* MigraineEntry.swift */; };
 		00130E011FA11FB300D8FBB6 /* MigraineEntry.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00130DFE1FA11FB300D8FBB6 /* MigraineEntry.swift */; };
 		2CC8E154597690F01F3291B0 /* Pods_Migraine.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F8371EABA34DA36DF3F3B96C /* Pods_Migraine.framework */; };
+		883C2A831FA255E000701D57 /* DiaryRootViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 883C2A821FA255E000701D57 /* DiaryRootViewController.swift */; };
+		883C2A841FA255E000701D57 /* DiaryRootViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 883C2A821FA255E000701D57 /* DiaryRootViewController.swift */; };
+		883C2A851FA255E000701D57 /* DiaryRootViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 883C2A821FA255E000701D57 /* DiaryRootViewController.swift */; };
+		883C2A8B1FA273F600701D57 /* LurkingMigraineViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 883C2A8A1FA273F600701D57 /* LurkingMigraineViewController.swift */; };
+		883C2A8C1FA273F600701D57 /* LurkingMigraineViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 883C2A8A1FA273F600701D57 /* LurkingMigraineViewController.swift */; };
+		883C2A8D1FA273F600701D57 /* LurkingMigraineViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 883C2A8A1FA273F600701D57 /* LurkingMigraineViewController.swift */; };
+		883C2A8F1FA2742500701D57 /* CurrentSymptomsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 883C2A8E1FA2742500701D57 /* CurrentSymptomsViewController.swift */; };
+		883C2A901FA2742500701D57 /* CurrentSymptomsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 883C2A8E1FA2742500701D57 /* CurrentSymptomsViewController.swift */; };
+		883C2A911FA2742500701D57 /* CurrentSymptomsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 883C2A8E1FA2742500701D57 /* CurrentSymptomsViewController.swift */; };
+		883C2A931FA2745700701D57 /* CurrentTriggersViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 883C2A921FA2745700701D57 /* CurrentTriggersViewController.swift */; };
+		883C2A941FA2745700701D57 /* CurrentTriggersViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 883C2A921FA2745700701D57 /* CurrentTriggersViewController.swift */; };
+		883C2A951FA2745700701D57 /* CurrentTriggersViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 883C2A921FA2745700701D57 /* CurrentTriggersViewController.swift */; };
+		883C2A971FA2747C00701D57 /* CurrentPreventionsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 883C2A961FA2747C00701D57 /* CurrentPreventionsViewController.swift */; };
+		883C2A981FA2747C00701D57 /* CurrentPreventionsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 883C2A961FA2747C00701D57 /* CurrentPreventionsViewController.swift */; };
+		883C2A991FA2747C00701D57 /* CurrentPreventionsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 883C2A961FA2747C00701D57 /* CurrentPreventionsViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -65,6 +80,11 @@
 		00130DFA1FA11FA300D8FBB6 /* DiaryEntry.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiaryEntry.swift; sourceTree = "<group>"; };
 		00130DFE1FA11FB300D8FBB6 /* MigraineEntry.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MigraineEntry.swift; sourceTree = "<group>"; };
 		58DBE1C447B98507FE7D495F /* Pods-Migraine.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Migraine.release.xcconfig"; path = "Pods/Target Support Files/Pods-Migraine/Pods-Migraine.release.xcconfig"; sourceTree = "<group>"; };
+		883C2A821FA255E000701D57 /* DiaryRootViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiaryRootViewController.swift; sourceTree = "<group>"; };
+		883C2A8A1FA273F600701D57 /* LurkingMigraineViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LurkingMigraineViewController.swift; sourceTree = "<group>"; };
+		883C2A8E1FA2742500701D57 /* CurrentSymptomsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrentSymptomsViewController.swift; sourceTree = "<group>"; };
+		883C2A921FA2745700701D57 /* CurrentTriggersViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrentTriggersViewController.swift; sourceTree = "<group>"; };
+		883C2A961FA2747C00701D57 /* CurrentPreventionsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrentPreventionsViewController.swift; sourceTree = "<group>"; };
 		94313455E2E5C6DA5E3D60C4 /* Pods-Migraine.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Migraine.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Migraine/Pods-Migraine.debug.xcconfig"; sourceTree = "<group>"; };
 		F8371EABA34DA36DF3F3B96C /* Pods_Migraine.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Migraine.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -165,6 +185,11 @@
 				00130DC31FA1041800D8FBB6 /* FirstViewController.swift */,
 				00130DC51FA1041800D8FBB6 /* SecondViewController.swift */,
 				00130DF11FA11B7000D8FBB6 /* QuickAddMigraineViewController.swift */,
+				883C2A821FA255E000701D57 /* DiaryRootViewController.swift */,
+				883C2A8A1FA273F600701D57 /* LurkingMigraineViewController.swift */,
+				883C2A8E1FA2742500701D57 /* CurrentSymptomsViewController.swift */,
+				883C2A921FA2745700701D57 /* CurrentTriggersViewController.swift */,
+				883C2A961FA2747C00701D57 /* CurrentPreventionsViewController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -379,12 +404,17 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				883C2A971FA2747C00701D57 /* CurrentPreventionsViewController.swift in Sources */,
 				00130DF21FA11B7000D8FBB6 /* QuickAddMigraineViewController.swift in Sources */,
 				00130DC61FA1041800D8FBB6 /* SecondViewController.swift in Sources */,
 				00130DFF1FA11FB300D8FBB6 /* MigraineEntry.swift in Sources */,
 				00130DC21FA1041800D8FBB6 /* AppDelegate.swift in Sources */,
+				883C2A8F1FA2742500701D57 /* CurrentSymptomsViewController.swift in Sources */,
+				883C2A831FA255E000701D57 /* DiaryRootViewController.swift in Sources */,
 				00130DF71FA11F9700D8FBB6 /* User.swift in Sources */,
 				00130DFB1FA11FA300D8FBB6 /* DiaryEntry.swift in Sources */,
+				883C2A931FA2745700701D57 /* CurrentTriggersViewController.swift in Sources */,
+				883C2A8B1FA273F600701D57 /* LurkingMigraineViewController.swift in Sources */,
 				00130DC41FA1041800D8FBB6 /* FirstViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -394,9 +424,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				00130DD91FA1041800D8FBB6 /* MigraineTests.swift in Sources */,
+				883C2A8C1FA273F600701D57 /* LurkingMigraineViewController.swift in Sources */,
 				00130E001FA11FB300D8FBB6 /* MigraineEntry.swift in Sources */,
+				883C2A981FA2747C00701D57 /* CurrentPreventionsViewController.swift in Sources */,
+				883C2A901FA2742500701D57 /* CurrentSymptomsViewController.swift in Sources */,
+				883C2A841FA255E000701D57 /* DiaryRootViewController.swift in Sources */,
 				00130DFC1FA11FA300D8FBB6 /* DiaryEntry.swift in Sources */,
 				00130DF81FA11F9700D8FBB6 /* User.swift in Sources */,
+				883C2A941FA2745700701D57 /* CurrentTriggersViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -405,9 +440,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				00130DE41FA1041800D8FBB6 /* MigraineUITests.swift in Sources */,
+				883C2A8D1FA273F600701D57 /* LurkingMigraineViewController.swift in Sources */,
 				00130E011FA11FB300D8FBB6 /* MigraineEntry.swift in Sources */,
+				883C2A991FA2747C00701D57 /* CurrentPreventionsViewController.swift in Sources */,
+				883C2A911FA2742500701D57 /* CurrentSymptomsViewController.swift in Sources */,
+				883C2A851FA255E000701D57 /* DiaryRootViewController.swift in Sources */,
 				00130DFD1FA11FA300D8FBB6 /* DiaryEntry.swift in Sources */,
 				00130DF91FA11F9700D8FBB6 /* User.swift in Sources */,
+				883C2A951FA2745700701D57 /* CurrentTriggersViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
