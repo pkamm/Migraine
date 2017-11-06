@@ -8,8 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		00130DC21FA1041800D8FBB6 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00130DC11FA1041800D8FBB6 /* AppDelegate.swift */; };
-		00130DC41FA1041800D8FBB6 /* FirstViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00130DC31FA1041800D8FBB6 /* FirstViewController.swift */; };
-		00130DC61FA1041800D8FBB6 /* SecondViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00130DC51FA1041800D8FBB6 /* SecondViewController.swift */; };
 		00130DC91FA1041800D8FBB6 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 00130DC71FA1041800D8FBB6 /* Main.storyboard */; };
 		00130DCB1FA1041800D8FBB6 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 00130DCA1FA1041800D8FBB6 /* Assets.xcassets */; };
 		00130DCE1FA1041800D8FBB6 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 00130DCC1FA1041800D8FBB6 /* LaunchScreen.storyboard */; };
@@ -63,8 +61,6 @@
 /* Begin PBXFileReference section */
 		00130DBE1FA1041800D8FBB6 /* Migraine.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Migraine.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		00130DC11FA1041800D8FBB6 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		00130DC31FA1041800D8FBB6 /* FirstViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstViewController.swift; sourceTree = "<group>"; };
-		00130DC51FA1041800D8FBB6 /* SecondViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecondViewController.swift; sourceTree = "<group>"; };
 		00130DC81FA1041800D8FBB6 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		00130DCA1FA1041800D8FBB6 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		00130DCD1FA1041800D8FBB6 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -182,8 +178,6 @@
 		00130E021FA120F200D8FBB6 /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
-				00130DC31FA1041800D8FBB6 /* FirstViewController.swift */,
-				00130DC51FA1041800D8FBB6 /* SecondViewController.swift */,
 				00130DF11FA11B7000D8FBB6 /* QuickAddMigraineViewController.swift */,
 				883C2A821FA255E000701D57 /* DiaryRootViewController.swift */,
 				883C2A8A1FA273F600701D57 /* LurkingMigraineViewController.swift */,
@@ -406,7 +400,6 @@
 			files = (
 				883C2A971FA2747C00701D57 /* CurrentPreventionsViewController.swift in Sources */,
 				00130DF21FA11B7000D8FBB6 /* QuickAddMigraineViewController.swift in Sources */,
-				00130DC61FA1041800D8FBB6 /* SecondViewController.swift in Sources */,
 				00130DFF1FA11FB300D8FBB6 /* MigraineEntry.swift in Sources */,
 				00130DC21FA1041800D8FBB6 /* AppDelegate.swift in Sources */,
 				883C2A8F1FA2742500701D57 /* CurrentSymptomsViewController.swift in Sources */,
@@ -415,7 +408,6 @@
 				00130DFB1FA11FA300D8FBB6 /* DiaryEntry.swift in Sources */,
 				883C2A931FA2745700701D57 /* CurrentTriggersViewController.swift in Sources */,
 				883C2A8B1FA273F600701D57 /* LurkingMigraineViewController.swift in Sources */,
-				00130DC41FA1041800D8FBB6 /* FirstViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
