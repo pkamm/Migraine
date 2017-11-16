@@ -7,3 +7,10 @@
 //
 
 import Foundation
+
+class User {
+    
+    static var currentUser:User?
+ 
+    
+}

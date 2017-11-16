@@ -3,4 +3,6 @@ use_frameworks!
 
 target 'Migraine' do
   pod 'Firebase/Core'
+  pod 'Firebase/Auth'
+  pod 'Firebase/Database'
 end
