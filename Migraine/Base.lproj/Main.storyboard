@@ -1353,7 +1353,7 @@
                                             <action selector="genderFieldFocused:" destination="GTg-Zt-oPd" eventType="editingDidBegin" id="aA6-Of-DNj"/>
                                         </connections>
                                     </textField>
-                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Date of LMP" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="a1S-Gt-FGM">
+                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Date of LMP" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="a1S-Gt-FGM">
                                         <rect key="frame" x="8" y="84" width="299" height="30"/>
                                         <color key="backgroundColor" red="0.78525641020000003" green="0.78525641020000003" blue="0.78525641020000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <constraints>
@@ -1365,7 +1365,7 @@
                                             <action selector="lmpDateFocused:" destination="GTg-Zt-oPd" eventType="editingDidBegin" id="rrl-pm-ptQ"/>
                                         </connections>
                                     </textField>
-                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Anticipated date of next period" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="cBQ-54-ipF">
+                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Anticipated date of next period" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="cBQ-54-ipF">
                                         <rect key="frame" x="8" y="122" width="299" height="30"/>
                                         <color key="backgroundColor" red="0.78525641020000003" green="0.78525641020000003" blue="0.78525641020000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <constraints>
@@ -1374,7 +1374,8 @@
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits"/>
                                         <connections>
-                                            <action selector="periodDateFocused:" destination="GTg-Zt-oPd" eventType="editingDidEnd" id="DwS-0c-fa2"/>
+                                            <action selector="nextPeriodDateChanged:" destination="GTg-Zt-oPd" eventType="valueChanged" id="9fO-IR-xmz"/>
+                                            <action selector="periodDateFocused:" destination="GTg-Zt-oPd" eventType="editingDidBegin" id="f9O-pk-gIh"/>
                                         </connections>
                                     </textField>
                                     <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Methods of birth control" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="zB9-qD-lEN">
@@ -1619,7 +1620,7 @@
         <image name="user_info" width="33" height="33"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="jAw-HB-t2W"/>
+        <segue reference="dFX-qx-T1W"/>
         <segue reference="ty0-qW-Hgv"/>
         <segue reference="5F8-ED-fMO"/>
     </inferredMetricsTieBreakers>

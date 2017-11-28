@@ -18,6 +18,8 @@ class GeneralInfoViewController: UIViewController, UIPickerViewDataSource, UIPic
     @IBOutlet weak var bornGenderTextField: UITextField!
     @IBOutlet weak var hormoneTextField: UITextField!
     
+    private let dateFormatter = DateFormatter()
+    
     let genderOptions = ["Female", "Male", "Other"]
     let birthControlOptions = ["None", "Estrogen/Progestin Pill", "Only Progestin Pill", "Patch", "Ring", "Progestin Shot", "Progestin Implant", "Hormone IUD", "Copper IUD"]
     let genderBornAsOptions = ["Female", "Male"]
@@ -36,6 +38,7 @@ class GeneralInfoViewController: UIViewController, UIPickerViewDataSource, UIPic
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        dateFormatter.dateStyle = .medium
     }
 
     override func didReceiveMemoryWarning() {
@@ -61,22 +64,19 @@ class GeneralInfoViewController: UIViewController, UIPickerViewDataSource, UIPic
     }
     
     @IBAction func lmpDateFocused(_ sender: UITextField) {
-//        let inputView = UIView(frame: CGRectMake(0, 0, self.view.frame.width, 240))
-//        let datePickerView  : UIDatePicker = UIDatePicker(frame: CGRectMake(0, 40, 0, 0))
-//        datePickerView.datePickerMode = UIDatePickerMode.Date
-//        inputView.addSubview(datePickerView) // add date picker to UIView
-//        let doneButton = UIButton(frame: CGRectMake((self.view.frame.size.width/2) - (100/2), 0, 100, 50))
-//        doneButton.setTitle("Done", forState: UIControlState.Normal)
-//        doneButton.setTitleColor(UIColor.blackColor(), forState: UIControlState.Normal)
-//        doneButton.setTitleColor(UIColor.grayColor(), forState: UIControlState.Highlighted)
-//        inputView.addSubview(doneButton) // add Button to UIView
-//        doneButton.addTarget(self, action: #selector(GettingToKnowVC.doneNextPeriodButtonPressed(_:)), forControlEvents: UIControlEvents.TouchUpInside) // set button click event
-//        sender.inputView = inputView
-//        datePickerView.addTarget(self, action: #selector(GettingToKnowVC.datePickerNextPeriodValueChanged(_:)), forControlEvents: UIControlEvents.ValueChanged)
-//        datePickerNextPeriodValueChanged(datePickerView) // Set the date on start.
+        let picker = UIDatePicker()
+        picker.datePickerMode = .date
+        picker.addTarget(self, action: #selector(lmpDateChanged(_:)), for: .valueChanged)
+        sender.inputAccessoryView = self.toolBarWith(title: "LMP", action: nil)
+        sender.inputView = picker
     }
     
     @IBAction func periodDateFocused(_ sender: UITextField) {
+        let picker = UIDatePicker()
+        picker.datePickerMode = .date
+        picker.addTarget(self, action: #selector(nextPeriodDateChanged(_:)), for: .valueChanged)
+        sender.inputAccessoryView = self.toolBarWith(title: "Last Period", action: nil)
+        sender.inputView = picker
     }
 
     @IBAction func birthControlFocused(_ sender: UITextField) {
@@ -111,7 +111,7 @@ class GeneralInfoViewController: UIViewController, UIPickerViewDataSource, UIPic
 
     }
     
-    func addToolbarTo(picker: UIPickerView, title: String!, action: Selector?) -> UIToolbar {
+    func toolBarWith(title: String!, action: Selector?) -> UIToolbar {
         let toolBar = UIToolbar(frame: CGRect(x:0, y:self.view.frame.size.height/6, width:self.view.frame.size.width, height:40.0))
         toolBar.layer.position = CGPoint(x: self.view.frame.size.width/2, y: self.view.frame.size.height-20.0)
         toolBar.barStyle = UIBarStyle.blackTranslucent
@@ -126,11 +126,22 @@ class GeneralInfoViewController: UIViewController, UIPickerViewDataSource, UIPic
         label.textAlignment = NSTextAlignment.center
         let textBtn = UIBarButtonItem(customView: label)
         toolBar.setItems([textBtn,flexSpace,doneButton], animated: true)
+        return toolBar
+    }
+    
+    func addToolbarTo(picker: UIPickerView, title: String!, action: Selector?) -> UIToolbar {
+        let toolBar = self.toolBarWith(title: title, action: action)
         picker.dataSource = self
         picker.delegate = self
         return toolBar
     }
     
+    @objc func lmpDateChanged(_ datePicker: UIDatePicker) {
+        self.lmpDateTextField.text = dateFormatter.string(from: datePicker.date)
+    }
+    @IBAction func nextPeriodDateChanged(_ datePicker: UIDatePicker) {
+        self.periodDateTextField.text = dateFormatter.string(from: datePicker.date)
+    }
     // MARK: - PickerView
     
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
