@@ -7,9 +7,9 @@
 	<key>AD_UNIT_ID_FOR_INTERSTITIAL_TEST</key>
 	<string>ca-app-pub-3940256099942544/4411468910</string>
 	<key>CLIENT_ID</key>
-	<string>354651140747-e864cr6lo2gcgfjb3bvcse8brbiat3ik.apps.googleusercontent.com</string>
+	<string>354651140747-l3eb47ssgm53koq3mm5im2brmgd505bi.apps.googleusercontent.com</string>
 	<key>REVERSED_CLIENT_ID</key>
-	<string>com.googleusercontent.apps.354651140747-e864cr6lo2gcgfjb3bvcse8brbiat3ik</string>
+	<string>com.googleusercontent.apps.354651140747-l3eb47ssgm53koq3mm5im2brmgd505bi</string>
 	<key>API_KEY</key>
 	<string>AIzaSyCDq-xg4_4bV8uPd2ipl2d6CdjX_JLM-HY</string>
 	<key>GCM_SENDER_ID</key>
@@ -17,7 +17,7 @@
 	<key>PLIST_VERSION</key>
 	<string>1</string>
 	<key>BUNDLE_ID</key>
-	<string>me.heejokeum.migraineapp</string>
+	<string>com.zanjabee.migraine</string>
 	<key>PROJECT_ID</key>
 	<string>firebase-migraine-app</string>
 	<key>STORAGE_BUCKET</key>
@@ -33,7 +33,7 @@
 	<key>IS_SIGNIN_ENABLED</key>
 	<true></true>
 	<key>GOOGLE_APP_ID</key>
-	<string>1:354651140747:ios:93d700a049355049</string>
+	<string>1:354651140747:ios:c1841af988fe3b05</string>
 	<key>DATABASE_URL</key>
 	<string>https://migraine-app.firebaseio.com</string>
 </dict>
