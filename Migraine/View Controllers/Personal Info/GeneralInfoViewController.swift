@@ -39,6 +39,9 @@ class GeneralInfoViewController: UIViewController, UIPickerViewDataSource, UIPic
     override func viewDidLoad() {
         super.viewDidLoad()
         dateFormatter.dateStyle = .medium
+        DataService.sharedInstance.getMedicalConditions { (conditionsDictionary) in
+            print(conditionsDictionary)
+        }
     }
 
     override func didReceiveMemoryWarning() {

@@ -10,6 +10,8 @@ import UIKit
 
 class MedicalConditionsViewController: UIViewController {
 
+    var conditions = [String]()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 

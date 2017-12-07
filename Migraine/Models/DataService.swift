@@ -30,7 +30,37 @@ class DataService {
         dateFormatter.timeStyle = DateFormatter.Style.long
         let curDate = dateFormatter.string(from: Date())
         usersRef.child(userId!).child(curDate).setValue(infoDictionary)
-        
     }
+    
+    func getMedicalConditions(completion: @escaping ([String:String]) -> Void ) {
+        let usersRef = self.dbRef.child("patient-records").child("patient-info")
+        let userId = Auth.auth().currentUser?.uid
+
+        usersRef.child(userId!).queryOrderedByKey().observeSingleEvent(of: .value, with: { (snapshot) in
+            if let value = snapshot.value as? [Any] {
+                if let entryDict = value.last as? Dictionary<Date, Any> {
+                 
+                    print(entryDict)
+                    completion(entryDict[)
+                }
+            }
+        }) { (error) in
+            print(error.localizedDescription)
+        }
+    }
+    
+//    func latestEntry(array: [Any]) -> Any? {
+//        var latestEntry:Any
+////        var sortedEntries = array.sorted(by: { (Date, Dictionary) -> Bool in
+////
+////            })
+////
+////        for entry in array {
+////
+////
+////        }
+//
+//        return latestEntry
+//    }
     
 }

@@ -23,6 +23,10 @@
 		00130DFF1FA11FB300D8FBB6 /* MigraineEntry.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00130DFE1FA11FB300D8FBB6 /* MigraineEntry.swift */; };
 		00130E001FA11FB300D8FBB6 /* MigraineEntry.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00130DFE1FA11FB300D8FBB6 /* MigraineEntry.swift */; };
 		00130E011FA11FB300D8FBB6 /* MigraineEntry.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00130DFE1FA11FB300D8FBB6 /* MigraineEntry.swift */; };
+		008592D81FD9A2F100FE0245 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 008592D71FD9A2F100FE0245 /* GoogleService-Info.plist */; };
+		008592DA1FD9A82300FE0245 /* MedicalConditionsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 008592D91FD9A82300FE0245 /* MedicalConditionsViewController.swift */; };
+		008592DB1FD9A82300FE0245 /* MedicalConditionsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 008592D91FD9A82300FE0245 /* MedicalConditionsViewController.swift */; };
+		008592DC1FD9A82300FE0245 /* MedicalConditionsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 008592D91FD9A82300FE0245 /* MedicalConditionsViewController.swift */; };
 		2CC8E154597690F01F3291B0 /* Pods_Migraine.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F8371EABA34DA36DF3F3B96C /* Pods_Migraine.framework */; };
 		880B4A731FCE14C5001FA594 /* NotificationsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 880B4A721FCE14C5001FA594 /* NotificationsViewController.swift */; };
 		880B4A741FCE14C5001FA594 /* NotificationsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 880B4A721FCE14C5001FA594 /* NotificationsViewController.swift */; };
@@ -46,9 +50,6 @@
 		883C2A981FA2747C00701D57 /* CurrentPreventionsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 883C2A961FA2747C00701D57 /* CurrentPreventionsViewController.swift */; };
 		883C2A991FA2747C00701D57 /* CurrentPreventionsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 883C2A961FA2747C00701D57 /* CurrentPreventionsViewController.swift */; };
 		885F5B5C1FBDDB8000F80BB9 /* String+Additions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 885F5B5B1FBDDB8000F80BB9 /* String+Additions.swift */; };
-		885F5B5E1FBDE1B700F80BB9 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 885F5B5D1FBDE1B600F80BB9 /* GoogleService-Info.plist */; };
-		885F5B5F1FBDE1B700F80BB9 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 885F5B5D1FBDE1B600F80BB9 /* GoogleService-Info.plist */; };
-		885F5B601FBDE1B700F80BB9 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 885F5B5D1FBDE1B600F80BB9 /* GoogleService-Info.plist */; };
 		885F5B661FBDE60E00F80BB9 /* SettingsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 885F5B651FBDE60E00F80BB9 /* SettingsTableViewController.swift */; };
 		885F5B671FBDE60E00F80BB9 /* SettingsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 885F5B651FBDE60E00F80BB9 /* SettingsTableViewController.swift */; };
 		885F5B681FBDE60E00F80BB9 /* SettingsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 885F5B651FBDE60E00F80BB9 /* SettingsTableViewController.swift */; };
@@ -102,6 +103,8 @@
 		00130DF61FA11F9700D8FBB6 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		00130DFA1FA11FA300D8FBB6 /* DiaryEntry.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiaryEntry.swift; sourceTree = "<group>"; };
 		00130DFE1FA11FB300D8FBB6 /* MigraineEntry.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MigraineEntry.swift; sourceTree = "<group>"; };
+		008592D71FD9A2F100FE0245 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		008592D91FD9A82300FE0245 /* MedicalConditionsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MedicalConditionsViewController.swift; sourceTree = "<group>"; };
 		58DBE1C447B98507FE7D495F /* Pods-Migraine.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Migraine.release.xcconfig"; path = "Pods/Target Support Files/Pods-Migraine/Pods-Migraine.release.xcconfig"; sourceTree = "<group>"; };
 		880B4A721FCE14C5001FA594 /* NotificationsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationsViewController.swift; sourceTree = "<group>"; };
 		881E7FC81FBBAB2A00F4D9C0 /* DataService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataService.swift; sourceTree = "<group>"; };
@@ -111,7 +114,6 @@
 		883C2A921FA2745700701D57 /* CurrentTriggersViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrentTriggersViewController.swift; sourceTree = "<group>"; };
 		883C2A961FA2747C00701D57 /* CurrentPreventionsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrentPreventionsViewController.swift; sourceTree = "<group>"; };
 		885F5B5B1FBDDB8000F80BB9 /* String+Additions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Additions.swift"; sourceTree = "<group>"; };
-		885F5B5D1FBDE1B600F80BB9 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		885F5B651FBDE60E00F80BB9 /* SettingsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsTableViewController.swift; sourceTree = "<group>"; };
 		885F5B6A1FBE09F200F80BB9 /* GeneralInfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GeneralInfoViewController.swift; sourceTree = "<group>"; };
 		889A31891FB4F0AE00D2E0E5 /* MainTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabBarController.swift; sourceTree = "<group>"; };
@@ -154,8 +156,6 @@
 		00130DB51FA1041800D8FBB6 = {
 			isa = PBXGroup;
 			children = (
-				88CABAA81FD87879001F948A /* Crashlytics.framework */,
-				88CABAA91FD87879001F948A /* Fabric.framework */,
 				00130DC01FA1041800D8FBB6 /* Migraine */,
 				00130DD71FA1041800D8FBB6 /* MigraineTests */,
 				00130DE21FA1041800D8FBB6 /* MigraineUITests */,
@@ -185,8 +185,8 @@
 				00130DC71FA1041800D8FBB6 /* Main.storyboard */,
 				00130DCA1FA1041800D8FBB6 /* Assets.xcassets */,
 				00130DCC1FA1041800D8FBB6 /* LaunchScreen.storyboard */,
-				885F5B5D1FBDE1B600F80BB9 /* GoogleService-Info.plist */,
 				00130DCF1FA1041800D8FBB6 /* Info.plist */,
+				008592D71FD9A2F100FE0245 /* GoogleService-Info.plist */,
 			);
 			path = Migraine;
 			sourceTree = "<group>";
@@ -242,6 +242,8 @@
 		52E08A27F27E69F0A7124A05 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				88CABAA81FD87879001F948A /* Crashlytics.framework */,
+				88CABAA91FD87879001F948A /* Fabric.framework */,
 				F8371EABA34DA36DF3F3B96C /* Pods_Migraine.framework */,
 			);
 			name = Frameworks;
@@ -259,6 +261,7 @@
 			isa = PBXGroup;
 			children = (
 				885F5B6A1FBE09F200F80BB9 /* GeneralInfoViewController.swift */,
+				008592D91FD9A82300FE0245 /* MedicalConditionsViewController.swift */,
 			);
 			path = "Personal Info";
 			sourceTree = "<group>";
@@ -384,7 +387,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				00130DCE1FA1041800D8FBB6 /* LaunchScreen.storyboard in Resources */,
-				885F5B5E1FBDE1B700F80BB9 /* GoogleService-Info.plist in Resources */,
+				008592D81FD9A2F100FE0245 /* GoogleService-Info.plist in Resources */,
 				00130DCB1FA1041800D8FBB6 /* Assets.xcassets in Resources */,
 				00130DC91FA1041800D8FBB6 /* Main.storyboard in Resources */,
 			);
@@ -394,7 +397,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				885F5B5F1FBDE1B700F80BB9 /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -402,7 +404,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				885F5B601FBDE1B700F80BB9 /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -487,6 +488,7 @@
 				883C2A971FA2747C00701D57 /* CurrentPreventionsViewController.swift in Sources */,
 				00130DF21FA11B7000D8FBB6 /* QuickAddMigraineViewController.swift in Sources */,
 				889A318A1FB4F0AE00D2E0E5 /* MainTabBarController.swift in Sources */,
+				008592DA1FD9A82300FE0245 /* MedicalConditionsViewController.swift in Sources */,
 				00130DFF1FA11FB300D8FBB6 /* MigraineEntry.swift in Sources */,
 				00130DC21FA1041800D8FBB6 /* AppDelegate.swift in Sources */,
 				889A31921FB4F54D00D2E0E5 /* LogInViewController.swift in Sources */,
@@ -509,6 +511,7 @@
 			files = (
 				00130DD91FA1041800D8FBB6 /* MigraineTests.swift in Sources */,
 				881E7FCA1FBBAB2A00F4D9C0 /* DataService.swift in Sources */,
+				008592DB1FD9A82300FE0245 /* MedicalConditionsViewController.swift in Sources */,
 				883C2A8C1FA273F600701D57 /* LurkingMigraineViewController.swift in Sources */,
 				889A318B1FB4F0AE00D2E0E5 /* MainTabBarController.swift in Sources */,
 				889A318F1FB4F4F300D2E0E5 /* CreateAccountViewController.swift in Sources */,
@@ -532,6 +535,7 @@
 			files = (
 				00130DE41FA1041800D8FBB6 /* MigraineUITests.swift in Sources */,
 				881E7FCB1FBBAB2A00F4D9C0 /* DataService.swift in Sources */,
+				008592DC1FD9A82300FE0245 /* MedicalConditionsViewController.swift in Sources */,
 				883C2A8D1FA273F600701D57 /* LurkingMigraineViewController.swift in Sources */,
 				889A318C1FB4F0AE00D2E0E5 /* MainTabBarController.swift in Sources */,
 				889A31901FB4F4F300D2E0E5 /* CreateAccountViewController.swift in Sources */,
