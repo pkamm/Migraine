@@ -24,6 +24,9 @@
 		00130E001FA11FB300D8FBB6 /* MigraineEntry.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00130DFE1FA11FB300D8FBB6 /* MigraineEntry.swift */; };
 		00130E011FA11FB300D8FBB6 /* MigraineEntry.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00130DFE1FA11FB300D8FBB6 /* MigraineEntry.swift */; };
 		2CC8E154597690F01F3291B0 /* Pods_Migraine.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F8371EABA34DA36DF3F3B96C /* Pods_Migraine.framework */; };
+		880B4A731FCE14C5001FA594 /* NotificationsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 880B4A721FCE14C5001FA594 /* NotificationsViewController.swift */; };
+		880B4A741FCE14C5001FA594 /* NotificationsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 880B4A721FCE14C5001FA594 /* NotificationsViewController.swift */; };
+		880B4A751FCE14C5001FA594 /* NotificationsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 880B4A721FCE14C5001FA594 /* NotificationsViewController.swift */; };
 		881E7FC91FBBAB2A00F4D9C0 /* DataService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 881E7FC81FBBAB2A00F4D9C0 /* DataService.swift */; };
 		881E7FCA1FBBAB2A00F4D9C0 /* DataService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 881E7FC81FBBAB2A00F4D9C0 /* DataService.swift */; };
 		881E7FCB1FBBAB2A00F4D9C0 /* DataService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 881E7FC81FBBAB2A00F4D9C0 /* DataService.swift */; };
@@ -61,6 +64,8 @@
 		889A31921FB4F54D00D2E0E5 /* LogInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 889A31911FB4F54D00D2E0E5 /* LogInViewController.swift */; };
 		889A31931FB4F54D00D2E0E5 /* LogInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 889A31911FB4F54D00D2E0E5 /* LogInViewController.swift */; };
 		889A31941FB4F54D00D2E0E5 /* LogInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 889A31911FB4F54D00D2E0E5 /* LogInViewController.swift */; };
+		88CABAAA1FD87879001F948A /* Crashlytics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 88CABAA81FD87879001F948A /* Crashlytics.framework */; };
+		88CABAAB1FD87879001F948A /* Fabric.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 88CABAA91FD87879001F948A /* Fabric.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -98,6 +103,7 @@
 		00130DFA1FA11FA300D8FBB6 /* DiaryEntry.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiaryEntry.swift; sourceTree = "<group>"; };
 		00130DFE1FA11FB300D8FBB6 /* MigraineEntry.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MigraineEntry.swift; sourceTree = "<group>"; };
 		58DBE1C447B98507FE7D495F /* Pods-Migraine.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Migraine.release.xcconfig"; path = "Pods/Target Support Files/Pods-Migraine/Pods-Migraine.release.xcconfig"; sourceTree = "<group>"; };
+		880B4A721FCE14C5001FA594 /* NotificationsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationsViewController.swift; sourceTree = "<group>"; };
 		881E7FC81FBBAB2A00F4D9C0 /* DataService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataService.swift; sourceTree = "<group>"; };
 		883C2A821FA255E000701D57 /* DiaryRootViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiaryRootViewController.swift; sourceTree = "<group>"; };
 		883C2A8A1FA273F600701D57 /* LurkingMigraineViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LurkingMigraineViewController.swift; sourceTree = "<group>"; };
@@ -111,6 +117,8 @@
 		889A31891FB4F0AE00D2E0E5 /* MainTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabBarController.swift; sourceTree = "<group>"; };
 		889A318D1FB4F4F300D2E0E5 /* CreateAccountViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateAccountViewController.swift; sourceTree = "<group>"; };
 		889A31911FB4F54D00D2E0E5 /* LogInViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogInViewController.swift; sourceTree = "<group>"; };
+		88CABAA81FD87879001F948A /* Crashlytics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Crashlytics.framework; sourceTree = "<group>"; };
+		88CABAA91FD87879001F948A /* Fabric.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Fabric.framework; sourceTree = "<group>"; };
 		94313455E2E5C6DA5E3D60C4 /* Pods-Migraine.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Migraine.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Migraine/Pods-Migraine.debug.xcconfig"; sourceTree = "<group>"; };
 		F8371EABA34DA36DF3F3B96C /* Pods_Migraine.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Migraine.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -120,7 +128,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				88CABAAA1FD87879001F948A /* Crashlytics.framework in Frameworks */,
 				2CC8E154597690F01F3291B0 /* Pods_Migraine.framework in Frameworks */,
+				88CABAAB1FD87879001F948A /* Fabric.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -144,6 +154,8 @@
 		00130DB51FA1041800D8FBB6 = {
 			isa = PBXGroup;
 			children = (
+				88CABAA81FD87879001F948A /* Crashlytics.framework */,
+				88CABAA91FD87879001F948A /* Fabric.framework */,
 				00130DC01FA1041800D8FBB6 /* Migraine */,
 				00130DD71FA1041800D8FBB6 /* MigraineTests */,
 				00130DE21FA1041800D8FBB6 /* MigraineUITests */,
@@ -221,6 +233,7 @@
 				889A318D1FB4F4F300D2E0E5 /* CreateAccountViewController.swift */,
 				889A31911FB4F54D00D2E0E5 /* LogInViewController.swift */,
 				885F5B651FBDE60E00F80BB9 /* SettingsTableViewController.swift */,
+				880B4A721FCE14C5001FA594 /* NotificationsViewController.swift */,
 				885F5B691FBE02C600F80BB9 /* Personal Info */,
 			);
 			path = "View Controllers";
@@ -272,6 +285,7 @@
 				00130DBC1FA1041800D8FBB6 /* Resources */,
 				4526F280F1C93789394DE7C9 /* [CP] Embed Pods Frameworks */,
 				85DE0B2F5024FB3BA73E142B /* [CP] Copy Pods Resources */,
+				88CABAA71FD877C2001F948A /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -448,6 +462,19 @@
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Migraine/Pods-Migraine-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
+		88CABAA71FD877C2001F948A /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "./Fabric.framework/run ab74ce3aa15deeaed9b1d4fad46813b1b9e265ce 9c2dde522d47608191c2cc8ef2a9a67218b2534f00cf2e0bd178d757b0eab393";
+		};
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -464,6 +491,7 @@
 				00130DC21FA1041800D8FBB6 /* AppDelegate.swift in Sources */,
 				889A31921FB4F54D00D2E0E5 /* LogInViewController.swift in Sources */,
 				883C2A8F1FA2742500701D57 /* CurrentSymptomsViewController.swift in Sources */,
+				880B4A731FCE14C5001FA594 /* NotificationsViewController.swift in Sources */,
 				883C2A831FA255E000701D57 /* DiaryRootViewController.swift in Sources */,
 				885F5B6B1FBE09F200F80BB9 /* GeneralInfoViewController.swift in Sources */,
 				00130DF71FA11F9700D8FBB6 /* User.swift in Sources */,
@@ -494,6 +522,7 @@
 				00130DFC1FA11FA300D8FBB6 /* DiaryEntry.swift in Sources */,
 				00130DF81FA11F9700D8FBB6 /* User.swift in Sources */,
 				883C2A941FA2745700701D57 /* CurrentTriggersViewController.swift in Sources */,
+				880B4A741FCE14C5001FA594 /* NotificationsViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -516,6 +545,7 @@
 				00130DFD1FA11FA300D8FBB6 /* DiaryEntry.swift in Sources */,
 				00130DF91FA11F9700D8FBB6 /* User.swift in Sources */,
 				883C2A951FA2745700701D57 /* CurrentTriggersViewController.swift in Sources */,
+				880B4A751FCE14C5001FA594 /* NotificationsViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -667,9 +697,14 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = J8W4PZCBHP;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
 				INFOPLIST_FILE = Migraine/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = me.heejokeum.migraineapp;
+				PRODUCT_BUNDLE_IDENTIFIER = com.zanjabee.migraine;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -682,9 +717,14 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = J8W4PZCBHP;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
 				INFOPLIST_FILE = Migraine/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = me.heejokeum.migraineapp;
+				PRODUCT_BUNDLE_IDENTIFIER = com.zanjabee.migraine;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";

@@ -108,7 +108,8 @@ class GeneralInfoViewController: UIViewController, UIPickerViewDataSource, UIPic
     
     
     @objc func doneGenderPressed(sender: UIBarButtonItem) {
-
+        //TODO
+        UIApplication.shared.sendAction(#selector(UIApplication.resignFirstResponder), to: nil, from: nil, for: nil);
     }
     
     func toolBarWith(title: String!, action: Selector?) -> UIToolbar {
@@ -215,6 +216,23 @@ class GeneralInfoViewController: UIViewController, UIPickerViewDataSource, UIPic
         // Pass the selected object to the new view controller.
     }
     */
+    
+    @IBAction func saveButtonPressed(_ sender: Any) {
+        let userInfoDictionary: [String: String?] = [
+            "AGE": ageTextField.text,
+            "GENDER": genderTextField.text,
+            "NEXTPERIOD": periodDateTextField.text,
+            "LMP": lmpDateTextField.text,
+            "BIRTHCONTROL": birthControlTextField.text,
+            "GENDERBORNAS": bornGenderTextField.text,
+            "HORMONETHERAPY": hormoneTextField.text
+            ]
+
+        DataService.sharedInstance.saveUser(infoDictionary: userInfoDictionary)
+        
+        self.navigationController?.popViewController(animated: true)
+    }
+    
     
     func save(infoDictionary: Dictionary<String, Any>) {
         

@@ -22,14 +22,15 @@ class DataService {
     }
     
     
-    func saveUser(infoDictionary: Dictionary<String, Any>) {
-        let usersRef = self.dbRef.child("patient-record").child("patient-info")
+    func saveUser(infoDictionary: Dictionary<String, String?>) {
+        let usersRef = self.dbRef.child("patient-records").child("patient-info")
         let userId = Auth.auth().currentUser?.uid
         let dateFormatter = DateFormatter()
         dateFormatter.dateStyle = DateFormatter.Style.long
         dateFormatter.timeStyle = DateFormatter.Style.long
         let curDate = dateFormatter.string(from: Date())
-        usersRef.child(userId!).child(curDate).setValue(userId)
+        usersRef.child(userId!).child(curDate).setValue(infoDictionary)
+        
     }
     
 }
