@@ -2,30 +2,62 @@
 //  GeneralInfoViewController.swift
 //  Migraine
 //
-//  Created by Peter Kamm on 11/16/17.
-//  Copyright © 2017 MIT. All rights reserved.
+//  Created by Peter Kamm on 3/20/18.
+//  Copyright © 2018 MIT. All rights reserved.
 //
 
 import UIKit
 
-class GeneralInfoViewController: UIViewController, UIPickerViewDataSource, UIPickerViewDelegate {
+enum UserInfoKey: String {
+    typealias RawValue = String
+    case AGE
+    case GENDER
+    case NEXTPERIOD
+    case LMP
+    case BIRTHCONTROL
+    case GENDERBORNAS
+    case HORMONETHERAPY
+}
 
-    @IBOutlet weak var ageTextField: UITextField!
-    @IBOutlet weak var genderTextField: UITextField!
-    @IBOutlet weak var lmpDateTextField: UITextField!
-    @IBOutlet weak var periodDateTextField: UITextField!
-    @IBOutlet weak var birthControlTextField: UITextField!
-    @IBOutlet weak var bornGenderTextField: UITextField!
-    @IBOutlet weak var hormoneTextField: UITextField!
+class QuestionInfo {
+    init(text: String, infoKey: UserInfoKey) {
+        self.text = text
+        self.infoKey = infoKey
+    }
+    public let text: String
+    public let infoKey: UserInfoKey
+    public var value: String? = nil
+    
+}
+
+class GeneralInfoViewController: StandardBaseClassStyle, SavablePage, EditDelegate, UITableViewDelegate, UITableViewDataSource, UIPickerViewDataSource, UIPickerViewDelegate {
+    
+    
+    @IBOutlet weak var tableView: UITableView!
+    @IBOutlet weak var globalInputTextField: UITextField!
     
     private let dateFormatter = DateFormatter()
     
-    let genderOptions = ["Female", "Male", "Other"]
-    let birthControlOptions = ["None", "Estrogen/Progestin Pill", "Only Progestin Pill", "Patch", "Ring", "Progestin Shot", "Progestin Implant", "Hormone IUD", "Copper IUD"]
-    let genderBornAsOptions = ["Female", "Male"]
-    let hormoneTherapyOptions = ["Estrogen", "Testosterone"]
+    private let textEditTableViewCellId = "textEditTableViewCellId"
+    private let segmentedSelectTableViewCellId = "segmentedSelectTableViewCellId"
     
-    var generalInfoDict = [String:String]()
+    private let questionInfoArray:[QuestionInfo] = [
+        QuestionInfo(text: "How old are you?", infoKey: UserInfoKey.AGE),
+        QuestionInfo(text: "Gender", infoKey: UserInfoKey.GENDER),
+        QuestionInfo(text: "What gender were you born as?", infoKey: UserInfoKey.GENDERBORNAS),
+        QuestionInfo(text: "Date of LMP", infoKey: UserInfoKey.LMP),
+        QuestionInfo(text: "Anticipated date of next period", infoKey: UserInfoKey.NEXTPERIOD),
+        QuestionInfo(text: "Methods of birth control", infoKey: UserInfoKey.BIRTHCONTROL),
+        QuestionInfo(text: "Any hormore therapy?", infoKey: UserInfoKey.HORMONETHERAPY)]
+    
+    private let genderOptions = ["Female", "Male", "Other"]
+    private let birthControlOptions = ["None", "Estrogen/Progestin Pill", "Only Progestin Pill", "Patch", "Ring", "Progestin Shot", "Progestin Implant", "Hormone IUD", "Copper IUD"]
+    private let genderBornAsOptions = ["Female", "Male"]
+    private let hormoneTherapyOptions = ["None", "Estrogen", "Testosterone"]
+    
+    private var currentQuestionInfo: QuestionInfo?
+    
+    @IBOutlet weak var saveButtonFooter: SaveButtonFooterView!
     let maxUserAge = 120
     
     enum PickerViewTag: Int {
@@ -38,81 +70,191 @@ class GeneralInfoViewController: UIViewController, UIPickerViewDataSource, UIPic
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        if #available(iOS 11.0, *) {
+            self.navigationController?.navigationBar.prefersLargeTitles = true
+        } else {
+            // Fallback on earlier versions
+        };
+        saveButtonFooter.saveDelagate = self
         dateFormatter.dateStyle = .medium
+        let editCellNib = UINib(nibName: "TextEditTableViewCell", bundle: nil)
+        tableView.register(editCellNib, forCellReuseIdentifier: self.textEditTableViewCellId)
+        let segmentCellNib = UINib(nibName: "SegmentedSelectTableViewCell", bundle: nil)
+        tableView.register(segmentCellNib, forCellReuseIdentifier: self.segmentedSelectTableViewCellId)
+        tableView.backgroundColor = UIColor.darkBackgroundColor()
         DataService.sharedInstance.getMedicalConditions { (conditionsDictionary) in
-            print(conditionsDictionary)
+            self.updateTextFields(healthDictionary: conditionsDictionary)
         }
     }
-
+    
+    func updateTextFields(healthDictionary: [String:String]) {
+        for (healthKey, healthValue) in healthDictionary {
+            if healthValue != "" {
+                do {
+                    let userInfoKey = UserInfoKey(rawValue: healthKey)
+                    if let questionInfo = try questionInfoFor(userInfoKey: userInfoKey!){
+                        questionInfo.value = healthValue;
+                    }
+                } catch {
+                    print("damn")
+                }
+                
+            }
+        }
+        tableView.reloadData()
+    }
+    
+    func questionInfoFor(userInfoKey: UserInfoKey) throws -> QuestionInfo? {
+        for questionInfo in questionInfoArray {
+            if questionInfo.infoKey == userInfoKey {
+                return questionInfo
+            }
+        }
+        return nil
+    }
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
     }
     
-    @IBAction func ageFieldFocused(_ sender: UITextField) {
+    func saveButtonPressed(_ sender: Any) {
+        var userInfoDictionary = [String: String?]()
+        for questionInfo in questionInfoArray {
+            userInfoDictionary[questionInfo.infoKey.rawValue] = questionInfo.value
+        }
+        DataService.sharedInstance.saveUser(infoDictionary: userInfoDictionary)
+        self.navigationController?.popViewController(animated: true)
+    }
+    
+    // Mark TableViewDelegate Methods
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return self.questionInfoArray.count
+    }
+    
+    func numberOfSections(in tableView: UITableView) -> Int {
+        return 1
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let questionInfo = questionInfoArray[indexPath.row]
+        switch questionInfo.infoKey {
+        case .AGE, .BIRTHCONTROL, .HORMONETHERAPY, .LMP, .NEXTPERIOD:
+            if let cell = tableView.dequeueReusableCell(withIdentifier: self.textEditTableViewCellId, for: indexPath) as? TextEditTableViewCell {
+                cell.setQuestionInfo(questionInfo)
+                cell.editDelegate = self
+                return cell
+            }
+        case .GENDER, .GENDERBORNAS:
+            let cell = tableView.dequeueReusableCell(withIdentifier: self.segmentedSelectTableViewCellId, for: indexPath) as! SegmentedSelectTableViewCell
+            let segmentValues = questionInfo.infoKey == .GENDER ? genderOptions : genderBornAsOptions
+            cell.setSegmentedValues(segmentValues)
+            cell.setQuestionInfo(questionInfo)
+            cell.editDelegate = self
+            return cell
+        }
+        return UITableViewCell()
+    }
+    
+    
+    // picker
+    
+    func editButtonPressed(_ questionInfo:QuestionInfo!) {
+        currentQuestionInfo = questionInfo
+        switch questionInfo.infoKey {
+        case .AGE:
+            createPicker(title: "Age")
+        case .BIRTHCONTROL:
+            createPicker(title: "Birth Control")
+        case .HORMONETHERAPY:
+            createPicker(title: "Hormone Therapy")
+        case .LMP:
+            createDatePicker(title: "LMP")
+        case .NEXTPERIOD:
+            createDatePicker(title: "Last Period")
+        default:
+            return;
+        }
+        globalInputTextField.becomeFirstResponder()
+    }
+    
+    func createPicker(title:String) {
         let pickerView = UIPickerView()
-        pickerView.tag = PickerViewTag.PickerViewAge.rawValue
-        sender.inputAccessoryView = addToolbarTo(picker: pickerView,
-                                                 title:"Age",
-                                                 action: #selector(GeneralInfoViewController.doneGenderPressed(sender:)))
-        sender.inputView = pickerView
+        globalInputTextField.inputAccessoryView =
+            addToolbarTo(picker: pickerView,
+                         title:title,
+                         action: #selector(GeneralInfoViewController.donePressed(sender:)))
+        globalInputTextField.inputView = pickerView
     }
     
-    @IBAction func genderFieldFocused(_ sender: UITextField) {
-        let pickerView = UIPickerView()
-        pickerView.tag = PickerViewTag.PickerViewGender.rawValue
-        sender.inputAccessoryView = addToolbarTo(picker: pickerView,
-                                                 title:"Gender",
-                                                 action: #selector(GeneralInfoViewController.doneGenderPressed(sender:)))
-        sender.inputView = pickerView
+    func createDatePicker(title:String) {
+        let pickerView = UIDatePicker()
+        pickerView.datePickerMode = .date
+        pickerView.addTarget(self, action: #selector(dateChanged(_:)), for: .valueChanged)
+        globalInputTextField.inputAccessoryView =
+            toolBarWith(title:"LMP",
+                         action: #selector(GeneralInfoViewController.donePressed(sender:)))
+        globalInputTextField.inputView = pickerView
     }
     
-    @IBAction func lmpDateFocused(_ sender: UITextField) {
-        let picker = UIDatePicker()
-        picker.datePickerMode = .date
-        picker.addTarget(self, action: #selector(lmpDateChanged(_:)), for: .valueChanged)
-        sender.inputAccessoryView = self.toolBarWith(title: "LMP", action: nil)
-        sender.inputView = picker
+    func numberOfComponents(in pickerView: UIPickerView) -> Int {
+        return 1
     }
     
-    @IBAction func periodDateFocused(_ sender: UITextField) {
-        let picker = UIDatePicker()
-        picker.datePickerMode = .date
-        picker.addTarget(self, action: #selector(nextPeriodDateChanged(_:)), for: .valueChanged)
-        sender.inputAccessoryView = self.toolBarWith(title: "Last Period", action: nil)
-        sender.inputView = picker
-    }
-
-    @IBAction func birthControlFocused(_ sender: UITextField) {
-        let pickerView = UIPickerView()
-        pickerView.tag = PickerViewTag.PickerViewBirthControl.rawValue
-        sender.inputAccessoryView = addToolbarTo(picker: pickerView,
-                                                 title:"Birth Control",
-                                                 action: #selector(GeneralInfoViewController.doneGenderPressed(sender:)))
-        sender.inputView = pickerView
-    }
-    
-    @IBAction func bornGenderFocused(_ sender: UITextField) {
-        let pickerView = UIPickerView()
-        pickerView.tag = PickerViewTag.PickerViewGenderBornAs.rawValue
-        sender.inputAccessoryView = addToolbarTo(picker: pickerView,
-                                                 title:"Gender born as",
-                                                 action: #selector(GeneralInfoViewController.doneGenderPressed(sender:)))
-        sender.inputView = pickerView
+    func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
+        if let questionInfo = currentQuestionInfo {
+            switch questionInfo.infoKey {
+            case .AGE:
+                return maxUserAge
+            case .BIRTHCONTROL:
+                return birthControlOptions.count
+            case .HORMONETHERAPY:
+                return hormoneTherapyOptions.count
+            default:
+                return 0
+            }
+        }
+        return 0
     }
     
-    @IBAction func hormoneFocused(_ sender: UITextField) {
-        let pickerView = UIPickerView()
-        pickerView.tag = PickerViewTag.PickerViewHormoneTherapy.rawValue
-        sender.inputAccessoryView = addToolbarTo(picker: pickerView,
-                                                 title:"Hormone Therapy",
-                                                 action: #selector(GeneralInfoViewController.doneGenderPressed(sender:)))
-        sender.inputView = pickerView
+    func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
+        if let questionInfo = currentQuestionInfo {
+            switch questionInfo.infoKey {
+            case .AGE:
+                return String(row + 1)
+            case .BIRTHCONTROL:
+                return birthControlOptions[row]
+            case .HORMONETHERAPY:
+                return hormoneTherapyOptions[row]
+            default:
+                return nil
+            }
+        }
+        return nil
     }
     
+    func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
+        if let questionInfo = currentQuestionInfo {
+            switch questionInfo.infoKey {
+            case .AGE:
+                currentQuestionInfo?.value = String(row + 1)
+            case .BIRTHCONTROL:
+                currentQuestionInfo?.value = birthControlOptions[row]
+            case .HORMONETHERAPY:
+                currentQuestionInfo?.value = hormoneTherapyOptions[row]
+            default:
+                return
+            }
+        }
+        tableView.reloadData()
+    }
     
-    @objc func doneGenderPressed(sender: UIBarButtonItem) {
-        //TODO
-        UIApplication.shared.sendAction(#selector(UIApplication.resignFirstResponder), to: nil, from: nil, for: nil);
+    @objc func dateChanged(_ datePicker: UIDatePicker) {
+        currentQuestionInfo?.value = dateFormatter.string(from: datePicker.date)
+        tableView.reloadData()
+    }
+    
+    @objc func donePressed(sender: UIBarButtonItem) {
+        globalInputTextField.resignFirstResponder()
     }
     
     func toolBarWith(title: String!, action: Selector?) -> UIToolbar {
@@ -139,107 +281,4 @@ class GeneralInfoViewController: UIViewController, UIPickerViewDataSource, UIPic
         picker.delegate = self
         return toolBar
     }
-    
-    @objc func lmpDateChanged(_ datePicker: UIDatePicker) {
-        self.lmpDateTextField.text = dateFormatter.string(from: datePicker.date)
-    }
-    @IBAction func nextPeriodDateChanged(_ datePicker: UIDatePicker) {
-        self.periodDateTextField.text = dateFormatter.string(from: datePicker.date)
-    }
-    // MARK: - PickerView
-    
-    func numberOfComponents(in pickerView: UIPickerView) -> Int {
-        return 1
-    }
-    
-    func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
-        if let tag = PickerViewTag(rawValue: pickerView.tag) {
-            switch tag {
-            case .PickerViewAge:
-                return maxUserAge
-            case .PickerViewGenderBornAs:
-                return genderBornAsOptions.count
-            case .PickerViewGender:
-                return genderOptions.count
-            case .PickerViewBirthControl:
-                return birthControlOptions.count
-            case .PickerViewHormoneTherapy:
-                return hormoneTherapyOptions.count
-            }
-        }
-        return 0
-    }
-    
-    func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
-        if let tag = PickerViewTag(rawValue: pickerView.tag) {
-            switch tag {
-            case .PickerViewAge:
-                return String(row + 1)
-            case .PickerViewGenderBornAs:
-                return genderBornAsOptions[row]
-            case .PickerViewGender:
-                return genderOptions[row]
-            case .PickerViewBirthControl:
-                return birthControlOptions[row]
-            case .PickerViewHormoneTherapy:
-                return hormoneTherapyOptions[row]
-            }
-        }
-        return nil
-    }
-    
-    func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
-        if let tag = PickerViewTag(rawValue: pickerView.tag) {
-            switch tag {
-            case .PickerViewAge:
-                ageTextField.text = String(row + 1)
-                generalInfoDict["AGE"] = ageTextField.text
-            case .PickerViewGenderBornAs:
-                bornGenderTextField.text = genderBornAsOptions[row]
-                generalInfoDict["GENDERBORNAS"] = bornGenderTextField.text
-            case .PickerViewGender:
-                genderTextField.text = genderOptions[row]
-                generalInfoDict["GENDER"] = genderTextField.text
-            case .PickerViewBirthControl:
-                birthControlTextField.text = birthControlOptions[row]
-                generalInfoDict["BIRTHCONTROL"] = birthControlTextField.text
-            case .PickerViewHormoneTherapy:
-                hormoneTextField.text = hormoneTherapyOptions[row]
-                generalInfoDict["HORMONETHERAPY"] = hormoneTextField.text
-            }
-        }
-    }
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
-    
-    @IBAction func saveButtonPressed(_ sender: Any) {
-        let userInfoDictionary: [String: String?] = [
-            "AGE": ageTextField.text,
-            "GENDER": genderTextField.text,
-            "NEXTPERIOD": periodDateTextField.text,
-            "LMP": lmpDateTextField.text,
-            "BIRTHCONTROL": birthControlTextField.text,
-            "GENDERBORNAS": bornGenderTextField.text,
-            "HORMONETHERAPY": hormoneTextField.text
-            ]
-
-        DataService.sharedInstance.saveUser(infoDictionary: userInfoDictionary)
-        
-        self.navigationController?.popViewController(animated: true)
-    }
-    
-    
-    func save(infoDictionary: Dictionary<String, Any>) {
-        
-        
-    }
-
 }
