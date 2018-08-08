@@ -736,13 +736,6 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="551"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="MBu-ai-Web" customClass="SaveButtonFooterView" customModule="Migraine" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="475" width="375" height="76"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="76" id="TL9-B9-Xbh"/>
-                                </constraints>
-                            </view>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" allowsSelection="NO" rowHeight="104" estimatedRowHeight="-1" sectionHeaderHeight="-1" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="nl9-5Y-PvT">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="475"/>
                                 <color key="backgroundColor" red="0.08235294118" green="0.062745098040000002" blue="0.050980392159999999" alpha="1" colorSpace="calibratedRGB"/>
@@ -751,6 +744,22 @@
                                     <outlet property="delegate" destination="LJ3-hx-Ob7" id="4mJ-2A-XGq"/>
                                 </connections>
                             </tableView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="MBu-ai-Web" customClass="SaveButtonFooterView" customModule="Migraine" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="475" width="375" height="76"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="76" id="TL9-B9-Xbh"/>
+                                </constraints>
+                            </view>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Pom-W1-bYv">
+                                <constraints>
+                                    <constraint firstAttribute="width" id="San-7Q-ksb"/>
+                                    <constraint firstAttribute="height" id="kXT-Bh-WtE"/>
+                                </constraints>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
                         </subviews>
                         <color key="backgroundColor" red="0.08235294118" green="0.062745098040000002" blue="0.050980392159999999" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
@@ -758,7 +767,9 @@
                             <constraint firstItem="nl9-5Y-PvT" firstAttribute="leading" secondItem="swe-MJ-PP4" secondAttribute="leading" id="8a8-cf-xRZ"/>
                             <constraint firstItem="nl9-5Y-PvT" firstAttribute="trailing" secondItem="swe-MJ-PP4" secondAttribute="trailing" id="FZC-L7-HaD"/>
                             <constraint firstItem="MBu-ai-Web" firstAttribute="top" secondItem="nl9-5Y-PvT" secondAttribute="bottom" id="IVp-Fe-prM"/>
+                            <constraint firstItem="Pom-W1-bYv" firstAttribute="top" secondItem="Mmb-T7-ePM" secondAttribute="top" id="Umj-w7-a2w"/>
                             <constraint firstItem="MBu-ai-Web" firstAttribute="leading" secondItem="swe-MJ-PP4" secondAttribute="leading" id="dlf-kq-Es4"/>
+                            <constraint firstItem="Pom-W1-bYv" firstAttribute="leading" secondItem="Mmb-T7-ePM" secondAttribute="leading" id="eq7-eO-Tlk"/>
                             <constraint firstItem="MBu-ai-Web" firstAttribute="trailing" secondItem="swe-MJ-PP4" secondAttribute="trailing" id="gA0-GH-hXZ"/>
                             <constraint firstItem="MBu-ai-Web" firstAttribute="bottom" secondItem="swe-MJ-PP4" secondAttribute="bottom" id="l5e-g8-pEn"/>
                         </constraints>
@@ -773,6 +784,7 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="globalInputTextField" destination="Pom-W1-bYv" id="xay-8L-YKT"/>
                         <outlet property="tableView" destination="nl9-5Y-PvT" id="W5f-of-RBX"/>
                         <segue destination="Wfd-Ee-Q7t" kind="show" identifier="MigraineYesSegue" id="5F8-ED-fMO"/>
                         <segue destination="kSz-jE-7UP" kind="show" identifier="MigraineNoSegue" id="Hi0-Nt-OG1"/>

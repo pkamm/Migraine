@@ -31,6 +31,7 @@
 		880B4A731FCE14C5001FA594 /* NotificationsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 880B4A721FCE14C5001FA594 /* NotificationsViewController.swift */; };
 		880B4A741FCE14C5001FA594 /* NotificationsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 880B4A721FCE14C5001FA594 /* NotificationsViewController.swift */; };
 		880B4A751FCE14C5001FA594 /* NotificationsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 880B4A721FCE14C5001FA594 /* NotificationsViewController.swift */; };
+		88119136211BA17400D851DB /* UIPickerView+Customizations.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88119135211BA17400D851DB /* UIPickerView+Customizations.swift */; };
 		881E7FC91FBBAB2A00F4D9C0 /* DataService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 881E7FC81FBBAB2A00F4D9C0 /* DataService.swift */; };
 		881E7FCA1FBBAB2A00F4D9C0 /* DataService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 881E7FC81FBBAB2A00F4D9C0 /* DataService.swift */; };
 		881E7FCB1FBBAB2A00F4D9C0 /* DataService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 881E7FC81FBBAB2A00F4D9C0 /* DataService.swift */; };
@@ -272,6 +273,7 @@
 		008592D91FD9A82300FE0245 /* MedicalConditionsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MedicalConditionsViewController.swift; sourceTree = "<group>"; };
 		58DBE1C447B98507FE7D495F /* Pods-Migraine.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Migraine.release.xcconfig"; path = "Pods/Target Support Files/Pods-Migraine/Pods-Migraine.release.xcconfig"; sourceTree = "<group>"; };
 		880B4A721FCE14C5001FA594 /* NotificationsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationsViewController.swift; sourceTree = "<group>"; };
+		88119135211BA17400D851DB /* UIPickerView+Customizations.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIPickerView+Customizations.swift"; sourceTree = "<group>"; };
 		881E7FC81FBBAB2A00F4D9C0 /* DataService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataService.swift; sourceTree = "<group>"; };
 		883A8D052119C3BA004DC71F /* AddNewViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddNewViewController.swift; sourceTree = "<group>"; };
 		883A8D09211B18D7004DC71F /* DiaryService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiaryService.swift; sourceTree = "<group>"; };
@@ -399,6 +401,7 @@
 			isa = PBXGroup;
 			children = (
 				00130DC11FA1041800D8FBB6 /* AppDelegate.swift */,
+				88119135211BA17400D851DB /* UIPickerView+Customizations.swift */,
 				00130DF51FA11F7F00D8FBB6 /* Models */,
 				00130E021FA120F200D8FBB6 /* View Controllers */,
 				885F5B5A1FBDDB0D00F80BB9 /* Extensions */,
@@ -901,6 +904,7 @@
 				889A318A1FB4F0AE00D2E0E5 /* MainTabBarController.swift in Sources */,
 				88651554208576E800103378 /* SelectableTableViewCell.swift in Sources */,
 				008592DA1FD9A82300FE0245 /* MedicalConditionsViewController.swift in Sources */,
+				88119136211BA17400D851DB /* UIPickerView+Customizations.swift in Sources */,
 				886571A62098F99F001F9AB7 /* MedicationsViewController.swift in Sources */,
 				00130DFF1FA11FB300D8FBB6 /* MigraineEntry.swift in Sources */,
 				00130DC21FA1041800D8FBB6 /* AppDelegate.swift in Sources */,
