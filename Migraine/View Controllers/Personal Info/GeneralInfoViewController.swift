@@ -8,30 +8,7 @@
 
 import UIKit
 
-enum UserInfoKey: String {
-    typealias RawValue = String
-    case AGE
-    case GENDER
-    case NEXTPERIOD
-    case LMP
-    case BIRTHCONTROL
-    case GENDERBORNAS
-    case HORMONETHERAPY
-}
-
-class QuestionInfo {
-    init(text: String, infoKey: UserInfoKey) {
-        self.text = text
-        self.infoKey = infoKey
-    }
-    public let text: String
-    public let infoKey: UserInfoKey
-    public var value: String? = nil
-    
-}
-
 class GeneralInfoViewController: StandardBaseClassStyle, SavablePage, EditDelegate, UITableViewDelegate, UITableViewDataSource, UIPickerViewDataSource, UIPickerViewDelegate {
-    
     
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var globalInputTextField: UITextField!
@@ -42,13 +19,13 @@ class GeneralInfoViewController: StandardBaseClassStyle, SavablePage, EditDelega
     private let segmentedSelectTableViewCellId = "segmentedSelectTableViewCellId"
     
     private let questionInfoArray:[QuestionInfo] = [
-        QuestionInfo(text: "How old are you?", infoKey: UserInfoKey.AGE),
-        QuestionInfo(text: "Gender", infoKey: UserInfoKey.GENDER),
-        QuestionInfo(text: "What gender were you born as?", infoKey: UserInfoKey.GENDERBORNAS),
-        QuestionInfo(text: "Date of LMP", infoKey: UserInfoKey.LMP),
-        QuestionInfo(text: "Anticipated date of next period", infoKey: UserInfoKey.NEXTPERIOD),
-        QuestionInfo(text: "Methods of birth control", infoKey: UserInfoKey.BIRTHCONTROL),
-        QuestionInfo(text: "Any hormore therapy?", infoKey: UserInfoKey.HORMONETHERAPY)]
+        QuestionInfo(text: "How old are you?", infoKey: InfoKey.AGE),
+        QuestionInfo(text: "Gender", infoKey: InfoKey.GENDER),
+        QuestionInfo(text: "What gender were you born as?", infoKey: InfoKey.GENDERBORNAS),
+        QuestionInfo(text: "Any hormore therapy?", infoKey: InfoKey.HORMONETHERAPY),
+        QuestionInfo(text: "Date of LMP", infoKey: InfoKey.LMP),
+        QuestionInfo(text: "Anticipated date of next period", infoKey: InfoKey.NEXTPERIOD),
+        QuestionInfo(text: "Methods of birth control", infoKey: InfoKey.BIRTHCONTROL)]
     
     private let genderOptions = ["Female", "Male", "Other"]
     private let birthControlOptions = ["None", "Estrogen/Progestin Pill", "Only Progestin Pill", "Patch", "Ring", "Progestin Shot", "Progestin Implant", "Hormone IUD", "Copper IUD"]
@@ -56,6 +33,7 @@ class GeneralInfoViewController: StandardBaseClassStyle, SavablePage, EditDelega
     private let hormoneTherapyOptions = ["None", "Estrogen", "Testosterone"]
     
     private var currentQuestionInfo: QuestionInfo?
+    private var isMaleSelected: Bool = false
     
     @IBOutlet weak var saveButtonFooter: SaveButtonFooterView!
     let maxUserAge = 120
@@ -70,11 +48,6 @@ class GeneralInfoViewController: StandardBaseClassStyle, SavablePage, EditDelega
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        if #available(iOS 11.0, *) {
-            self.navigationController?.navigationBar.prefersLargeTitles = true
-        } else {
-            // Fallback on earlier versions
-        };
         saveButtonFooter.saveDelagate = self
         dateFormatter.dateStyle = .medium
         let editCellNib = UINib(nibName: "TextEditTableViewCell", bundle: nil)
@@ -82,29 +55,31 @@ class GeneralInfoViewController: StandardBaseClassStyle, SavablePage, EditDelega
         let segmentCellNib = UINib(nibName: "SegmentedSelectTableViewCell", bundle: nil)
         tableView.register(segmentCellNib, forCellReuseIdentifier: self.segmentedSelectTableViewCellId)
         tableView.backgroundColor = UIColor.darkBackgroundColor()
-        DataService.sharedInstance.getMedicalConditions { (conditionsDictionary) in
-            self.updateTextFields(healthDictionary: conditionsDictionary)
+        PatientInfoService.sharedInstance.getMedicalConditions { (conditionsDictionary) in
+            self.updateTextFields(healthDictionary: conditionsDictionary!)
         }
     }
     
-    func updateTextFields(healthDictionary: [String:String]) {
+    func updateTextFields(healthDictionary: [String:AnyObject?]) {
         for (healthKey, healthValue) in healthDictionary {
-            if healthValue != "" {
+            if let healthV = healthValue as? String, healthV != "" {
                 do {
-                    let userInfoKey = UserInfoKey(rawValue: healthKey)
+                    let userInfoKey = InfoKey(rawValue: healthKey)
                     if let questionInfo = try questionInfoFor(userInfoKey: userInfoKey!){
-                        questionInfo.value = healthValue;
+                        questionInfo.value = healthV;
+                        if (questionInfo.value == "Male") && (userInfoKey == InfoKey.GENDERBORNAS) {
+                            isMaleSelected = true
+                        }
                     }
                 } catch {
                     print("damn")
                 }
-                
             }
         }
         tableView.reloadData()
     }
     
-    func questionInfoFor(userInfoKey: UserInfoKey) throws -> QuestionInfo? {
+    func questionInfoFor(userInfoKey: InfoKey) throws -> QuestionInfo? {
         for questionInfo in questionInfoArray {
             if questionInfo.infoKey == userInfoKey {
                 return questionInfo
@@ -119,16 +94,28 @@ class GeneralInfoViewController: StandardBaseClassStyle, SavablePage, EditDelega
     
     func saveButtonPressed(_ sender: Any) {
         var userInfoDictionary = [String: String?]()
-        for questionInfo in questionInfoArray {
+        for (index, questionInfo) in questionInfoArray.enumerated() {
             userInfoDictionary[questionInfo.infoKey.rawValue] = questionInfo.value
+            if (index == 3 && isMaleSelected) { break }
         }
-        DataService.sharedInstance.saveUser(infoDictionary: userInfoDictionary)
-        self.navigationController?.popViewController(animated: true)
+        PatientInfoService.sharedInstance.saveUser(infoDictionary: userInfoDictionary as [String : AnyObject])
+        
+        let alert = UIAlertController(title: "\n\n\nInfo Saved!", message: nil, preferredStyle: .alert)
+        let action = UIAlertAction(title: "OK", style: .default, handler: { (action) in
+            self.navigationController?.popViewController(animated: true)
+        })
+        alert.addAction(action)
+        alert.addCheckMark()
+        self.present(alert, animated: true, completion: nil)
     }
     
     // Mark TableViewDelegate Methods
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return self.questionInfoArray.count
+        if isMaleSelected {
+            return 4
+        } else {
+            return self.questionInfoArray.count
+        }
     }
     
     func numberOfSections(in tableView: UITableView) -> Int {
@@ -151,6 +138,7 @@ class GeneralInfoViewController: StandardBaseClassStyle, SavablePage, EditDelega
             cell.setQuestionInfo(questionInfo)
             cell.editDelegate = self
             return cell
+        default: break
         }
         return UITableViewCell()
     }
@@ -161,6 +149,10 @@ class GeneralInfoViewController: StandardBaseClassStyle, SavablePage, EditDelega
     func editButtonPressed(_ questionInfo:QuestionInfo!) {
         currentQuestionInfo = questionInfo
         switch questionInfo.infoKey {
+        case .GENDERBORNAS:
+            isMaleSelected = (questionInfo.value == "Male")
+            tableView.reloadData()
+            return
         case .AGE:
             createPicker(title: "Age")
         case .BIRTHCONTROL:
@@ -191,7 +183,7 @@ class GeneralInfoViewController: StandardBaseClassStyle, SavablePage, EditDelega
         pickerView.datePickerMode = .date
         pickerView.addTarget(self, action: #selector(dateChanged(_:)), for: .valueChanged)
         globalInputTextField.inputAccessoryView =
-            toolBarWith(title:"LMP",
+            toolBarWith(title:title,
                          action: #selector(GeneralInfoViewController.donePressed(sender:)))
         globalInputTextField.inputView = pickerView
     }

@@ -34,6 +34,12 @@
 		881E7FC91FBBAB2A00F4D9C0 /* DataService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 881E7FC81FBBAB2A00F4D9C0 /* DataService.swift */; };
 		881E7FCA1FBBAB2A00F4D9C0 /* DataService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 881E7FC81FBBAB2A00F4D9C0 /* DataService.swift */; };
 		881E7FCB1FBBAB2A00F4D9C0 /* DataService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 881E7FC81FBBAB2A00F4D9C0 /* DataService.swift */; };
+		883A8D062119C3BA004DC71F /* AddNewViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 883A8D052119C3BA004DC71F /* AddNewViewController.swift */; };
+		883A8D072119C3BA004DC71F /* AddNewViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 883A8D052119C3BA004DC71F /* AddNewViewController.swift */; };
+		883A8D082119C3BA004DC71F /* AddNewViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 883A8D052119C3BA004DC71F /* AddNewViewController.swift */; };
+		883A8D0A211B18D7004DC71F /* DiaryService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 883A8D09211B18D7004DC71F /* DiaryService.swift */; };
+		883A8D0B211B18D7004DC71F /* DiaryService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 883A8D09211B18D7004DC71F /* DiaryService.swift */; };
+		883A8D0C211B18D7004DC71F /* DiaryService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 883A8D09211B18D7004DC71F /* DiaryService.swift */; };
 		883C2A831FA255E000701D57 /* DiaryRootViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 883C2A821FA255E000701D57 /* DiaryRootViewController.swift */; };
 		883C2A841FA255E000701D57 /* DiaryRootViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 883C2A821FA255E000701D57 /* DiaryRootViewController.swift */; };
 		883C2A851FA255E000701D57 /* DiaryRootViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 883C2A821FA255E000701D57 /* DiaryRootViewController.swift */; };
@@ -53,6 +59,18 @@
 		885F5B661FBDE60E00F80BB9 /* SettingsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 885F5B651FBDE60E00F80BB9 /* SettingsTableViewController.swift */; };
 		885F5B671FBDE60E00F80BB9 /* SettingsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 885F5B651FBDE60E00F80BB9 /* SettingsTableViewController.swift */; };
 		885F5B681FBDE60E00F80BB9 /* SettingsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 885F5B651FBDE60E00F80BB9 /* SettingsTableViewController.swift */; };
+		88651554208576E800103378 /* SelectableTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88651552208576E800103378 /* SelectableTableViewCell.swift */; };
+		88651555208576E800103378 /* SelectableTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88651552208576E800103378 /* SelectableTableViewCell.swift */; };
+		88651556208576E800103378 /* SelectableTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88651552208576E800103378 /* SelectableTableViewCell.swift */; };
+		88651557208576E800103378 /* SelectableTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 88651553208576E800103378 /* SelectableTableViewCell.xib */; };
+		88651558208576E800103378 /* SelectableTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 88651553208576E800103378 /* SelectableTableViewCell.xib */; };
+		88651559208576E800103378 /* SelectableTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 88651553208576E800103378 /* SelectableTableViewCell.xib */; };
+		886571A22098E8FE001F9AB7 /* SuccessAlert.swift in Sources */ = {isa = PBXBuildFile; fileRef = 886571A12098E8FE001F9AB7 /* SuccessAlert.swift */; };
+		886571A32098E8FE001F9AB7 /* SuccessAlert.swift in Sources */ = {isa = PBXBuildFile; fileRef = 886571A12098E8FE001F9AB7 /* SuccessAlert.swift */; };
+		886571A42098E8FE001F9AB7 /* SuccessAlert.swift in Sources */ = {isa = PBXBuildFile; fileRef = 886571A12098E8FE001F9AB7 /* SuccessAlert.swift */; };
+		886571A62098F99F001F9AB7 /* MedicationsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 886571A52098F99F001F9AB7 /* MedicationsViewController.swift */; };
+		886571A72098F99F001F9AB7 /* MedicationsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 886571A52098F99F001F9AB7 /* MedicationsViewController.swift */; };
+		886571A82098F99F001F9AB7 /* MedicationsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 886571A52098F99F001F9AB7 /* MedicationsViewController.swift */; };
 		888005832072C571003AF1DA /* UIColors+Additions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 888005822072C571003AF1DA /* UIColors+Additions.swift */; };
 		888005842072C571003AF1DA /* UIColors+Additions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 888005822072C571003AF1DA /* UIColors+Additions.swift */; };
 		888005852072C571003AF1DA /* UIColors+Additions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 888005822072C571003AF1DA /* UIColors+Additions.swift */; };
@@ -158,6 +176,27 @@
 		889A31921FB4F54D00D2E0E5 /* LogInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 889A31911FB4F54D00D2E0E5 /* LogInViewController.swift */; };
 		889A31931FB4F54D00D2E0E5 /* LogInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 889A31911FB4F54D00D2E0E5 /* LogInViewController.swift */; };
 		889A31941FB4F54D00D2E0E5 /* LogInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 889A31911FB4F54D00D2E0E5 /* LogInViewController.swift */; };
+		88BC1574208A22E700AC29CC /* AddElementTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88BC1572208A22E700AC29CC /* AddElementTableViewCell.swift */; };
+		88BC1575208A22E700AC29CC /* AddElementTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88BC1572208A22E700AC29CC /* AddElementTableViewCell.swift */; };
+		88BC1576208A22E700AC29CC /* AddElementTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88BC1572208A22E700AC29CC /* AddElementTableViewCell.swift */; };
+		88BC1577208A22E700AC29CC /* AddElementTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 88BC1573208A22E700AC29CC /* AddElementTableViewCell.xib */; };
+		88BC1578208A22E700AC29CC /* AddElementTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 88BC1573208A22E700AC29CC /* AddElementTableViewCell.xib */; };
+		88BC1579208A22E700AC29CC /* AddElementTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 88BC1573208A22E700AC29CC /* AddElementTableViewCell.xib */; };
+		88BC157B208A293E00AC29CC /* QuestionInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88BC157A208A293E00AC29CC /* QuestionInfo.swift */; };
+		88BC157C208A293E00AC29CC /* QuestionInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88BC157A208A293E00AC29CC /* QuestionInfo.swift */; };
+		88BC157D208A293E00AC29CC /* QuestionInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88BC157A208A293E00AC29CC /* QuestionInfo.swift */; };
+		88BC157F208A854D00AC29CC /* PatientInfoService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88BC157E208A854D00AC29CC /* PatientInfoService.swift */; };
+		88BC1580208A854D00AC29CC /* PatientInfoService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88BC157E208A854D00AC29CC /* PatientInfoService.swift */; };
+		88BC1581208A854D00AC29CC /* PatientInfoService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88BC157E208A854D00AC29CC /* PatientInfoService.swift */; };
+		88BC1583208FFA2900AC29CC /* TriggersViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88BC1582208FFA2900AC29CC /* TriggersViewController.swift */; };
+		88BC1584208FFA2900AC29CC /* TriggersViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88BC1582208FFA2900AC29CC /* TriggersViewController.swift */; };
+		88BC1585208FFA2900AC29CC /* TriggersViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88BC1582208FFA2900AC29CC /* TriggersViewController.swift */; };
+		88BC1587208FFB8400AC29CC /* HelpersViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88BC1586208FFB8400AC29CC /* HelpersViewController.swift */; };
+		88BC1588208FFB8400AC29CC /* HelpersViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88BC1586208FFB8400AC29CC /* HelpersViewController.swift */; };
+		88BC1589208FFB8400AC29CC /* HelpersViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88BC1586208FFB8400AC29CC /* HelpersViewController.swift */; };
+		88BC158B2090998000AC29CC /* SymptomsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88BC158A2090998000AC29CC /* SymptomsViewController.swift */; };
+		88BC158C2090998000AC29CC /* SymptomsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88BC158A2090998000AC29CC /* SymptomsViewController.swift */; };
+		88BC158D2090998000AC29CC /* SymptomsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88BC158A2090998000AC29CC /* SymptomsViewController.swift */; };
 		88CABAAA1FD87879001F948A /* Crashlytics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 88CABAA81FD87879001F948A /* Crashlytics.framework */; };
 		88CABAAB1FD87879001F948A /* Fabric.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 88CABAA91FD87879001F948A /* Fabric.framework */; };
 		88DAFD132061A5840001B0D3 /* StandardBaseClassStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88DAFD122061A5840001B0D3 /* StandardBaseClassStyle.swift */; };
@@ -234,6 +273,8 @@
 		58DBE1C447B98507FE7D495F /* Pods-Migraine.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Migraine.release.xcconfig"; path = "Pods/Target Support Files/Pods-Migraine/Pods-Migraine.release.xcconfig"; sourceTree = "<group>"; };
 		880B4A721FCE14C5001FA594 /* NotificationsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationsViewController.swift; sourceTree = "<group>"; };
 		881E7FC81FBBAB2A00F4D9C0 /* DataService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataService.swift; sourceTree = "<group>"; };
+		883A8D052119C3BA004DC71F /* AddNewViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddNewViewController.swift; sourceTree = "<group>"; };
+		883A8D09211B18D7004DC71F /* DiaryService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiaryService.swift; sourceTree = "<group>"; };
 		883C2A821FA255E000701D57 /* DiaryRootViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiaryRootViewController.swift; sourceTree = "<group>"; };
 		883C2A8A1FA273F600701D57 /* LurkingMigraineViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LurkingMigraineViewController.swift; sourceTree = "<group>"; };
 		883C2A8E1FA2742500701D57 /* CurrentSymptomsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrentSymptomsViewController.swift; sourceTree = "<group>"; };
@@ -241,6 +282,10 @@
 		883C2A961FA2747C00701D57 /* CurrentPreventionsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrentPreventionsViewController.swift; sourceTree = "<group>"; };
 		885F5B5B1FBDDB8000F80BB9 /* String+Additions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Additions.swift"; sourceTree = "<group>"; };
 		885F5B651FBDE60E00F80BB9 /* SettingsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsTableViewController.swift; sourceTree = "<group>"; };
+		88651552208576E800103378 /* SelectableTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectableTableViewCell.swift; sourceTree = "<group>"; };
+		88651553208576E800103378 /* SelectableTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SelectableTableViewCell.xib; sourceTree = "<group>"; };
+		886571A12098E8FE001F9AB7 /* SuccessAlert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SuccessAlert.swift; sourceTree = "<group>"; };
+		886571A52098F99F001F9AB7 /* MedicationsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MedicationsViewController.swift; sourceTree = "<group>"; };
 		888005822072C571003AF1DA /* UIColors+Additions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColors+Additions.swift"; sourceTree = "<group>"; };
 		888005872072D31D003AF1DA /* SF-Pro-Display-Thin.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SF-Pro-Display-Thin.otf"; sourceTree = "<group>"; };
 		888005882072D31D003AF1DA /* SF-Pro-Display-SemiboldItalic.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SF-Pro-Display-SemiboldItalic.otf"; sourceTree = "<group>"; };
@@ -276,6 +321,13 @@
 		889A31891FB4F0AE00D2E0E5 /* MainTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabBarController.swift; sourceTree = "<group>"; };
 		889A318D1FB4F4F300D2E0E5 /* CreateAccountViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateAccountViewController.swift; sourceTree = "<group>"; };
 		889A31911FB4F54D00D2E0E5 /* LogInViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogInViewController.swift; sourceTree = "<group>"; };
+		88BC1572208A22E700AC29CC /* AddElementTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddElementTableViewCell.swift; sourceTree = "<group>"; };
+		88BC1573208A22E700AC29CC /* AddElementTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AddElementTableViewCell.xib; sourceTree = "<group>"; };
+		88BC157A208A293E00AC29CC /* QuestionInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuestionInfo.swift; sourceTree = "<group>"; };
+		88BC157E208A854D00AC29CC /* PatientInfoService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PatientInfoService.swift; sourceTree = "<group>"; };
+		88BC1582208FFA2900AC29CC /* TriggersViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TriggersViewController.swift; sourceTree = "<group>"; };
+		88BC1586208FFB8400AC29CC /* HelpersViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HelpersViewController.swift; sourceTree = "<group>"; };
+		88BC158A2090998000AC29CC /* SymptomsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SymptomsViewController.swift; sourceTree = "<group>"; };
 		88CABAA81FD87879001F948A /* Crashlytics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Crashlytics.framework; sourceTree = "<group>"; };
 		88CABAA91FD87879001F948A /* Fabric.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Fabric.framework; sourceTree = "<group>"; };
 		88DAFD122061A5840001B0D3 /* StandardBaseClassStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StandardBaseClassStyle.swift; sourceTree = "<group>"; };
@@ -385,7 +437,10 @@
 				00130DF61FA11F9700D8FBB6 /* User.swift */,
 				00130DFA1FA11FA300D8FBB6 /* DiaryEntry.swift */,
 				00130DFE1FA11FB300D8FBB6 /* MigraineEntry.swift */,
+				883A8D09211B18D7004DC71F /* DiaryService.swift */,
 				881E7FC81FBBAB2A00F4D9C0 /* DataService.swift */,
+				88BC157A208A293E00AC29CC /* QuestionInfo.swift */,
+				88BC157E208A854D00AC29CC /* PatientInfoService.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -393,6 +448,7 @@
 		00130E021FA120F200D8FBB6 /* View Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				883A8D052119C3BA004DC71F /* AddNewViewController.swift */,
 				00130DF11FA11B7000D8FBB6 /* QuickAddMigraineViewController.swift */,
 				883C2A821FA255E000701D57 /* DiaryRootViewController.swift */,
 				883C2A8A1FA273F600701D57 /* LurkingMigraineViewController.swift */,
@@ -427,6 +483,7 @@
 				888005822072C571003AF1DA /* UIColors+Additions.swift */,
 				88DAFD122061A5840001B0D3 /* StandardBaseClassStyle.swift */,
 				88DAFD2F2061B38B0001B0D3 /* NibFileOwnerLoadable.swift */,
+				886571A12098E8FE001F9AB7 /* SuccessAlert.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -436,6 +493,10 @@
 			children = (
 				88DAFD332061B8290001B0D3 /* GeneralInfoViewController.swift */,
 				008592D91FD9A82300FE0245 /* MedicalConditionsViewController.swift */,
+				886571A52098F99F001F9AB7 /* MedicationsViewController.swift */,
+				88BC1582208FFA2900AC29CC /* TriggersViewController.swift */,
+				88BC1586208FFB8400AC29CC /* HelpersViewController.swift */,
+				88BC158A2090998000AC29CC /* SymptomsViewController.swift */,
 			);
 			path = "Personal Info";
 			sourceTree = "<group>";
@@ -496,6 +557,10 @@
 				88DAFD182061AAB00001B0D3 /* TextEditTableViewCell.xib */,
 				88DAFD382061C2260001B0D3 /* SegmentedSelectTableViewCell.swift */,
 				88DAFD392061C2260001B0D3 /* SegmentedSelectTableViewCell.xib */,
+				88651552208576E800103378 /* SelectableTableViewCell.swift */,
+				88651553208576E800103378 /* SelectableTableViewCell.xib */,
+				88BC1572208A22E700AC29CC /* AddElementTableViewCell.swift */,
+				88BC1573208A22E700AC29CC /* AddElementTableViewCell.xib */,
 			);
 			path = "Table View Cells";
 			sourceTree = "<group>";
@@ -629,6 +694,7 @@
 				888005E12072D31D003AF1DA /* SF-Pro-Display-Black.otf in Resources */,
 				888005AB2072D31D003AF1DA /* SF-Pro-Text-Heavy.otf in Resources */,
 				888005F62072D31D003AF1DA /* SF-Pro-Text-Medium.otf in Resources */,
+				88651557208576E800103378 /* SelectableTableViewCell.xib in Resources */,
 				888005C92072D31D003AF1DA /* SF-Pro-Text-Regular.otf in Resources */,
 				888005D22072D31D003AF1DA /* SF-Pro-Display-HeavyItalic.otf in Resources */,
 				888005B12072D31D003AF1DA /* SF-Pro-Display-Light.otf in Resources */,
@@ -653,6 +719,7 @@
 				888005F92072D31D003AF1DA /* SF-Pro-Display-BoldItalic.otf in Resources */,
 				888005E72072D31D003AF1DA /* SF-Pro-Text-RegularItalic.otf in Resources */,
 				888005B42072D31D003AF1DA /* SF-Pro-Display-Regular.otf in Resources */,
+				88BC1577208A22E700AC29CC /* AddElementTableViewCell.xib in Resources */,
 				888005F32072D31D003AF1DA /* SF-Pro-Text-LightItalic.otf in Resources */,
 				88DAFD1C2061AAB00001B0D3 /* TextEditTableViewCell.xib in Resources */,
 				888005BD2072D31D003AF1DA /* SF-Pro-Display-Medium.otf in Resources */,
@@ -683,6 +750,7 @@
 				888005D62072D31D003AF1DA /* SF-Pro-Display-Ultralight.otf in Resources */,
 				888005CD2072D31D003AF1DA /* SF-Pro-Text-Bold.otf in Resources */,
 				888005C72072D31D003AF1DA /* SF-Pro-Display-Semibold.otf in Resources */,
+				88BC1578208A22E700AC29CC /* AddElementTableViewCell.xib in Resources */,
 				888005F42072D31D003AF1DA /* SF-Pro-Text-LightItalic.otf in Resources */,
 				888005FA2072D31D003AF1DA /* SF-Pro-Display-BoldItalic.otf in Resources */,
 				88DAFD212061B0230001B0D3 /* TitleHeaderView.xib in Resources */,
@@ -693,6 +761,7 @@
 				888005CA2072D31D003AF1DA /* SF-Pro-Text-Regular.otf in Resources */,
 				888005B52072D31D003AF1DA /* SF-Pro-Display-Regular.otf in Resources */,
 				88DAFD1D2061AAB00001B0D3 /* TextEditTableViewCell.xib in Resources */,
+				88651558208576E800103378 /* SelectableTableViewCell.xib in Resources */,
 				888005DC2072D31D003AF1DA /* SF-Pro-Display-LightItalic.otf in Resources */,
 				888005EE2072D31D003AF1DA /* SF-Pro-Text-HeavyItalic.otf in Resources */,
 				888005C42072D31D003AF1DA /* SF-Pro-Text-Light.otf in Resources */,
@@ -724,6 +793,7 @@
 				888005D72072D31D003AF1DA /* SF-Pro-Display-Ultralight.otf in Resources */,
 				888005CE2072D31D003AF1DA /* SF-Pro-Text-Bold.otf in Resources */,
 				888005C82072D31D003AF1DA /* SF-Pro-Display-Semibold.otf in Resources */,
+				88BC1579208A22E700AC29CC /* AddElementTableViewCell.xib in Resources */,
 				888005F52072D31D003AF1DA /* SF-Pro-Text-LightItalic.otf in Resources */,
 				888005FB2072D31D003AF1DA /* SF-Pro-Display-BoldItalic.otf in Resources */,
 				88DAFD222061B0230001B0D3 /* TitleHeaderView.xib in Resources */,
@@ -734,6 +804,7 @@
 				888005CB2072D31D003AF1DA /* SF-Pro-Text-Regular.otf in Resources */,
 				888005B62072D31D003AF1DA /* SF-Pro-Display-Regular.otf in Resources */,
 				88DAFD1E2061AAB00001B0D3 /* TextEditTableViewCell.xib in Resources */,
+				88651559208576E800103378 /* SelectableTableViewCell.xib in Resources */,
 				888005DD2072D31D003AF1DA /* SF-Pro-Display-LightItalic.otf in Resources */,
 				888005EF2072D31D003AF1DA /* SF-Pro-Text-HeavyItalic.otf in Resources */,
 				888005C52072D31D003AF1DA /* SF-Pro-Text-Light.otf in Resources */,
@@ -822,28 +893,39 @@
 				88DAFD342061B8290001B0D3 /* GeneralInfoViewController.swift in Sources */,
 				889A318E1FB4F4F300D2E0E5 /* CreateAccountViewController.swift in Sources */,
 				88DAFD282061B1380001B0D3 /* SaveButtonFooterView.swift in Sources */,
+				883A8D062119C3BA004DC71F /* AddNewViewController.swift in Sources */,
 				881E7FC91FBBAB2A00F4D9C0 /* DataService.swift in Sources */,
 				883C2A971FA2747C00701D57 /* CurrentPreventionsViewController.swift in Sources */,
 				00130DF21FA11B7000D8FBB6 /* QuickAddMigraineViewController.swift in Sources */,
+				883A8D0A211B18D7004DC71F /* DiaryService.swift in Sources */,
 				889A318A1FB4F0AE00D2E0E5 /* MainTabBarController.swift in Sources */,
+				88651554208576E800103378 /* SelectableTableViewCell.swift in Sources */,
 				008592DA1FD9A82300FE0245 /* MedicalConditionsViewController.swift in Sources */,
+				886571A62098F99F001F9AB7 /* MedicationsViewController.swift in Sources */,
 				00130DFF1FA11FB300D8FBB6 /* MigraineEntry.swift in Sources */,
 				00130DC21FA1041800D8FBB6 /* AppDelegate.swift in Sources */,
 				889A31921FB4F54D00D2E0E5 /* LogInViewController.swift in Sources */,
+				88BC158B2090998000AC29CC /* SymptomsViewController.swift in Sources */,
 				883C2A8F1FA2742500701D57 /* CurrentSymptomsViewController.swift in Sources */,
 				88DAFD132061A5840001B0D3 /* StandardBaseClassStyle.swift in Sources */,
 				880B4A731FCE14C5001FA594 /* NotificationsViewController.swift in Sources */,
+				88BC1587208FFB8400AC29CC /* HelpersViewController.swift in Sources */,
 				883C2A831FA255E000701D57 /* DiaryRootViewController.swift in Sources */,
+				88BC157F208A854D00AC29CC /* PatientInfoService.swift in Sources */,
 				00130DF71FA11F9700D8FBB6 /* User.swift in Sources */,
 				8880060020745820003AF1DA /* TermsOfServiceViewController.swift in Sources */,
 				88DAFD192061AAB00001B0D3 /* TextEditTableViewCell.swift in Sources */,
 				885F5B5C1FBDDB8000F80BB9 /* String+Additions.swift in Sources */,
 				885F5B661FBDE60E00F80BB9 /* SettingsTableViewController.swift in Sources */,
+				88BC157B208A293E00AC29CC /* QuestionInfo.swift in Sources */,
 				88DAFD242061B0D20001B0D3 /* TitleHeaderView.swift in Sources */,
 				00130DFB1FA11FA300D8FBB6 /* DiaryEntry.swift in Sources */,
 				88DAFD302061B38B0001B0D3 /* NibFileOwnerLoadable.swift in Sources */,
+				886571A22098E8FE001F9AB7 /* SuccessAlert.swift in Sources */,
 				883C2A931FA2745700701D57 /* CurrentTriggersViewController.swift in Sources */,
+				88BC1574208A22E700AC29CC /* AddElementTableViewCell.swift in Sources */,
 				888005832072C571003AF1DA /* UIColors+Additions.swift in Sources */,
+				88BC1583208FFA2900AC29CC /* TriggersViewController.swift in Sources */,
 				88DAFD3A2061C2260001B0D3 /* SegmentedSelectTableViewCell.swift in Sources */,
 				883C2A8B1FA273F600701D57 /* LurkingMigraineViewController.swift in Sources */,
 			);
@@ -853,10 +935,16 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				88BC1588208FFB8400AC29CC /* HelpersViewController.swift in Sources */,
+				886571A32098E8FE001F9AB7 /* SuccessAlert.swift in Sources */,
 				88DAFD142061A5840001B0D3 /* StandardBaseClassStyle.swift in Sources */,
+				88BC158C2090998000AC29CC /* SymptomsViewController.swift in Sources */,
+				88BC1575208A22E700AC29CC /* AddElementTableViewCell.swift in Sources */,
+				883A8D072119C3BA004DC71F /* AddNewViewController.swift in Sources */,
 				00130DD91FA1041800D8FBB6 /* MigraineTests.swift in Sources */,
 				881E7FCA1FBBAB2A00F4D9C0 /* DataService.swift in Sources */,
 				88DAFD292061B1380001B0D3 /* SaveButtonFooterView.swift in Sources */,
+				88BC157C208A293E00AC29CC /* QuestionInfo.swift in Sources */,
 				88DAFD3B2061C2260001B0D3 /* SegmentedSelectTableViewCell.swift in Sources */,
 				88DAFD352061B8290001B0D3 /* GeneralInfoViewController.swift in Sources */,
 				008592DB1FD9A82300FE0245 /* MedicalConditionsViewController.swift in Sources */,
@@ -865,19 +953,24 @@
 				8880060120745820003AF1DA /* TermsOfServiceViewController.swift in Sources */,
 				888005842072C571003AF1DA /* UIColors+Additions.swift in Sources */,
 				889A318F1FB4F4F300D2E0E5 /* CreateAccountViewController.swift in Sources */,
+				88BC1580208A854D00AC29CC /* PatientInfoService.swift in Sources */,
 				00130E001FA11FB300D8FBB6 /* MigraineEntry.swift in Sources */,
+				88651555208576E800103378 /* SelectableTableViewCell.swift in Sources */,
 				88DAFD1A2061AAB00001B0D3 /* TextEditTableViewCell.swift in Sources */,
 				885F5B671FBDE60E00F80BB9 /* SettingsTableViewController.swift in Sources */,
 				88DAFD252061B0D20001B0D3 /* TitleHeaderView.swift in Sources */,
 				883C2A981FA2747C00701D57 /* CurrentPreventionsViewController.swift in Sources */,
 				883C2A901FA2742500701D57 /* CurrentSymptomsViewController.swift in Sources */,
 				883C2A841FA255E000701D57 /* DiaryRootViewController.swift in Sources */,
+				88BC1584208FFA2900AC29CC /* TriggersViewController.swift in Sources */,
+				886571A72098F99F001F9AB7 /* MedicationsViewController.swift in Sources */,
 				88DAFD312061B38B0001B0D3 /* NibFileOwnerLoadable.swift in Sources */,
 				889A31931FB4F54D00D2E0E5 /* LogInViewController.swift in Sources */,
 				00130DFC1FA11FA300D8FBB6 /* DiaryEntry.swift in Sources */,
 				00130DF81FA11F9700D8FBB6 /* User.swift in Sources */,
 				883C2A941FA2745700701D57 /* CurrentTriggersViewController.swift in Sources */,
 				880B4A741FCE14C5001FA594 /* NotificationsViewController.swift in Sources */,
+				883A8D0B211B18D7004DC71F /* DiaryService.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -885,10 +978,16 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				88BC1589208FFB8400AC29CC /* HelpersViewController.swift in Sources */,
+				886571A42098E8FE001F9AB7 /* SuccessAlert.swift in Sources */,
 				88DAFD152061A5840001B0D3 /* StandardBaseClassStyle.swift in Sources */,
+				88BC158D2090998000AC29CC /* SymptomsViewController.swift in Sources */,
+				88BC1576208A22E700AC29CC /* AddElementTableViewCell.swift in Sources */,
+				883A8D082119C3BA004DC71F /* AddNewViewController.swift in Sources */,
 				00130DE41FA1041800D8FBB6 /* MigraineUITests.swift in Sources */,
 				881E7FCB1FBBAB2A00F4D9C0 /* DataService.swift in Sources */,
 				88DAFD2A2061B1380001B0D3 /* SaveButtonFooterView.swift in Sources */,
+				88BC157D208A293E00AC29CC /* QuestionInfo.swift in Sources */,
 				88DAFD3C2061C2260001B0D3 /* SegmentedSelectTableViewCell.swift in Sources */,
 				88DAFD362061B8290001B0D3 /* GeneralInfoViewController.swift in Sources */,
 				008592DC1FD9A82300FE0245 /* MedicalConditionsViewController.swift in Sources */,
@@ -897,19 +996,24 @@
 				8880060220745820003AF1DA /* TermsOfServiceViewController.swift in Sources */,
 				888005852072C571003AF1DA /* UIColors+Additions.swift in Sources */,
 				889A31901FB4F4F300D2E0E5 /* CreateAccountViewController.swift in Sources */,
+				88BC1581208A854D00AC29CC /* PatientInfoService.swift in Sources */,
 				00130E011FA11FB300D8FBB6 /* MigraineEntry.swift in Sources */,
+				88651556208576E800103378 /* SelectableTableViewCell.swift in Sources */,
 				88DAFD1B2061AAB00001B0D3 /* TextEditTableViewCell.swift in Sources */,
 				885F5B681FBDE60E00F80BB9 /* SettingsTableViewController.swift in Sources */,
 				88DAFD262061B0D20001B0D3 /* TitleHeaderView.swift in Sources */,
 				883C2A991FA2747C00701D57 /* CurrentPreventionsViewController.swift in Sources */,
 				883C2A911FA2742500701D57 /* CurrentSymptomsViewController.swift in Sources */,
 				883C2A851FA255E000701D57 /* DiaryRootViewController.swift in Sources */,
+				88BC1585208FFA2900AC29CC /* TriggersViewController.swift in Sources */,
+				886571A82098F99F001F9AB7 /* MedicationsViewController.swift in Sources */,
 				88DAFD322061B38B0001B0D3 /* NibFileOwnerLoadable.swift in Sources */,
 				889A31941FB4F54D00D2E0E5 /* LogInViewController.swift in Sources */,
 				00130DFD1FA11FA300D8FBB6 /* DiaryEntry.swift in Sources */,
 				00130DF91FA11F9700D8FBB6 /* User.swift in Sources */,
 				883C2A951FA2745700701D57 /* CurrentTriggersViewController.swift in Sources */,
 				880B4A751FCE14C5001FA594 /* NotificationsViewController.swift in Sources */,
+				883A8D0C211B18D7004DC71F /* DiaryService.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

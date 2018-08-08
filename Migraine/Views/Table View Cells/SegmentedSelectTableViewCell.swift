@@ -65,6 +65,7 @@ class SegmentedSelectTableViewCell: UITableViewCell {
     
     @IBAction func selectedValueChanged(_ sender: UISegmentedControl) {
         questionInfo?.value = sender.titleForSegment(at: sender.selectedSegmentIndex)
+        editDelegate?.editButtonPressed(questionInfo)
     }
     
 }

@@ -13,7 +13,8 @@ import FirebaseDatabase
 class DataService {
     
 //    let firebase = Firebase(
-//    
+//
+
     static let sharedInstance = DataService()
     var dbRef: DatabaseReference!
     
@@ -21,15 +22,7 @@ class DataService {
         self.dbRef = Database.database().reference()
     }
     
-    func saveUser(infoDictionary: Dictionary<String, String?>) {
-        let usersRef = self.dbRef.child("patient-records").child("patient-info")
-        let userId = Auth.auth().currentUser?.uid
-        let dateFormatter = DateFormatter()
-        dateFormatter.dateStyle = DateFormatter.Style.long
-        dateFormatter.timeStyle = DateFormatter.Style.long
-        let curDate = dateFormatter.string(from: Date())
-        usersRef.child(userId!).child(curDate).setValue(infoDictionary)
-    }
+
     
     func getMedicalConditions(completion: @escaping ([String:String]) -> Void ) {
         let usersRef = self.dbRef.child("patient-records").child("patient-info")
@@ -81,5 +74,10 @@ class DataService {
 //
 //        return latestEntry
 //    }
-    
+
 }
+
+
+
+
+
