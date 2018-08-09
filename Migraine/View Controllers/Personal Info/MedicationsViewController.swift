@@ -9,10 +9,16 @@
 import UIKit
 
 class MedicationsViewController: UIViewController {
-
+    @IBOutlet weak var tableView: UITableView!
+    
+    @IBOutlet weak var addMedicationButton: UIButton!
+    @IBOutlet weak var medicationTextField: UITextField!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        addMedicationButton.layer.cornerRadius = 8
+        medicationTextField.layer.cornerRadius = 8
+        medicationTextField.clipsToBounds = true
         // Do any additional setup after loading the view.
     }
 

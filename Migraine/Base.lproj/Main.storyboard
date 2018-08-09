@@ -1401,25 +1401,39 @@
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" allowsMultipleSelection="YES" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="ZXI-BI-YwU">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="426"/>
                                 <color key="backgroundColor" red="0.08235294118" green="0.062745098040000002" blue="0.050980392159999999" alpha="1" colorSpace="calibratedRGB"/>
-                                <view key="tableHeaderView" contentMode="scaleToFill" id="w5C-bL-3fc">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="27"/>
+                                <view key="tableFooterView" contentMode="scaleToFill" id="1FO-Pb-thx">
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="120"/>
                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     <subviews>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Check all medications you are currently taking" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="htM-st-ABZ">
-                                            <rect key="frame" x="22" y="0.0" width="345" height="19"/>
+                                        <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="line" placeholder="Enter Medication" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="igg-Jk-klg">
+                                            <rect key="frame" x="8" y="20" width="268" height="80"/>
+                                            <color key="backgroundColor" red="0.78000000000000003" green="0.78000000000000003" blue="0.78000000000000003" alpha="1" colorSpace="calibratedRGB"/>
                                             <constraints>
-                                                <constraint firstAttribute="height" constant="19" id="6Hz-uk-y7K"/>
+                                                <constraint firstAttribute="width" constant="268" id="Ps6-u1-mWp"/>
                                             </constraints>
-                                            <fontDescription key="fontDescription" type="system" pointSize="15"/>
-                                            <color key="textColor" red="0.78000000000000003" green="0.78000000000000003" blue="0.78000000000000003" alpha="1" colorSpace="calibratedRGB"/>
-                                            <nil key="highlightedColor"/>
-                                        </label>
+                                            <color key="textColor" red="0.08235294118" green="0.062745098040000002" blue="0.050980392159999999" alpha="1" colorSpace="calibratedRGB"/>
+                                            <fontDescription key="fontDescription" name="SFProText-Regular" family="SF Pro Text" pointSize="18"/>
+                                            <textInputTraits key="textInputTraits" autocapitalizationType="words"/>
+                                        </textField>
+                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="E4m-eM-Mcb">
+                                            <rect key="frame" x="284" y="20" width="87" height="80"/>
+                                            <color key="backgroundColor" red="0.58999999999999997" green="0.41999999999999998" blue="0.38" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            <fontDescription key="fontDescription" name="SFProText-Semibold" family="SF Pro Text" pointSize="16"/>
+                                            <state key="normal" title="Add">
+                                                <color key="titleColor" red="0.78000000000000003" green="0.78000000000000003" blue="0.78000000000000003" alpha="1" colorSpace="calibratedRGB"/>
+                                            </state>
+                                        </button>
                                     </subviews>
-                                    <color key="backgroundColor" red="0.08235294118" green="0.062745098040000002" blue="0.050980392159999999" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     <constraints>
-                                        <constraint firstItem="htM-st-ABZ" firstAttribute="top" secondItem="w5C-bL-3fc" secondAttribute="top" id="NR5-ER-3gM"/>
-                                        <constraint firstItem="htM-st-ABZ" firstAttribute="leading" secondItem="w5C-bL-3fc" secondAttribute="leading" constant="22" id="dza-Rn-7mV"/>
-                                        <constraint firstAttribute="trailing" secondItem="htM-st-ABZ" secondAttribute="trailing" constant="8" id="gfO-nM-Nrt"/>
+                                        <constraint firstItem="igg-Jk-klg" firstAttribute="top" secondItem="1FO-Pb-thx" secondAttribute="top" constant="20" id="2hl-1Z-Mfn"/>
+                                        <constraint firstAttribute="trailing" secondItem="E4m-eM-Mcb" secondAttribute="trailing" constant="4" id="CLC-gH-Cre"/>
+                                        <constraint firstItem="igg-Jk-klg" firstAttribute="leading" secondItem="1FO-Pb-thx" secondAttribute="leading" constant="8" id="HRe-qM-Uhl"/>
+                                        <constraint firstAttribute="bottom" secondItem="igg-Jk-klg" secondAttribute="bottom" constant="20" id="Icp-lQ-FxU"/>
+                                        <constraint firstItem="E4m-eM-Mcb" firstAttribute="leading" secondItem="igg-Jk-klg" secondAttribute="trailing" constant="8" id="PV5-Ca-uqt"/>
+                                        <constraint firstAttribute="height" constant="120" id="iWf-4e-6l3"/>
+                                        <constraint firstAttribute="bottom" secondItem="E4m-eM-Mcb" secondAttribute="bottom" constant="20" id="kF8-gf-PS6"/>
+                                        <constraint firstItem="E4m-eM-Mcb" firstAttribute="top" secondItem="1FO-Pb-thx" secondAttribute="top" constant="20" id="pso-uX-qUp"/>
                                     </constraints>
                                 </view>
                                 <connections>
@@ -1440,19 +1454,24 @@
                         <color key="backgroundColor" red="0.08235294118" green="0.062745098040000002" blue="0.050980392159999999" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstItem="0IY-fB-sVe" firstAttribute="leading" secondItem="AuL-KC-luN" secondAttribute="leading" id="0ky-hC-UDz"/>
-                            <constraint firstItem="ZXI-BI-YwU" firstAttribute="top" secondItem="AuL-KC-luN" secondAttribute="top" id="9Al-qZ-dGz"/>
                             <constraint firstItem="ZXI-BI-YwU" firstAttribute="trailing" secondItem="AuL-KC-luN" secondAttribute="trailing" id="IFx-Lq-AgZ"/>
                             <constraint firstItem="ZXI-BI-YwU" firstAttribute="leading" secondItem="AuL-KC-luN" secondAttribute="leading" id="bib-KJ-gPz"/>
                             <constraint firstItem="0IY-fB-sVe" firstAttribute="trailing" secondItem="AuL-KC-luN" secondAttribute="trailing" id="btl-rw-m4V"/>
                             <constraint firstItem="0IY-fB-sVe" firstAttribute="bottom" secondItem="AuL-KC-luN" secondAttribute="bottom" id="pEu-ET-goR"/>
                             <constraint firstItem="0IY-fB-sVe" firstAttribute="top" secondItem="ZXI-BI-YwU" secondAttribute="bottom" id="tAf-Pt-xxW"/>
+                            <constraint firstItem="ZXI-BI-YwU" firstAttribute="top" secondItem="AuL-KC-luN" secondAttribute="top" id="tKy-gA-BB2"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="AuL-KC-luN"/>
                     </view>
+                    <connections>
+                        <outlet property="addMedicationButton" destination="E4m-eM-Mcb" id="rt6-RE-XR7"/>
+                        <outlet property="medicationTextField" destination="igg-Jk-klg" id="Zhl-9m-8bL"/>
+                        <outlet property="tableView" destination="ZXI-BI-YwU" id="nwm-Jn-eyb"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Oie-nb-Mee" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4065" y="2873"/>
+            <point key="canvasLocation" x="4064.8000000000002" y="2872.7136431784111"/>
         </scene>
         <!--Medical Conditions-->
         <scene sceneID="f59-eb-nxD">
