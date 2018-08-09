@@ -18,7 +18,6 @@ class SaveButtonFooterView: UIView, NibFileOwnerLoadable {
     
     @IBOutlet weak var saveButton: UIButton!
     
-    
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
         let view = loadNibContent()
@@ -39,8 +38,12 @@ class SaveButtonFooterView: UIView, NibFileOwnerLoadable {
         saveButton.layer.cornerRadius = 8
         saveButton.backgroundColor = UIColor.minorTextColor()
         saveButton.setTitleColor(UIColor.majorTextColor(), for: .normal)
-
-        let textString = NSMutableAttributedString(string: "Save", attributes: [
+        bgView?.backgroundColor = UIColor.darkBackgroundColor()
+        setTitle(title: "Save")
+    }
+    
+    func setTitle(title: String!) {
+        let textString = NSMutableAttributedString(string: title, attributes: [
             .font: UIFont(name: "SFProText-Semibold", size: 17)!,
             ])
         let textRange = NSRange(location: 0, length: textString.length)
@@ -49,7 +52,6 @@ class SaveButtonFooterView: UIView, NibFileOwnerLoadable {
         textString.addAttribute(.paragraphStyle, value:paragraphStyle, range: textRange)
         textString.addAttribute(.foregroundColor, value:UIColor.majorTextColor(), range: textRange)
         saveButton.setAttributedTitle(textString, for: .normal)
-        bgView?.backgroundColor = UIColor.darkBackgroundColor()
     }
 
 }

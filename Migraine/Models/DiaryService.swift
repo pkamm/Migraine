@@ -18,11 +18,19 @@ class DiaryService {
     
     var dbRef: DatabaseReference!
     
+    var pendingDiaryEntry: [QuestionInfo] = []
+    
     init() {
         self.dbRef = Database.database().reference()
         dateFormatter = DateFormatter()
         dateFormatter.dateStyle = .long
         dateFormatter.timeStyle = .long
+    }
+    
+    func addQuestionInfosToPendingDiaryEntry(questionInfos: [QuestionInfo]){
+        for questionInfo:QuestionInfo in questionInfos {
+            pendingDiaryEntry.append(questionInfo)
+        }
     }
     
     func getDiaryEntries(completion: @escaping ([String:AnyObject?]?) -> Void ) {
