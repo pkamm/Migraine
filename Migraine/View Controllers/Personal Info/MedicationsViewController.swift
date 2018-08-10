@@ -8,18 +8,33 @@
 
 import UIKit
 
-class MedicationsViewController: UIViewController {
+class MedicationsViewController: UIViewController, SavablePage, DeleteDelegate, UITableViewDelegate, UITableViewDataSource {
+
     @IBOutlet weak var tableView: UITableView!
+    @IBOutlet weak var saveButtonFooter: SaveButtonFooterView!
     
     @IBOutlet weak var addMedicationButton: UIButton!
     @IBOutlet weak var medicationTextField: UITextField!
+    
+    var medications = [String]()
+    
+    private let removeElementTableViewCellId = "removeElementTableViewCellId"
     
     override func viewDidLoad() {
         super.viewDidLoad()
         addMedicationButton.layer.cornerRadius = 8
         medicationTextField.layer.cornerRadius = 8
         medicationTextField.clipsToBounds = true
-        // Do any additional setup after loading the view.
+        saveButtonFooter.saveDelagate = self
+        let removeElementNib = UINib(nibName: "RemoveElementTableViewCell", bundle: nil)
+        tableView.register(removeElementNib, forCellReuseIdentifier: removeElementTableViewCellId)
+        
+        PatientInfoService.sharedInstance.getMedications(completion: { (medications) in
+            if let serverMedications = medications {
+                self.medications = serverMedications
+                self.tableView.reloadData()
+            }
+        })
     }
 
     override func didReceiveMemoryWarning() {
@@ -27,7 +42,55 @@ class MedicationsViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
+    @IBAction func addMedicationButtonPressed(_ sender: UIButton) {
+        if let newMedication = medicationTextField.text {
+            medications.append(newMedication)
+            medicationTextField.text = ""
+            tableView.reloadData()
+            medicationTextField.resignFirstResponder()
+        }
+    }
+    
+    // Mark TableViewDelegate Methods
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return medications.count
+    }
+    
 
+    func numberOfSections(in tableView: UITableView) -> Int {
+        return 1
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        
+        if let cell = tableView.dequeueReusableCell(withIdentifier: removeElementTableViewCellId,
+                                                    for: indexPath) as? RemoveElementTableViewCell {
+            cell.titleLabel.text = medications[indexPath.row]
+            cell.deleteDelegate = self
+            return cell
+        }
+        return UITableViewCell()
+    }
+    
+    func delete(element: String?) {
+        medications = medications.filter{$0 != element}
+        tableView.reloadData()
+    }
+    
+    func saveButtonPressed(_ sender: Any) {
+        PatientInfoService.sharedInstance.save(medications: medications) {
+            let alert = UIAlertController(title: "\n\n\nMedications Saved!", message: nil, preferredStyle: .alert)
+            let action = UIAlertAction(title: "OK", style: .default, handler: { (action) in
+                self.navigationController?.popViewController(animated: true)
+            })
+            alert.addAction(action)
+            alert.addCheckMark()
+            self.present(alert, animated: true, completion: nil)
+        }
+    }
+    
+    
     /*
     // MARK: - Navigation
 

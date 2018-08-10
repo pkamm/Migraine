@@ -1401,7 +1401,7 @@
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" allowsMultipleSelection="YES" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="ZXI-BI-YwU">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="426"/>
                                 <color key="backgroundColor" red="0.08235294118" green="0.062745098040000002" blue="0.050980392159999999" alpha="1" colorSpace="calibratedRGB"/>
-                                <view key="tableFooterView" contentMode="scaleToFill" id="1FO-Pb-thx">
+                                <view key="tableHeaderView" contentMode="scaleToFill" id="1FO-Pb-thx">
                                     <rect key="frame" x="0.0" y="0.0" width="375" height="120"/>
                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     <subviews>
@@ -1413,7 +1413,7 @@
                                             </constraints>
                                             <color key="textColor" red="0.08235294118" green="0.062745098040000002" blue="0.050980392159999999" alpha="1" colorSpace="calibratedRGB"/>
                                             <fontDescription key="fontDescription" name="SFProText-Regular" family="SF Pro Text" pointSize="18"/>
-                                            <textInputTraits key="textInputTraits" autocapitalizationType="words"/>
+                                            <textInputTraits key="textInputTraits" autocapitalizationType="words" enablesReturnKeyAutomatically="YES"/>
                                         </textField>
                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="E4m-eM-Mcb">
                                             <rect key="frame" x="284" y="20" width="87" height="80"/>
@@ -1422,6 +1422,9 @@
                                             <state key="normal" title="Add">
                                                 <color key="titleColor" red="0.78000000000000003" green="0.78000000000000003" blue="0.78000000000000003" alpha="1" colorSpace="calibratedRGB"/>
                                             </state>
+                                            <connections>
+                                                <action selector="addMedicationButtonPressed:" destination="Kra-qD-KAg" eventType="touchUpInside" id="W7e-7V-Fhc"/>
+                                            </connections>
                                         </button>
                                     </subviews>
                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -1437,8 +1440,8 @@
                                     </constraints>
                                 </view>
                                 <connections>
-                                    <outlet property="dataSource" destination="2zI-th-fb1" id="yYr-yE-Lhl"/>
-                                    <outlet property="delegate" destination="2zI-th-fb1" id="NHU-eo-mSh"/>
+                                    <outlet property="dataSource" destination="Kra-qD-KAg" id="tyZ-gp-kMY"/>
+                                    <outlet property="delegate" destination="Kra-qD-KAg" id="ilT-tF-FoX"/>
                                 </connections>
                             </tableView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="0IY-fB-sVe" customClass="SaveButtonFooterView" customModule="Migraine" customModuleProvider="target">
@@ -1466,6 +1469,7 @@
                     <connections>
                         <outlet property="addMedicationButton" destination="E4m-eM-Mcb" id="rt6-RE-XR7"/>
                         <outlet property="medicationTextField" destination="igg-Jk-klg" id="Zhl-9m-8bL"/>
+                        <outlet property="saveButtonFooter" destination="0IY-fB-sVe" id="XRO-8c-5Nb"/>
                         <outlet property="tableView" destination="ZXI-BI-YwU" id="nwm-Jn-eyb"/>
                     </connections>
                 </viewController>

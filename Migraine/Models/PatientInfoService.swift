@@ -15,7 +15,7 @@ class PatientInfoService {
     let KEYS = ["FULLNAME", "EMAIL", "TERMSAGREED", "BIRTHCONTROL", "AGE", "GENDER", "NEXTPERIOD", "BIRTHCONTROL", "LMP", "CONDITIONS", "MEDICATION", "HEADACHECONDITIONS", "HEADACHEDURATION", "SYMPTOMS", "TRIGGERS", "HELPMIGRAINE", "NUMBERPROMPTS", "SLEEP", "STRESS", "HEADACHELOCATIONS"]
     
     var patientInfo = [String: AnyObject]()
-    var patientMedication = [String: String]()
+    var patientMedications = [String]()
     var dateFormatter: DateFormatter
     
     static let sharedInstance = PatientInfoService()
@@ -30,24 +30,41 @@ class PatientInfoService {
     }
     
     // updates (added/removed) medication of the patient to firebase
-    func sendMedications(_ medicine:String!, isRemoved: Bool) {
+    func save(medications:[String]!, completion: @escaping () -> Void) {
         
         UIApplication.shared.isNetworkActivityIndicatorVisible = true
-        var dict = [String: String]()
-        dict["Status"] = "Added"
-        if isRemoved {
-            dict["Status"] = "Removed"
-        }
-        dict["Medicine"] = medicine
-        
         let date = NSDate()
         let curDate = dateFormatter.string(from: date as Date)
         
         // upload to firebase
         let userId = Auth.auth().currentUser!.uid
         let medicationRef = self.dbRef.child("patient-records").child("patient-medication")
-        medicationRef.child(userId).child(curDate).setValue(dict)
+        medicationRef.child(userId).child(curDate).setValue(medications)
         UIApplication.shared.isNetworkActivityIndicatorVisible = false
+    }
+    
+    func getMedications(completion: @escaping ([String]?) -> Void ) {
+        let usersRef = self.dbRef.child("patient-records").child("patient-medication")
+        let userId = Auth.auth().currentUser?.uid
+        
+        usersRef.child(userId!).queryOrderedByKey().observeSingleEvent(of: .value, with: { (snapshot) in
+            if let thing = snapshot.value as? [String:AnyObject] {
+                var latestMedications:[String]? = nil
+                var latestDate = Date.distantPast
+                for (dateIndex, medicationArray) in thing {
+                    let date = self.dateFormatter.date(from: dateIndex)
+                    if date! > latestDate, let newMedicationArray = medicationArray as? [String]{
+                        self.patientMedications = newMedicationArray as [String]
+                        latestMedications = newMedicationArray
+                        latestDate = date!
+                    }
+                }
+                completion(latestMedications)
+                print(thing)
+            }
+        }) { (error) in
+            print(error.localizedDescription)
+        }
     }
     
     func saveUser(infoDictionary: [String: AnyObject]) {
