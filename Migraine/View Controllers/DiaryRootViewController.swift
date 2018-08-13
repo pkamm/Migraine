@@ -84,8 +84,8 @@ class DiaryRootViewController: UIViewController, UITableViewDataSource, UITableV
             break
         case .HADMIGRAINE:
             if let cell = tableView.dequeueReusableCell(withIdentifier: segmentedSelectTableViewCellId, for: indexPath) as? SegmentedSelectTableViewCell {
-                cell.setQuestionInfo(questionInfo)
                 cell.setSegmentedValues(["Yes", "No"])
+                cell.setQuestionInfo(questionInfo)
                 cell.editDelegate = self
                 return cell
             }
@@ -122,14 +122,10 @@ class DiaryRootViewController: UIViewController, UITableViewDataSource, UITableV
             pickerView.countDownDuration = duration
         }
     }
-    
-    func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
-        if let questionInfo = currentQuestionInfo {
-        }
-        tableView.reloadData()
-    }
+
     
     @objc func durationChanged(_ datePicker: UIDatePicker) {
+        currentQuestionInfo = questionInfoArray[0]
         currentQuestionInfo?.value = stringFromTimeInterval(interval: datePicker.countDownDuration) as String
         tableView.reloadData()
     }

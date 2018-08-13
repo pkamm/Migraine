@@ -39,7 +39,6 @@ class MedicationsViewController: UIViewController, SavablePage, DeleteDelegate, 
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
     }
     
     @IBAction func addMedicationButtonPressed(_ sender: UIButton) {
@@ -56,7 +55,6 @@ class MedicationsViewController: UIViewController, SavablePage, DeleteDelegate, 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return medications.count
     }
-    
 
     func numberOfSections(in tableView: UITableView) -> Int {
         return 1

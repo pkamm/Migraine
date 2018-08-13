@@ -1617,14 +1617,14 @@
         <!--Triggers-->
         <scene sceneID="Zr1-cx-IiG">
             <objects>
-                <viewController title="Triggers" id="jMD-yg-2Rf" sceneMemberID="viewController">
+                <viewController title="Triggers" id="jMD-yg-2Rf" customClass="TriggersViewController" customModule="Migraine" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Ssb-9r-d1h">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="502"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" allowsMultipleSelection="YES" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="dBp-Ys-cVt">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="default" allowsMultipleSelection="YES" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="18" sectionFooterHeight="18" translatesAutoresizingMaskIntoConstraints="NO" id="dBp-Ys-cVt">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="426"/>
-                                <color key="backgroundColor" red="0.08235294118" green="0.062745098040000002" blue="0.050980392159999999" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                                 <view key="tableHeaderView" contentMode="scaleToFill" id="I7E-0q-eJa">
                                     <rect key="frame" x="0.0" y="0.0" width="375" height="27"/>
                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -1646,6 +1646,10 @@
                                         <constraint firstItem="fnM-Wo-xDv" firstAttribute="leading" secondItem="I7E-0q-eJa" secondAttribute="leading" constant="22" id="vpt-kU-tfN"/>
                                     </constraints>
                                 </view>
+                                <connections>
+                                    <outlet property="dataSource" destination="jMD-yg-2Rf" id="tuA-Tg-OPW"/>
+                                    <outlet property="delegate" destination="jMD-yg-2Rf" id="mHM-Gt-VFe"/>
+                                </connections>
                             </tableView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="LVn-zh-AfP" customClass="SaveButtonFooterView" customModule="Migraine" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="426" width="375" height="76"/>
@@ -1668,6 +1672,10 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="f3l-21-KW6"/>
                     </view>
+                    <connections>
+                        <outlet property="saveButtonFooter" destination="LVn-zh-AfP" id="lYr-j4-VL3"/>
+                        <outlet property="tableView" destination="dBp-Ys-cVt" id="ghf-8j-JBG"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Agi-V3-ksG" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

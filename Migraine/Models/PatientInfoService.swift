@@ -41,6 +41,7 @@ class PatientInfoService {
         let medicationRef = self.dbRef.child("patient-records").child("patient-medication")
         medicationRef.child(userId).child(curDate).setValue(medications)
         UIApplication.shared.isNetworkActivityIndicatorVisible = false
+        completion()
     }
     
     func getMedications(completion: @escaping ([String]?) -> Void ) {
