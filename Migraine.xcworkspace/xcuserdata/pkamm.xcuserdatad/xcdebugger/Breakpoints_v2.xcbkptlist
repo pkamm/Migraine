@@ -68,7 +68,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Migraine/View Controllers/Personal Info/MedicalConditionsViewController.swift"
-            timestampString = "555897914.0776761"
+            timestampString = "555941327.200122"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "129"
@@ -84,7 +84,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Migraine/Views/Table View Cells/SelectableTableViewCell.swift"
-            timestampString = "555897914.0780441"
+            timestampString = "555941327.200497"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "21"
@@ -100,7 +100,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Migraine/View Controllers/Personal Info/MedicalConditionsViewController.swift"
-            timestampString = "555897914.078101"
+            timestampString = "555941327.200546"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "125"
@@ -116,7 +116,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Migraine/View Controllers/Personal Info/MedicalConditionsViewController.swift"
-            timestampString = "555897914.078344"
+            timestampString = "555941327.200774"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "133"
@@ -132,7 +132,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Migraine/View Controllers/Personal Info/MedicalConditionsViewController.swift"
-            timestampString = "555897914.078588"
+            timestampString = "555941327.2009979"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "140"
@@ -148,7 +148,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Migraine/View Controllers/Personal Info/MedicalConditionsViewController.swift"
-            timestampString = "555897914.07882"
+            timestampString = "555941327.201223"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "59"
@@ -164,28 +164,12 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Migraine/Models/PatientInfoService.swift"
-            timestampString = "555897914.079049"
+            timestampString = "555941327.2014461"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "87"
             endingLineNumber = "87"
             landmarkName = "getMedicalConditions(completion:)"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "Migraine/View Controllers/Personal Info/GeneralInfoViewController.swift"
-            timestampString = "555867994.4092309"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "64"
-            endingLineNumber = "64"
-            landmarkName = "updateTextFields(healthDictionary:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -288,59 +272,11 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "Migraine/View Controllers/Personal Info/MedicationsViewController.swift"
-            timestampString = "555897914.079419"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "80"
-            endingLineNumber = "80"
-            landmarkName = "saveButtonPressed(_:)"
-            landmarkType = "7">
-            <Locations>
-               <Location
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "Migraine.MedicationsViewController.saveButtonPressed(Any) -&gt; ()"
-                  moduleName = "Migraine"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/pkamm/Documents/ios/Migraine/Migraine/View%20Controllers/Personal%20Info/MedicationsViewController.swift"
-                  timestampString = "555897914.6261131"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "80"
-                  endingLineNumber = "80"
-                  offsetFromSymbolStart = "18">
-               </Location>
-               <Location
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "closure #1 () -&gt; () in Migraine.MedicationsViewController.saveButtonPressed(Any) -&gt; ()"
-                  moduleName = "Migraine"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/pkamm/Documents/ios/Migraine/Migraine/View%20Controllers/Personal%20Info/MedicationsViewController.swift"
-                  timestampString = "555897914.627786"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "81"
-                  endingLineNumber = "81"
-                  offsetFromSymbolStart = "18">
-               </Location>
-            </Locations>
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
             shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Migraine/Models/PatientInfoService.swift"
-            timestampString = "555897914.079812"
+            timestampString = "555941327.20214"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "52"
@@ -356,7 +292,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Migraine/Models/PatientInfoService.swift"
-            timestampString = "555897914.0801131"
+            timestampString = "555941327.2023979"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "63"
@@ -372,7 +308,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Migraine/Models/PatientInfoService.swift"
-            timestampString = "555897914.080411"
+            timestampString = "555941327.202637"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "56"
@@ -416,43 +352,11 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "Migraine/Views/Table View Cells/SegmentedSelectTableViewCell.swift"
-            timestampString = "555868035.278645"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "33"
-            endingLineNumber = "33"
-            landmarkName = "setQuestionInfo(_:)"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "Migraine/Views/Table View Cells/SegmentedSelectTableViewCell.swift"
-            timestampString = "555868035.278688"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "61"
-            endingLineNumber = "61"
-            landmarkName = "addValueText(_:)"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
             shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Migraine/View Controllers/Personal Info/TriggersViewController.swift"
-            timestampString = "555897914.080768"
+            timestampString = "555941327.202942"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "57"
@@ -468,11 +372,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Migraine/View Controllers/Personal Info/TriggersViewController.swift"
-            timestampString = "555897914.081111"
+            timestampString = "555941327.203207"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "163"
-            endingLineNumber = "163"
+            startingLineNumber = "154"
+            endingLineNumber = "154"
             landmarkName = "tableView(_:didDeselectRowAt:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -484,11 +388,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Migraine/View Controllers/Personal Info/TriggersViewController.swift"
-            timestampString = "555897914.081439"
+            timestampString = "555941327.203432"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "159"
-            endingLineNumber = "159"
+            startingLineNumber = "150"
+            endingLineNumber = "150"
             landmarkName = "tableView(_:didSelectRowAt:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -500,11 +404,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Migraine/View Controllers/Personal Info/TriggersViewController.swift"
-            timestampString = "555897914.0817209"
+            timestampString = "555941327.2036541"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "130"
-            endingLineNumber = "130"
+            startingLineNumber = "128"
+            endingLineNumber = "128"
             landmarkName = "tableView(_:cellForRowAt:)"
             landmarkType = "7">
          </BreakpointContent>

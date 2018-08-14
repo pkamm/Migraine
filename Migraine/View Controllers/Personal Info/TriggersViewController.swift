@@ -69,7 +69,6 @@ class TriggersViewController: UIViewController, SavablePage, UIAlertViewDelegate
                 self.tableView.reloadData()
             }
         }
-
     }
 
     override func didReceiveMemoryWarning() {
@@ -91,9 +90,9 @@ class TriggersViewController: UIViewController, SavablePage, UIAlertViewDelegate
     
     // Mark TableViewDelegate Methods
 
-    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return triggerSections[section].collapsed ? 0 : triggerSections[section].items.count
+        let addNewColumn = (section == 7) ? 1 : 0;
+        return triggerSections[section].collapsed ? 0 : triggerSections[section].items.count + addNewColumn
     }
     
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
@@ -123,10 +122,9 @@ class TriggersViewController: UIViewController, SavablePage, UIAlertViewDelegate
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-//
-//        if indexPath.row == symptoms.count, let cell = tableView.dequeueReusableCell(withIdentifier: addElementTableViewCellId, for: indexPath) as? AddElementTableViewCell {
-//            return cell
-//        } else {
+        if indexPath.section == 7, indexPath.row == triggerSections[7].items.count, let cell = tableView.dequeueReusableCell(withIdentifier: addElementTableViewCellId, for: indexPath) as? AddElementTableViewCell {
+            return cell
+        } else {
             if let cell = tableView.dequeueReusableCell(withIdentifier: selectableTableViewCellId, for: indexPath) as? SelectableTableViewCell {
                 let triggerString = triggerSections[indexPath.section].items[indexPath.row];
                 cell.addTitleText(triggerString)
@@ -134,35 +132,56 @@ class TriggersViewController: UIViewController, SavablePage, UIAlertViewDelegate
                     tableView.selectRow(at: indexPath, animated: false, scrollPosition: .none)
                 }
                 return cell
-//            }
+            }
         }
         return UITableViewCell()
     }
     
     func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
-
-//        let triggerString = self.triggerSections[indexPath.section].items[indexPath.row];
-//        cell.setSelected(self.selectedTriggers.contains(triggerString), animated: true)
         cell.setSelected(cell.isSelected, animated: false);
-
-        
     }
     
-    
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-//        if indexPath.row == symptoms.count {
-//            showAddNewSymptomAlert()
-//        } else {'
-        
+        if( indexPath.section == 7 && indexPath.row == triggerSections[7].items.count ){
+            showAddNewTriggerAlert()
+        } else {
             let trigger = triggerSections[indexPath.section].items[indexPath.row]
             selectedTriggers.append(trigger)
-//        }
+        }
     }
     
     func tableView(_ tableView: UITableView, didDeselectRowAt indexPath: IndexPath) {
         let trigger = triggerSections[indexPath.section].items[indexPath.row]
         if selectedTriggers.contains(trigger) {
             selectedTriggers = selectedTriggers.filter(){$0 != trigger}
+        }
+    }
+    
+    func showAddNewTriggerAlert() {
+        let alertBox = UIAlertController(title: "Trigger", message: nil, preferredStyle: .alert)
+        alertBox.addAction(UIAlertAction(title: "Add", style: .default, handler: { (action) in
+            let textField = alertBox.textFields![0] as UITextField
+            self.addNewTrigger(textField.text)
+        }))
+        alertBox.addTextField { (textField) in
+            textField.placeholder = "Trigger"
+        }
+        alertBox.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler:nil))
+        present(alertBox, animated: true, completion: nil);
+    }
+    
+    func addNewTrigger(_ newTrigger:String!) {
+        if newTrigger != "" {
+            if !triggerSections[7].items.contains(newTrigger) {
+                triggerSections[7].items.append(newTrigger)
+                selectedTriggers.append(newTrigger)
+                tableView.reloadData()
+            } else {
+                let alert = UIAlertController(title: "Error", message: "The item you tried to add is already in the list", preferredStyle: .alert)
+                let action = UIAlertAction(title: "OK", style: .default, handler: nil)
+                alert.addAction(action)
+                self.present(alert, animated: true, completion: nil)
+            }
         }
     }
     
