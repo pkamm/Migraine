@@ -22,13 +22,12 @@ class SelectableTableViewCell: UITableViewCell {
     }
     
     override func setSelected(_ selected: Bool, animated: Bool) {
+        super.setSelected(selected, animated: animated)
         if selected {
             checkmarkImage.image = #imageLiteral(resourceName: "checkRed")
         } else {
             checkmarkImage.image = #imageLiteral(resourceName: "checkGray")
         }
-        super.setSelected(selected, animated: animated)
-        
     }
     
     func addTitleText(_ text:String) {

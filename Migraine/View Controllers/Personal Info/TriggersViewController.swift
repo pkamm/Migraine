@@ -22,10 +22,6 @@ struct Section {
 }
 
 class TriggersViewController: UIViewController, SavablePage, UIAlertViewDelegate, UITabBarDelegate, UITableViewDataSource, UITableViewDelegate {
-    func saveButtonPressed(_ sender: Any) {
-        
-    }
-    
 
     // for triggers
     let sectionA = Section(title: "Everyday Stressors", objects: ["Emotional Stress", "Hunger", "Dehydration", "Gaps in Between Meals", "Sexual Activity", "Infections", "Too Much Sleep", "Lack of Sleep", "Tiring Activity", "Exercise"])
@@ -38,7 +34,6 @@ class TriggersViewController: UIViewController, SavablePage, UIAlertViewDelegate
     let sectionH = Section(title: "Other", objects: ["Headache Medication (Medication Rebound)"])
     
     var triggerSections:[Section] = []
-    
     var selectedTriggers = [String]()
     
     @IBOutlet weak var saveButtonFooter: SaveButtonFooterView!
@@ -55,11 +50,42 @@ class TriggersViewController: UIViewController, SavablePage, UIAlertViewDelegate
         let selectableNib = UINib(nibName: "SelectableTableViewCell", bundle: nil)
         tableView.register(selectableNib, forCellReuseIdentifier: selectableTableViewCellId)
         triggerSections = [sectionA, sectionB, sectionC, sectionD, sectionE, sectionF, sectionG, sectionH];
+        
+        PatientInfoService.sharedInstance.getMedicalConditions { (savedConditions) in
+            if let serverTriggers = savedConditions!["TRIGGERS"] as? [String] {
+                self.selectedTriggers = serverTriggers
+                for trigger in self.selectedTriggers {
+                    var isUserAdded = true
+                    for triggerSection in self.triggerSections {
+                        if triggerSection.items.contains(trigger) {
+                            isUserAdded = false
+                            break
+                        }
+                    }
+                    if( isUserAdded ){
+                        self.triggerSections[7].items.append(trigger)
+                    }
+                }
+                self.tableView.reloadData()
+            }
+        }
 
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
+    }
+    
+    func saveButtonPressed(_ sender: Any) {
+        let triggerDictionary = ["TRIGGERS": selectedTriggers]
+        PatientInfoService.sharedInstance.saveUser(infoDictionary: triggerDictionary as [String : AnyObject])
+        let alert = UIAlertController(title: "\n\n\nTriggers Saved!", message: nil, preferredStyle: .alert)
+        let action = UIAlertAction(title: "OK", style: .default, handler: { (action) in
+            self.navigationController?.popViewController(animated: true)
+        })
+        alert.addAction(action)
+        alert.addCheckMark()
+        self.present(alert, animated: true, completion: nil)
     }
     
     
@@ -102,7 +128,11 @@ class TriggersViewController: UIViewController, SavablePage, UIAlertViewDelegate
 //            return cell
 //        } else {
             if let cell = tableView.dequeueReusableCell(withIdentifier: selectableTableViewCellId, for: indexPath) as? SelectableTableViewCell {
-                cell.addTitleText(triggerSections[indexPath.section].items[indexPath.row])
+                let triggerString = triggerSections[indexPath.section].items[indexPath.row];
+                cell.addTitleText(triggerString)
+                if( self.selectedTriggers.contains(triggerString) ){
+                    tableView.selectRow(at: indexPath, animated: false, scrollPosition: .none)
+                }
                 return cell
 //            }
         }
@@ -110,13 +140,20 @@ class TriggersViewController: UIViewController, SavablePage, UIAlertViewDelegate
     }
     
     func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
+
+//        let triggerString = self.triggerSections[indexPath.section].items[indexPath.row];
+//        cell.setSelected(self.selectedTriggers.contains(triggerString), animated: true)
         cell.setSelected(cell.isSelected, animated: false);
+
+        
     }
+    
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
 //        if indexPath.row == symptoms.count {
 //            showAddNewSymptomAlert()
-//        } else {
+//        } else {'
+        
             let trigger = triggerSections[indexPath.section].items[indexPath.row]
             selectedTriggers.append(trigger)
 //        }
@@ -128,8 +165,7 @@ class TriggersViewController: UIViewController, SavablePage, UIAlertViewDelegate
             selectedTriggers = selectedTriggers.filter(){$0 != trigger}
         }
     }
-
-
+    
     /*
     // MARK: - Navigation
 

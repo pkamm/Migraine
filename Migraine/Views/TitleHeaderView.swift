@@ -20,10 +20,9 @@ class TitleHeaderView: UIView, NibFileOwnerLoadable {
         titleLabel.textColor = UIColor.majorTextColor()
         titleLabel.lineBreakMode = .byWordWrapping
         titleLabel.numberOfLines = 0
-        titleLabel.backgroundColor = UIColor.darkBackgroundColor()
         backgroundColor = UIColor.darkBackgroundColor()
         let textString = NSMutableAttributedString(string: title, attributes: [
-            .font: UIFont(name: "SFProText-Semibold", size: 32)!
+            .font: UIFont(name: "SFProText-Semibold", size: 18)!
             ])
         let textRange = NSRange(location: 0, length: textString.length)
         let paragraphStyle = NSMutableParagraphStyle()
