@@ -212,6 +212,9 @@
 		88BC158D2090998000AC29CC /* SymptomsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88BC158A2090998000AC29CC /* SymptomsViewController.swift */; };
 		88CABAAA1FD87879001F948A /* Crashlytics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 88CABAA81FD87879001F948A /* Crashlytics.framework */; };
 		88CABAAB1FD87879001F948A /* Fabric.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 88CABAA91FD87879001F948A /* Fabric.framework */; };
+		88D407A721245245002D1326 /* ForgotPasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88D407A621245245002D1326 /* ForgotPasswordViewController.swift */; };
+		88D407A821245245002D1326 /* ForgotPasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88D407A621245245002D1326 /* ForgotPasswordViewController.swift */; };
+		88D407A921245245002D1326 /* ForgotPasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88D407A621245245002D1326 /* ForgotPasswordViewController.swift */; };
 		88DAFD132061A5840001B0D3 /* StandardBaseClassStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88DAFD122061A5840001B0D3 /* StandardBaseClassStyle.swift */; };
 		88DAFD142061A5840001B0D3 /* StandardBaseClassStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88DAFD122061A5840001B0D3 /* StandardBaseClassStyle.swift */; };
 		88DAFD152061A5840001B0D3 /* StandardBaseClassStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88DAFD122061A5840001B0D3 /* StandardBaseClassStyle.swift */; };
@@ -348,6 +351,7 @@
 		88BC158A2090998000AC29CC /* SymptomsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SymptomsViewController.swift; sourceTree = "<group>"; };
 		88CABAA81FD87879001F948A /* Crashlytics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Crashlytics.framework; sourceTree = "<group>"; };
 		88CABAA91FD87879001F948A /* Fabric.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Fabric.framework; sourceTree = "<group>"; };
+		88D407A621245245002D1326 /* ForgotPasswordViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForgotPasswordViewController.swift; sourceTree = "<group>"; };
 		88DAFD122061A5840001B0D3 /* StandardBaseClassStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StandardBaseClassStyle.swift; sourceTree = "<group>"; };
 		88DAFD172061AAB00001B0D3 /* TextEditTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextEditTableViewCell.swift; sourceTree = "<group>"; };
 		88DAFD182061AAB00001B0D3 /* TextEditTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TextEditTableViewCell.xib; sourceTree = "<group>"; };
@@ -480,6 +484,7 @@
 				885F5B651FBDE60E00F80BB9 /* SettingsTableViewController.swift */,
 				880B4A721FCE14C5001FA594 /* NotificationsViewController.swift */,
 				888005FF20745820003AF1DA /* TermsOfServiceViewController.swift */,
+				88D407A621245245002D1326 /* ForgotPasswordViewController.swift */,
 				885F5B691FBE02C600F80BB9 /* Personal Info */,
 			);
 			path = "View Controllers";
@@ -927,6 +932,7 @@
 				883C2A971FA2747C00701D57 /* CurrentPreventionsViewController.swift in Sources */,
 				00130DF21FA11B7000D8FBB6 /* MigraineInfoViewController.swift in Sources */,
 				883A8D0A211B18D7004DC71F /* DiaryService.swift in Sources */,
+				88D407A721245245002D1326 /* ForgotPasswordViewController.swift in Sources */,
 				889A318A1FB4F0AE00D2E0E5 /* MainTabBarController.swift in Sources */,
 				88651554208576E800103378 /* SelectableTableViewCell.swift in Sources */,
 				008592DA1FD9A82300FE0245 /* MedicalConditionsViewController.swift in Sources */,
@@ -990,6 +996,7 @@
 				88651555208576E800103378 /* SelectableTableViewCell.swift in Sources */,
 				88DAFD1A2061AAB00001B0D3 /* TextEditTableViewCell.swift in Sources */,
 				885F5B671FBDE60E00F80BB9 /* SettingsTableViewController.swift in Sources */,
+				88D407A821245245002D1326 /* ForgotPasswordViewController.swift in Sources */,
 				88DAFD252061B0D20001B0D3 /* TitleHeaderView.swift in Sources */,
 				8811913A211BC3FE00D851DB /* SliderTableViewCell.swift in Sources */,
 				883C2A981FA2747C00701D57 /* CurrentPreventionsViewController.swift in Sources */,
@@ -1035,6 +1042,7 @@
 				88651556208576E800103378 /* SelectableTableViewCell.swift in Sources */,
 				88DAFD1B2061AAB00001B0D3 /* TextEditTableViewCell.swift in Sources */,
 				885F5B681FBDE60E00F80BB9 /* SettingsTableViewController.swift in Sources */,
+				88D407A921245245002D1326 /* ForgotPasswordViewController.swift in Sources */,
 				88DAFD262061B0D20001B0D3 /* TitleHeaderView.swift in Sources */,
 				8811913B211BC3FE00D851DB /* SliderTableViewCell.swift in Sources */,
 				883C2A991FA2747C00701D57 /* CurrentPreventionsViewController.swift in Sources */,

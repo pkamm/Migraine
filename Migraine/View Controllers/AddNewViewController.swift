@@ -23,9 +23,9 @@ class AddNewViewController: UIViewController, UITableViewDelegate, UITableViewDa
         super.viewDidLoad()
         newDiaryButton.layer.cornerRadius = 8;
         newMigraineButton.layer.cornerRadius = 8;
-        DiaryService.sharedInstance.getDiaryEntries { (entries) in
-            return
-        }
+//        DiaryService.sharedInstance.getDiaryEntries { (entries) in
+//            return
+//        }
         
     }
 
