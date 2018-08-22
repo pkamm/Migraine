@@ -12,12 +12,9 @@ class DiaryRootViewController: UIViewController, UITableViewDataSource, UITableV
     
     private let questionInfoArray:[QuestionInfo] = [
         QuestionInfo(text: "How long did you sleep last night?", infoKey: InfoKey.SLEEPDURATIONMINUTES),
-        QuestionInfo(text: "Quality of your sleep?", infoKey: InfoKey.SLEEPQUALITY),
-        QuestionInfo(text: "How stressed are you?", infoKey: InfoKey.STRESSLEVEL),
-        QuestionInfo(text: "Did you have a migraine?", infoKey: InfoKey.HADMIGRAINE)]
+        QuestionInfo(text: "Quality of your sleep?", infoKey: InfoKey.SLEEPQUALITY)]
     
     private let textEditTableViewCellId = "textEditTableViewCellId"
-    private let segmentedSelectTableViewCellId = "segmentedSelectTableViewCellId"
     private let sliderTableViewCellId = "sliderTableViewCellId"
 
     @IBOutlet weak var tableView: UITableView!
@@ -25,7 +22,6 @@ class DiaryRootViewController: UIViewController, UITableViewDataSource, UITableV
     @IBOutlet weak var saveButtonFooter: SaveButtonFooterView!
     
     private var currentQuestionInfo: QuestionInfo?
-    private var isMigraine: Bool = false
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -34,8 +30,6 @@ class DiaryRootViewController: UIViewController, UITableViewDataSource, UITableV
 
         let editCellNib = UINib(nibName: "TextEditTableViewCell", bundle: nil)
         tableView.register(editCellNib, forCellReuseIdentifier: self.textEditTableViewCellId)
-        let segmentCellNib = UINib(nibName: "SegmentedSelectTableViewCell", bundle: nil)
-        tableView.register(segmentCellNib, forCellReuseIdentifier: self.segmentedSelectTableViewCellId)
         let sliderCellNib = UINib(nibName: "SliderTableViewCell", bundle: nil)
         tableView.register(sliderCellNib, forCellReuseIdentifier: self.sliderTableViewCellId)
     }
@@ -49,12 +43,8 @@ class DiaryRootViewController: UIViewController, UITableViewDataSource, UITableV
     }
     
     func saveButtonPressed(_ sender: Any) {
-       DiaryService.sharedInstance.addQuestionInfosToPendingDiaryEntry(questionInfos: questionInfoArray)
-        if isMigraine {
-            performSegue(withIdentifier: "MigraineYesSegue", sender: nil)
-        } else {
-            performSegue(withIdentifier: "MigraineNoSegue", sender: nil)
-        }
+        DiaryService.sharedInstance.addQuestionInfosToPendingDiaryEntry(questionInfos: questionInfoArray)
+        performSegue(withIdentifier: "StressSegue", sender: nil)
     }
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -75,20 +65,13 @@ class DiaryRootViewController: UIViewController, UITableViewDataSource, UITableV
                 return cell
             }
             break
-        case .SLEEPQUALITY, .STRESSLEVEL:
+        case .SLEEPQUALITY:
             if let cell = tableView.dequeueReusableCell(withIdentifier: sliderTableViewCellId, for: indexPath) as? SliderTableViewCell {
                 cell.setQuestionInfo(questionInfo, scale: 10, labels: nil)
                 cell.editDelegate = self
                 return cell
             }
             break
-        case .HADMIGRAINE:
-            if let cell = tableView.dequeueReusableCell(withIdentifier: segmentedSelectTableViewCellId, for: indexPath) as? SegmentedSelectTableViewCell {
-                cell.setSegmentedValues(["Yes", "No"])
-                cell.setQuestionInfo(questionInfo)
-                cell.editDelegate = self
-                return cell
-            }
         default: break
         }
         return UITableViewCell()
@@ -101,8 +84,6 @@ class DiaryRootViewController: UIViewController, UITableViewDataSource, UITableV
             createDurationPicker(title: "Sleep Duration")
             globalInputTextField.becomeFirstResponder()
             break
-        case .HADMIGRAINE:
-            isMigraine = (questionInfo.value == "Yes")
         default:
             return;
         }
@@ -123,7 +104,6 @@ class DiaryRootViewController: UIViewController, UITableViewDataSource, UITableV
         }
     }
 
-    
     @objc func durationChanged(_ datePicker: UIDatePicker) {
         currentQuestionInfo = questionInfoArray[0]
         currentQuestionInfo?.value = stringFromTimeInterval(interval: datePicker.countDownDuration) as String
@@ -150,16 +130,6 @@ class DiaryRootViewController: UIViewController, UITableViewDataSource, UITableV
 
     @objc func donePressed(sender: UIBarButtonItem) {
         globalInputTextField.resignFirstResponder()
-    }
-    
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "MigraineYesSegue",
-            let destination = segue.destination as? MigraineInfoViewController {
-            destination.isQuickAddMigraine = false
-        }
     }
 
  

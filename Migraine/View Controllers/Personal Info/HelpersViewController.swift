@@ -14,7 +14,7 @@ class HelpersViewController: UIViewController, SavablePage, UIAlertViewDelegate,
     @IBOutlet weak var saveButtonFooter: SaveButtonFooterView!
     
     var selectedHelpers = [String]()
-    var helpers = ["High Blood Pressure", "Diabetes", "Heart Attack/Coronary Artery Disease", "Cancer", "Stroke", "Irritable Bowel Syndrome", "Thyroid Problem", "Benign Prostatic Hypertrophy", "Eating Disorders", "Polycystic Ovarian Disease", "Obesity", "HIV", "Depression", "Anxiety", "Schizophrenia/Bipolar Disorder", "Attention Deficit Hyperactivity Disorder", "Attention Deficit Disorder", "Panic Disorder", "Food Allergies"]
+    var helpers = ["Sleep", "Yoga", "Exercise", "Medications", "Hydration", "Glasses to Prevent Glare", "Caffeine"]
 
     private let addElementTableViewCellId = "AddElementViewControllerId"
     private let selectableTableViewCellId = "SelectableTableViewCellId"

@@ -18,7 +18,6 @@ class LogInViewController: StandardBaseClassStyle {
         super.viewDidLoad()
         navigationController?.setNavigationBarHidden(true, animated: false)
 
-        // Do any additional setup after loading the view.
     }
 
     override func didReceiveMemoryWarning() {

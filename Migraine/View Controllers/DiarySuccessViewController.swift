@@ -1,19 +1,21 @@
 //
-//  LurkingMigraineViewController.swift
+//  DiarySuccessViewController.swift
 //  Migraine
 //
-//  Created by Peter Kamm on 10/26/17.
-//  Copyright © 2017 MIT. All rights reserved.
+//  Created by Peter Kamm on 8/22/18.
+//  Copyright © 2018 MIT. All rights reserved.
 //
 
 import UIKit
 
-class LurkingMigraineViewController: UIViewController {
+class DiarySuccessViewController: UIViewController, SavablePage {
+
+    @IBOutlet weak var saveButtonFooter: SaveButtonFooterView!
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+        saveButtonFooter.setTitle(title: "Close")
+        saveButtonFooter.saveDelagate = self
     }
 
     override func didReceiveMemoryWarning() {
@@ -22,6 +24,10 @@ class LurkingMigraineViewController: UIViewController {
     }
     
 
+    func saveButtonPressed(_ sender: Any) {
+        self.navigationController?.dismiss(animated: true, completion:nil);
+    }
+    
     /*
     // MARK: - Navigation
 
