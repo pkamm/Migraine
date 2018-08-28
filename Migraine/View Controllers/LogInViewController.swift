@@ -42,12 +42,27 @@ class LogInViewController: StandardBaseClassStyle {
                 alert.addAction(action)
                 self.present(alert, animated: true, completion: nil)
             } else {
-                self.dismiss(animated: true, completion: nil)
+                //self.dismiss(animated: true, completion: nil)
+                self.performSegue(withIdentifier: "OnboardingSegueId", sender: nil)
             }
         }
         
     }
 
+    @IBOutlet weak var temp: UIButton!
+    @IBAction func temp(_ sender: Any) {
+        Auth.auth().signIn(withEmail: "sprizzla@gmail.com", password: "oakley9") { (user, error) in
+            if let responseError = error{
+                let alert = UIAlertController(title: "Error", message: responseError.localizedDescription, preferredStyle: .alert)
+                let action = UIAlertAction(title: "OK", style: .default, handler: nil)
+                alert.addAction(action)
+                self.present(alert, animated: true, completion: nil)
+            } else {
+                //self.dismiss(animated: true, completion: nil)
+                self.performSegue(withIdentifier: "OnboardingSegueId", sender: nil)
+            }
+        }
+    }
     /*
     // MARK: - Navigation
 
