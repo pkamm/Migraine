@@ -8,16 +8,16 @@
 
 import UIKit
 import Firebase
+import AVFoundation
 
-class LogInViewController: StandardBaseClassStyle {
+class LogInViewController: UIViewController {
 
     @IBOutlet weak var emailField: UITextField!
     @IBOutlet weak var passwordField: UITextField!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        navigationController?.setNavigationBarHidden(true, animated: false)
-
+        navigationController?.setNavigationBarHidden(false, animated: false)
     }
 
     override func didReceiveMemoryWarning() {
@@ -49,6 +49,7 @@ class LogInViewController: StandardBaseClassStyle {
         
     }
 
+    
     @IBOutlet weak var temp: UIButton!
     @IBAction func temp(_ sender: Any) {
         Auth.auth().signIn(withEmail: "sprizzla@gmail.com", password: "oakley9") { (user, error) in

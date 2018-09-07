@@ -84,6 +84,9 @@
 		886571A62098F99F001F9AB7 /* MedicationsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 886571A52098F99F001F9AB7 /* MedicationsViewController.swift */; };
 		886571A72098F99F001F9AB7 /* MedicationsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 886571A52098F99F001F9AB7 /* MedicationsViewController.swift */; };
 		886571A82098F99F001F9AB7 /* MedicationsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 886571A52098F99F001F9AB7 /* MedicationsViewController.swift */; };
+		88754C612142ABE600641D3B /* DiaryEntryTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88754C602142ABE600641D3B /* DiaryEntryTableViewCell.swift */; };
+		88754C622142ABE600641D3B /* DiaryEntryTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88754C602142ABE600641D3B /* DiaryEntryTableViewCell.swift */; };
+		88754C632142ABE600641D3B /* DiaryEntryTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88754C602142ABE600641D3B /* DiaryEntryTableViewCell.swift */; };
 		888005832072C571003AF1DA /* UIColors+Additions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 888005822072C571003AF1DA /* UIColors+Additions.swift */; };
 		888005842072C571003AF1DA /* UIColors+Additions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 888005822072C571003AF1DA /* UIColors+Additions.swift */; };
 		888005852072C571003AF1DA /* UIColors+Additions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 888005822072C571003AF1DA /* UIColors+Additions.swift */; };
@@ -319,6 +322,7 @@
 		88651553208576E800103378 /* SelectableTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SelectableTableViewCell.xib; sourceTree = "<group>"; };
 		886571A12098E8FE001F9AB7 /* SuccessAlert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SuccessAlert.swift; sourceTree = "<group>"; };
 		886571A52098F99F001F9AB7 /* MedicationsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MedicationsViewController.swift; sourceTree = "<group>"; };
+		88754C602142ABE600641D3B /* DiaryEntryTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiaryEntryTableViewCell.swift; sourceTree = "<group>"; };
 		888005822072C571003AF1DA /* UIColors+Additions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColors+Additions.swift"; sourceTree = "<group>"; };
 		888005872072D31D003AF1DA /* SF-Pro-Display-Thin.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SF-Pro-Display-Thin.otf"; sourceTree = "<group>"; };
 		888005882072D31D003AF1DA /* SF-Pro-Display-SemiboldItalic.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SF-Pro-Display-SemiboldItalic.otf"; sourceTree = "<group>"; };
@@ -609,6 +613,7 @@
 				88BC1573208A22E700AC29CC /* AddElementTableViewCell.xib */,
 				88119137211BC3FE00D851DB /* SliderTableViewCell.swift */,
 				88119138211BC3FE00D851DB /* SliderTableViewCell.xib */,
+				88754C602142ABE600641D3B /* DiaryEntryTableViewCell.swift */,
 			);
 			path = "Table View Cells";
 			sourceTree = "<group>";
@@ -975,6 +980,7 @@
 				88BC157F208A854D00AC29CC /* PatientInfoService.swift in Sources */,
 				00130DF71FA11F9700D8FBB6 /* User.swift in Sources */,
 				8880060020745820003AF1DA /* TermsOfServiceViewController.swift in Sources */,
+				88754C612142ABE600641D3B /* DiaryEntryTableViewCell.swift in Sources */,
 				88DAFD192061AAB00001B0D3 /* TextEditTableViewCell.swift in Sources */,
 				885F5B5C1FBDDB8000F80BB9 /* String+Additions.swift in Sources */,
 				885F5B661FBDE60E00F80BB9 /* SettingsTableViewController.swift in Sources */,
@@ -999,6 +1005,7 @@
 			files = (
 				88BC1588208FFB8400AC29CC /* HelpersViewController.swift in Sources */,
 				886571A32098E8FE001F9AB7 /* SuccessAlert.swift in Sources */,
+				88754C622142ABE600641D3B /* DiaryEntryTableViewCell.swift in Sources */,
 				88DAFD142061A5840001B0D3 /* StandardBaseClassStyle.swift in Sources */,
 				88BC158C2090998000AC29CC /* SymptomsViewController.swift in Sources */,
 				88BC1575208A22E700AC29CC /* AddElementTableViewCell.swift in Sources */,
@@ -1049,6 +1056,7 @@
 			files = (
 				88BC1589208FFB8400AC29CC /* HelpersViewController.swift in Sources */,
 				886571A42098E8FE001F9AB7 /* SuccessAlert.swift in Sources */,
+				88754C632142ABE600641D3B /* DiaryEntryTableViewCell.swift in Sources */,
 				88DAFD152061A5840001B0D3 /* StandardBaseClassStyle.swift in Sources */,
 				88BC158D2090998000AC29CC /* SymptomsViewController.swift in Sources */,
 				88BC1576208A22E700AC29CC /* AddElementTableViewCell.swift in Sources */,

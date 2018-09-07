@@ -18,7 +18,7 @@ class DiaryService {
     
     var dbRef: DatabaseReference!
     
-    var pendingDiaryEntry: [[String:Any]] = []
+    var pendingDiaryEntry: [String:Any] = [:]
     
     init() {
         self.dbRef = Database.database().reference()
@@ -30,9 +30,18 @@ class DiaryService {
     func addQuestionInfosToPendingDiaryEntry(questionInfos: [QuestionInfo]){
         for questionInfo:QuestionInfo in questionInfos {
             if let value = questionInfo.value {
-                pendingDiaryEntry.append([questionInfo.infoKey.rawValue: value])
+                pendingDiaryEntry[questionInfo.infoKey.rawValue] = value
             }
         }
+    }
+    
+    func submitPendingDiaryEntry(completion: @escaping () -> Void) {
+        let usersRef = self.dbRef.child("patient-records").child("patient-diaries")
+        let userId = Auth.auth().currentUser?.uid
+        let curDate = dateFormatter.string(from: Date())
+
+        usersRef.child(userId!).child(curDate).setValue(pendingDiaryEntry)
+        completion()
     }
     
     func getDiaryEntries(completion: @escaping ([String:AnyObject?]?) -> Void ) {
@@ -63,7 +72,7 @@ class DiaryService {
     
     func addCurrentListToPendingDiaryEntry(infoKey:InfoKey, list:[String]) {
         //TODO: replace if there already
-        pendingDiaryEntry.append([infoKey.rawValue: list])
+        pendingDiaryEntry[infoKey.rawValue] = list
     }
 
 }

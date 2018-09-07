@@ -9,9 +9,6 @@
 import UIKit
 
 class AddNewViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        return UITableViewCell()
-    }
     
 
     @IBOutlet weak var newDiaryButton: UIButton!
@@ -19,13 +16,19 @@ class AddNewViewController: UIViewController, UITableViewDelegate, UITableViewDa
     
     @IBOutlet weak var migraineTableView: UITableView!
     
+    var diaryEntries:[String] = []
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         newDiaryButton.layer.cornerRadius = 8;
         newMigraineButton.layer.cornerRadius = 8;
-//        DiaryService.sharedInstance.getDiaryEntries { (entries) in
-//            return
-//        }
+        DiaryService.sharedInstance.getDiaryEntries { (entries) in
+            for (key, value) in entries! {
+                self.diaryEntries.append(key)
+            }
+            self.migraineTableView.reloadData()
+            
+        }
         
     }
 
@@ -35,14 +38,23 @@ class AddNewViewController: UIViewController, UITableViewDelegate, UITableViewDa
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 0;
+        return diaryEntries.count;
     }
     
     func numberOfSections(in tableView: UITableView) -> Int {
-        return 0;
+        return 1;
     }
     
-    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        if let cell = tableView.dequeueReusableCell(withIdentifier: "DiaryEntryTableViewCellId", for: indexPath) as? DiaryEntryTableViewCell {
+            let diary = diaryEntries[indexPath.row]
+                cell.dateLabel.text = diary
+            
+            //cell.dateLabel.text = (diary as AnyObject).key
+            return cell
+        }
+        return UITableViewCell()
+    }
     
 
     

@@ -41,7 +41,9 @@ class CurrentPreventionsViewController: UIViewController, SavablePage, UIAlertVi
     
     func saveButtonPressed(_ sender: Any) {
         DiaryService.sharedInstance.addCurrentListToPendingDiaryEntry(infoKey: .HELPMIGRAINETODAY, list: selectedHelpers)
-        performSegue(withIdentifier: "SuccessSegue", sender: sender)
+        DiaryService.sharedInstance.submitPendingDiaryEntry {
+            self.performSegue(withIdentifier: "SuccessSegue", sender: nil)
+        }
     }
     
     func showAddNewHelperAlert() {
