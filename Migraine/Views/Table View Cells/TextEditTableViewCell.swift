@@ -39,7 +39,9 @@ class TextEditTableViewCell: UITableViewCell {
     func setQuestionInfo(_ newQuestionInfo:QuestionInfo!) {
         questionInfo = newQuestionInfo
         self.addTitleText(newQuestionInfo.text)
-        self.addValueText(newQuestionInfo.value)
+        if let value = newQuestionInfo.value as? String {
+            self.addValueText(value)
+        }
     }
     
     func addTitleText(_ text:String) {

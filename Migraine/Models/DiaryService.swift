@@ -13,7 +13,8 @@ import FirebaseDatabase
 class DiaryService {
     
     var dateFormatter: DateFormatter
-    
+    var dateFormatterShort: DateFormatter
+
     static let sharedInstance = DiaryService()
     
     var dbRef: DatabaseReference!
@@ -25,6 +26,9 @@ class DiaryService {
         dateFormatter = DateFormatter()
         dateFormatter.dateStyle = .long
         dateFormatter.timeStyle = .long
+        
+        dateFormatterShort = DateFormatter()
+        dateFormatterShort.dateStyle = .short
     }
     
     func addQuestionInfosToPendingDiaryEntry(questionInfos: [QuestionInfo]){
@@ -46,27 +50,28 @@ class DiaryService {
     
     func getDiaryEntries(completion: @escaping ([String:AnyObject?]?) -> Void ) {
         let usersRef = self.dbRef.child("patient-records").child("patient-diaries")
-        let userId = Auth.auth().currentUser?.uid
+        if let userId = Auth.auth().currentUser?.uid{
 
-        usersRef.child(userId!).queryOrderedByKey().observeSingleEvent(of: .value, with: { (snapshot) in
-            print(snapshot.value)
+            usersRef.child(userId).queryOrderedByKey().observeSingleEvent(of: .value, with: { (snapshot) in
+                //print(snapshot.value)
 
-            if let thing = snapshot.value as? [String:AnyObject] {
-//                var latestHealthObject:[String : AnyObject]? = nil
-//                var latestDate = Date.distantPast
-//                for (dateIndex, healthObject) in thing {
-//                    let date = self.dateFormatter.date(from: dateIndex)
-//                    if date! > latestDate, let healthDict = healthObject as? [String:AnyObject]{
-//                        self.patientInfo = healthDict as [String : AnyObject]
-//                        latestHealthObject = healthDict
-//                        latestDate = date!
+                if let thing = snapshot.value as? [String:AnyObject] {
+//                    var latestHealthObject:[String : AnyObject]? = nil
+//                    var latestDate = Date.distantPast
+//                    for (dateIndex, healthObject) in thing {
+//                        let date = self.dateFormatter.date(from: dateIndex)
+//                        if date! > latestDate, let healthDict = healthObject as? [String:AnyObject]{
+//                            self.patientInfo = healthDict as [String : AnyObject]
+//                            latestHealthObject = healthDict
+//                            latestDate = date!
+//                        }
 //                    }
-//                }
-                completion(thing)
-                print(thing)
+                    completion(thing)
+                    print(thing)
+                }
+            }) { (error) in
+                print(error.localizedDescription)
             }
-        }) { (error) in
-            print(error.localizedDescription)
         }
     }
     

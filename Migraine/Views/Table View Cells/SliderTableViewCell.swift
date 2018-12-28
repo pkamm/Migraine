@@ -17,27 +17,22 @@ class SliderTableViewCell: UITableViewCell {
     weak var editDelegate: EditDelegate?
     weak var questionInfo: QuestionInfo?
     
-    var scaleLabels:[String]?
-    
-    
     override func awakeFromNib() {
         super.awakeFromNib()
     }
     
-    func setQuestionInfo(_ newQuestionInfo:QuestionInfo!, scale:Int, labels:[String]?) {
+    func setQuestionInfo(_ newQuestionInfo:QuestionInfo!, scale:Int) {
         questionInfo = newQuestionInfo
         questionLabel.text = newQuestionInfo.text
-        scaleLabels = labels
         slider.maximumValue = Float(scale)
         slider.isContinuous = false
         sliderValueChanged(slider)
     }
 
     @IBAction func sliderValueChanged(_ sender: UISlider) {
-        
         let fixedSliderValue = roundf(sender.value)
         sender.setValue(fixedSliderValue, animated: true)
-        selectionLabel.text = scaleLabels == nil ? String(fixedSliderValue) : scaleLabels![Int(fixedSliderValue)]
+        selectionLabel.text = questionInfo?.sliderLabels == nil ? String(fixedSliderValue) : questionInfo?.sliderLabels![Int(fixedSliderValue)]
     }
     
     

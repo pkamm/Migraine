@@ -102,5 +102,43 @@ class PatientInfoService {
             print(error.localizedDescription)
         }
     }
+    
+    func sendLocationDataToFirebase(_ dict: [String: Any]) {
+        var locationDictionary = dict
+        UIApplication.shared.isNetworkActivityIndicatorVisible = true
+        if let userId = Auth.auth().currentUser?.uid {
+            locationDictionary["user"] = userId
+            print("sending location data to firebase. My dict is", dict)
+            let usersRef = self.dbRef.child("patient-records").child("patient-location")
+            let curDate = dateFormatter.string(from: Date())
+            usersRef.child(userId).child(curDate).setValue(locationDictionary)
+        }
+        UIApplication.shared.isNetworkActivityIndicatorVisible = false
+    }
+    
+    func sendHealthKitDataToFirebase(dict: [String: AnyObject]) {
+        print("sending healthkit data to firebase")
+        // check if user is logged in
+        if (UserDefaults.standard.value(forKey: "uid") == nil ){ //|| GL_CURRENT_QUERY.authData == nil) {
+            return
+        }
+        print("user exists")
+        
+        //var dict = [String: AnyObject]()
+        //var testdict = [String: AnyObject]()
+        //testdict["test"] = "test case"
+        
+        //print("My dict is", dict)
+        // upload to firebase
+        let usersRef = self.dbRef.child("patient-records").child("patient-healthkit")
+        let date = Date()
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateStyle = .long
+        dateFormatter.timeStyle = .long
+        let curDate = dateFormatter.string(from: date)
+        
+        usersRef.child(UserDefaults.standard.value(forKey: "uid") as! String).child(curDate).setValue(dict)
+        print("done uploading user healthkit")
+    }
 
 }

@@ -32,7 +32,9 @@ class SegmentedSelectTableViewCell: UITableViewCell {
     func setQuestionInfo(_ newQuestionInfo:QuestionInfo!) {
         questionInfo = newQuestionInfo
         addTitleText(newQuestionInfo.text)
-        addValueText(newQuestionInfo.value)
+        if let value = newQuestionInfo.value as? String {
+            addValueText(value)
+        }
     }
     
     func addTitleText(_ text:String) {

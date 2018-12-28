@@ -67,7 +67,8 @@ class GeneralInfoViewController: StandardBaseClassStyle, SavablePage, EditDelega
                     let userInfoKey = InfoKey(rawValue: healthKey)
                     if let questionInfo = try questionInfoFor(userInfoKey: userInfoKey!){
                         questionInfo.value = healthV;
-                        if (questionInfo.value == "Male") && (userInfoKey == InfoKey.GENDERBORNAS) {
+                        if let value = questionInfo.value as? String,
+                            (value == "Male") && (userInfoKey == InfoKey.GENDERBORNAS) {
                             isMaleSelected = true
                         }
                     }
@@ -95,7 +96,9 @@ class GeneralInfoViewController: StandardBaseClassStyle, SavablePage, EditDelega
     func saveButtonPressed(_ sender: Any) {
         var userInfoDictionary = [String: String?]()
         for (index, questionInfo) in questionInfoArray.enumerated() {
-            userInfoDictionary[questionInfo.infoKey.rawValue] = questionInfo.value
+            if let value = self.currentQuestionInfo?.value as? String {
+                userInfoDictionary[questionInfo.infoKey.rawValue] = value
+            }
             if (index == 3 && isMaleSelected) { break }
         }
         PatientInfoService.sharedInstance.saveUser(infoDictionary: userInfoDictionary as [String : AnyObject])
@@ -150,7 +153,9 @@ class GeneralInfoViewController: StandardBaseClassStyle, SavablePage, EditDelega
         currentQuestionInfo = questionInfo
         switch questionInfo.infoKey {
         case .GENDERBORNAS:
-            isMaleSelected = (questionInfo.value == "Male")
+            if let value = self.currentQuestionInfo?.value as? String {
+                isMaleSelected = (value == "Male")
+            }
             tableView.reloadData()
             return
         case .AGE:
@@ -256,3 +261,4 @@ class GeneralInfoViewController: StandardBaseClassStyle, SavablePage, EditDelega
         return toolBar
     }
 }
+

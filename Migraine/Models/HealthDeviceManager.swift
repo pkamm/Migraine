@@ -1,8 +1,8 @@
 //
-//  HealthManager.swift
+//  HealthDeviceManager.swift
 //  Migraine
 //
-//  Created by Peter Kamm on 8/17/18.
+//  Created by Peter Kamm on 11/18/18.
 //  Copyright © 2018 MIT. All rights reserved.
 //
 
@@ -12,8 +12,9 @@ import Crashlytics
 import HealthKit
 import Firebase
 
-class HealthManager {
-    static let sharedInstance = HealthManager()
+class HealthDeviceManager: NSObject {
+
+    static let sharedInstance = HealthDeviceManager()
     
     let healthStore: HKHealthStore? = {
         if HKHealthStore.isHealthDataAvailable() {
@@ -23,7 +24,7 @@ class HealthManager {
         }
     }()
     
-    typealias observerUpdateCompletionHandler = (HKObserverQuery, HKObserverQueryCompletionHandler, NSError?) -> ()
+    typealias observerUpdateCompletionHandler = (HKObserverQuery, HKObserverQueryCompletionHandler, Error?) -> ()
     typealias quantitySamplesToParse = ([HKQuantitySample]) -> [String: AnyObject] //change this to firebase
     
     let stepCountIdentifier = HKObjectType.quantityType(forIdentifier: HKQuantityTypeIdentifier.stepCount)
@@ -45,25 +46,25 @@ class HealthManager {
     var quantityTypeToSampleFunction: [HKSampleType: quantitySamplesToParse] = [:]
     
     
-    func authorizeHealthKit(completion: @escaping (_ success:Bool, _ error:NSError?) -> Void?)
+    func authorizeHealthKit(completion: ((_ success:Bool, _ error:Error?) -> Void)?)
     {
         let healthKitTypesToRead: Set = [basalEnergyIdentifier!, activeEnergyIdentifier!, heartRateIdentifier!, stepCountIdentifier!, sleepAnalysisIdentifier!, workoutTypeIdentifier]
         
         if !HKHealthStore.isHealthDataAvailable()
         {
-            let error = NSError(domain: "me.heejokeum.migraineapp", code: 2, userInfo: [NSLocalizedDescriptionKey:"HealthKit is not available in this Device"])
-            if( completion != nil )
-            {
-                completion(false, error)
+            let error = NSError(domain: "me.heejokeum.migraineapp", code: 2, userInfo: [NSLocalizedDescriptionKey:"HealthKit is not available in this Device"]) as Error
+            if let completionHandler = completion {
+                completionHandler(false, error)
             }
-        } else {
-            healthStore!.requestAuthorization(toShare: nil, read: healthKitTypesToRead) { (success, error) -> Void in
-                if( completion != nil ) {
-                    completion(success, error as! NSError)
-                }
+            return;
+        }
+        
+        healthStore!.requestAuthorization(toShare: nil, read: healthKitTypesToRead) { (success, error) -> Void in
+            if let completionHandler = completion {
+                completionHandler(true, error)
             }
         }
-    }
+    } //completed
     
     func observeAllChanges() {
         
@@ -93,7 +94,7 @@ class HealthManager {
         ]
         
         for entry in quantityTypeToSampleFunction {
-            observeChange(type: entry.0, completionHandler: self.quantityChangeHandler)
+            observeChange(type: entry.0, completionHandler: self.quantityChangeHandler )
         }
         observeChange(type: sleepAnalysisIdentifier!, completionHandler: self.categoryChangedHandler)
         observeChange(type: workoutTypeIdentifier, completionHandler: self.workoutChangedHandler)
@@ -101,21 +102,21 @@ class HealthManager {
     
     func observeChange(type : HKSampleType, completionHandler: @escaping observerUpdateCompletionHandler) {
         if let healthStore = self.healthStore {
-//            let query: HKObserverQuery = HKObserverQuery(sampleType: type, predicate: nil, updateHandler: completionHandler)
-//            
-//            healthStore.execute(query)
-//            
-//            healthStore.enableBackgroundDelivery(for: type, frequency: HKUpdateFrequency.immediate, withCompletion: {(succeeded: Bool, error: NSError?) in
-//                
-//                if succeeded{
-//                    print("Enabled background delivery of changes of \(type)")
-//                } else {
-//                    if let theError = error{
-//                        print("Failed to enable background delivery of changes of \(type)")
-//                        print("Error = \(theError)")
-//                    }
-//                }
-//                } as! (Bool, Error?) -> Void)
+            let query: HKObserverQuery = HKObserverQuery(sampleType: type, predicate: nil, updateHandler: completionHandler)
+            
+            healthStore.execute(query)
+            
+            healthStore.enableBackgroundDelivery(for: type, frequency: HKUpdateFrequency.immediate, withCompletion: {(succeeded: Bool, error: Error?) in
+                
+                if succeeded{
+                    print("Enabled background delivery of changes of \(type)")
+                } else {
+                    if let theError = error{
+                        print("Failed to enable background delivery of changes of \(type)")
+                        print("Error = \(theError)")
+                    }
+                }
+            } )
         }
     }
     
@@ -127,14 +128,13 @@ class HealthManager {
     
     func saveObjectsToFirebase(objectArray: [String: AnyObject], newAnchor: Int, type: String, identifier: HKSampleType) {
         
-        // TODO:  this!
-        //sendHealthKitDataToFirebase(objectArray) // how do we know if this actually completed
+        PatientInfoService.sharedInstance.sendHealthKitDataToFirebase(dict: objectArray) // how do we know if this actually completed
         print("successfully saved")
         self.setNewAnchor(newAnchor: newAnchor, key: "\(type)Anchor")
         self.typeIsUpdating[identifier] = false
     }
     
-    func quantityChangeHandler(query: HKObserverQuery, completionHandler: HKObserverQueryCompletionHandler, error: NSError? ) {
+    func quantityChangeHandler(query: HKObserverQuery, completionHandler: HKObserverQueryCompletionHandler, error: Error? ) {
         let sampleType = query.sampleType
         let typeString = self.typeToString[sampleType!]!
         
@@ -152,7 +152,7 @@ class HealthManager {
                 let query = HKAnchoredObjectQuery(type: identifier, predicate: nil, anchor: anchor, limit: Int(HKObjectQueryNoLimit)) { (query, newSamples, newAnchor, error) -> Void in
                     
                     guard let samples = newSamples as? [HKQuantitySample] else {
-                        print("*** Unable to query for \(typeString) counts: \(error?.localizedDescription) ***")
+                        print("*** Unable to query for \(typeString) counts: \(String(describing: error?.localizedDescription)) ***")
                         if let error = error {
                             Crashlytics.sharedInstance().recordError(error, withAdditionalUserInfo: ["type" : parseObjectType])
                         } else {
@@ -185,6 +185,7 @@ class HealthManager {
                     }
                     print("Done!")
                 }
+                
                 healthStore.execute(query)
             }
         }
@@ -195,7 +196,7 @@ class HealthManager {
         var stepObjects = [String: [AnyObject]]()
         for sample in samples {
             var stepObject = [String: AnyObject]()
-            stepObject["user"] = UserDefaults.standard.value(forKey: "uid") as! String as AnyObject
+            stepObject["user"] = Auth.auth().currentUser?.uid as AnyObject
             // the start date that will be used as a key of the object
             let startDate = sample.startDate
             let startDateFormatter = DateFormatter()
@@ -204,9 +205,8 @@ class HealthManager {
             
             // more exact date to organize samples
             let exactDateFormatter = DateFormatter()
-            exactDateFormatter.dateStyle = .long
-            exactDateFormatter.timeStyle = .long
-            
+            exactDateFormatter.dateStyle = DateFormatter.Style.long
+            exactDateFormatter.timeStyle = DateFormatter.Style.long
             let exactDate = exactDateFormatter.string(from: startDate)
             
             stepObject["timestmp"] = exactDate as AnyObject
@@ -227,7 +227,8 @@ class HealthManager {
         var hrObjects = [String: [AnyObject]]()
         for sample in samples {
             var hrObject = [String: AnyObject]()
-            hrObject["user"] = UserDefaults.standard.value(forKey: "uid") as! String as AnyObject
+            hrObject["user"] = Auth.auth().currentUser?.uid as AnyObject
+
             // the start date that will be used as a key of the object
             let startDate = sample.startDate
             let startDateFormatter = DateFormatter()
@@ -236,8 +237,8 @@ class HealthManager {
             
             // more exact date to organize samples
             let exactDateFormatter = DateFormatter()
-            exactDateFormatter.dateStyle = .long
-            exactDateFormatter.timeStyle = .long
+            exactDateFormatter.dateStyle = DateFormatter.Style.long
+            exactDateFormatter.timeStyle = DateFormatter.Style.long
             let exactDate = exactDateFormatter.string(from: startDate)
             
             hrObject["timestmp"] = exactDate as AnyObject
@@ -258,7 +259,7 @@ class HealthManager {
         var activeEnergyObjects = [String: [AnyObject]]()
         for sample in samples {
             var activeEnergyObject = [String: AnyObject]()
-            activeEnergyObject["user"] = UserDefaults.standard.value(forKey: "uid") as! String as AnyObject
+            activeEnergyObject["user"] = Auth.auth().currentUser?.uid as AnyObject
             // the start date that will be used as a key of the object
             let startDate = sample.startDate
             let startDateFormatter = DateFormatter()
@@ -267,8 +268,8 @@ class HealthManager {
             
             // more exact date to organize samples
             let exactDateFormatter = DateFormatter()
-            exactDateFormatter.dateStyle = .long
-            exactDateFormatter.timeStyle = .long
+            exactDateFormatter.dateStyle = DateFormatter.Style.long
+            exactDateFormatter.timeStyle = DateFormatter.Style.long
             let exactDate = exactDateFormatter.string(from: startDate)
             
             activeEnergyObject["timestmp"] = exactDate as AnyObject
@@ -289,7 +290,7 @@ class HealthManager {
         var basalEnergyObjects = [String: [AnyObject]]()
         for sample in samples {
             var basalEnergyObject = [String: AnyObject]()
-            basalEnergyObject["user"] = UserDefaults.standard.value(forKey: "uid") as! String as AnyObject
+            basalEnergyObject["user"] = Auth.auth().currentUser?.uid as AnyObject
             // the start date that will be used as a key of the object
             let startDate = sample.startDate
             let startDateFormatter = DateFormatter()
@@ -298,8 +299,8 @@ class HealthManager {
             
             // more exact date to organize samples
             let exactDateFormatter = DateFormatter()
-            exactDateFormatter.dateStyle = .long
-            exactDateFormatter.timeStyle = .long
+            exactDateFormatter.dateStyle = DateFormatter.Style.long
+            exactDateFormatter.timeStyle = DateFormatter.Style.long
             let exactDate = exactDateFormatter.string(from: startDate)
             
             basalEnergyObject["timestmp"] = exactDate as AnyObject
@@ -316,7 +317,7 @@ class HealthManager {
         return finalBasalEnergyObjects
     }
     
-    func categoryChangedHandler(query: HKObserverQuery, completionHandler: HKObserverQueryCompletionHandler, error: NSError?) {
+    func categoryChangedHandler(query: HKObserverQuery, completionHandler: HKObserverQueryCompletionHandler, error: Error?) {
         let sampleType = query.sampleType
         let typeString = self.typeToString[sampleType!]!
         let parseObjectType = "\(typeString)Object"
@@ -334,7 +335,7 @@ class HealthManager {
                 let query = HKAnchoredObjectQuery(type: identifier, predicate: nil, anchor: anchor, limit: Int(HKObjectQueryNoLimit)) { (query, newSamples, newAnchor, error) -> Void in
                     
                     guard let samples = newSamples as? [HKCategorySample] else {
-                        print("*** Unable to query for \(typeString) category: \(String(describing: error?.localizedDescription)) ***")
+                        print("*** Unable to query for \(typeString) category: \(error?.localizedDescription) ***")
                         if let error = error {
                             Crashlytics.sharedInstance().recordError(error, withAdditionalUserInfo: ["type" : parseObjectType])
                         } else {
@@ -373,7 +374,7 @@ class HealthManager {
         var sleepAnalysisObjects = [String: [AnyObject]]()
         for sample in samples {
             var sleepAnalysisObject = [String: AnyObject]()
-            sleepAnalysisObject["user"] = UserDefaults.standard.value(forKey: "uid") as! String as AnyObject
+            sleepAnalysisObject["user"] = Auth.auth().currentUser?.uid as AnyObject
             // the start date that will be used as a key of the object
             let startDate = sample.startDate
             let endDate = sample.endDate
@@ -384,8 +385,8 @@ class HealthManager {
             
             // more exact date to organize samples
             let exactDateFormatter = DateFormatter()
-            exactDateFormatter.dateStyle = .long
-            exactDateFormatter.timeStyle = .long
+            exactDateFormatter.dateStyle = DateFormatter.Style.long
+            exactDateFormatter.timeStyle = DateFormatter.Style.long
             let exactStartDate = exactDateFormatter.string(from: startDate)
             let exactEndDate = exactDateFormatter.string(from: endDate)
             sleepAnalysisObject["startDate"] = exactStartDate as AnyObject
@@ -404,7 +405,7 @@ class HealthManager {
         return finalSleepAnalysisObjects
     }
     
-    func workoutChangedHandler(query: HKObserverQuery, completionHandler: HKObserverQueryCompletionHandler, error: NSError? ) {
+    func workoutChangedHandler(query: HKObserverQuery, completionHandler: HKObserverQueryCompletionHandler, error: Error? ) {
         let sampleType = query.sampleType
         let typeString = self.typeToString[sampleType!]!
         let parseObjectType = "\(typeString)Object"
@@ -422,7 +423,7 @@ class HealthManager {
                 let query = HKAnchoredObjectQuery(type: workoutTypeIdentifier, predicate: nil, anchor: anchor, limit: Int(HKObjectQueryNoLimit)) { (query, newSamples, newAnchor, error) -> Void in
                     
                     guard let samples = newSamples as? [HKWorkout] else {
-                        print("*** Unable to query for \(typeString): \(String(describing: error?.localizedDescription)) ***")
+                        print("*** Unable to query for \(typeString): \(error?.localizedDescription) ***")
                         if let error = error {
                             Crashlytics.sharedInstance().recordError(error, withAdditionalUserInfo: ["type" : "parseObjectType"])
                         } else {
@@ -459,11 +460,12 @@ class HealthManager {
         }
         completionHandler()
     }
+    
     func createWorkoutObjects(samples: [HKWorkout]) -> [String: AnyObject] {
         var workoutObjects = [String: [AnyObject]]()
         for sample in samples {
             var workoutObject = [String: AnyObject]()
-            workoutObject["user"] = UserDefaults.standard.value(forKey: "uid") as! String as AnyObject
+            workoutObject["user"] = Auth.auth().currentUser?.uid as AnyObject
             // the start date that will be used as a key of the object
             let startDate = sample.startDate
             
@@ -473,8 +475,8 @@ class HealthManager {
             
             // more exact date to organize samples
             let exactDateFormatter = DateFormatter()
-            exactDateFormatter.dateStyle = .long
-            exactDateFormatter.timeStyle = .long
+            exactDateFormatter.dateStyle = DateFormatter.Style.long
+            exactDateFormatter.timeStyle = DateFormatter.Style.long
             let exactStartDate = exactDateFormatter.string(from: startDate)
             workoutObject["startDate"] = exactStartDate as AnyObject
             workoutObject["duration"] = sample.duration/60.0 as AnyObject

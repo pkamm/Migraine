@@ -29,16 +29,26 @@ enum InfoKey: String {
     case MIGRAINESTART
     case MIGRAINEEND
     case MIGRAINESEVERITY
+    case MORNINGNOTIFICATION
+    case EVENINGNOTIFICATION
+    case HEADACHELOCATIONS
 }
 
 
 
 class QuestionInfo {
-    init(text: String, infoKey: InfoKey) {
+    init(text: String, infoKey: InfoKey, sliderLabels: [String]? = nil) {
         self.text = text
         self.infoKey = infoKey
+        self.sliderLabels = sliderLabels
+    }
+    init(value: Any?, infoKey: InfoKey) {
+        self.value = value
+        self.infoKey = infoKey
+        self.text = ""
     }
     public let text: String
     public let infoKey: InfoKey
-    public var value: String? = nil
+    public var value: Any? = nil
+    public var sliderLabels:[String]? = nil
 }

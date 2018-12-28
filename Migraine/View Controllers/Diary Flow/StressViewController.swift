@@ -11,7 +11,7 @@ import UIKit
 class StressViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, SavablePage, EditDelegate {
 
     private let questionInfoArray:[QuestionInfo] = [
-        QuestionInfo(text: "How stressed are you?", infoKey: InfoKey.STRESSLEVEL),
+        QuestionInfo(text: "How stressed are you?", infoKey: InfoKey.STRESSLEVEL, sliderLabels:["Relaxing day", "Usual day", "Somewhat stressful", "Stressful", "Very Stressful"]),
         QuestionInfo(text: "Did you have a migraine?", infoKey: InfoKey.HADMIGRAINE)]
     
     @IBOutlet weak var saveButtonFooter: SaveButtonFooterView!
@@ -56,7 +56,7 @@ class StressViewController: UIViewController, UITableViewDataSource, UITableView
         switch questionInfo.infoKey {
         case .STRESSLEVEL:
             if let cell = tableView.dequeueReusableCell(withIdentifier: sliderTableViewCellId, for: indexPath) as? SliderTableViewCell {
-                cell.setQuestionInfo(questionInfo, scale: 10, labels: nil)
+                cell.setQuestionInfo(questionInfo, scale: 4)
                 cell.editDelegate = self
                 return cell
             }
@@ -77,7 +77,9 @@ class StressViewController: UIViewController, UITableViewDataSource, UITableView
         currentQuestionInfo = questionInfo
         switch questionInfo.infoKey {
         case .HADMIGRAINE:
-            isMigraine = (questionInfo.value == "Yes")
+            if let value = questionInfo.value as? String {
+                isMigraine = (value == "Yes")
+            }
         default:
             return;
         }

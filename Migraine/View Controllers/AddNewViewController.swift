@@ -10,24 +10,26 @@ import UIKit
 
 class AddNewViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
-
     @IBOutlet weak var newDiaryButton: UIButton!
     @IBOutlet weak var newMigraineButton: UIButton!
-    
     @IBOutlet weak var migraineTableView: UITableView!
+    @IBOutlet weak var buttonStackView: UIStackView!
     
-    var diaryEntries:[String] = []
+    var diaryEntries:[DiaryEntry] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
         newDiaryButton.layer.cornerRadius = 8;
         newMigraineButton.layer.cornerRadius = 8;
+        migraineTableView.tableHeaderView?.frame = CGRect(x: 0, y: 0, width: (migraineTableView.tableHeaderView?.bounds.width)!, height: 48)
+        buttonStackView?.frame = (migraineTableView.tableHeaderView?.frame)!
+        buttonStackView.updateConstraints()
+
         DiaryService.sharedInstance.getDiaryEntries { (entries) in
-            for (key, value) in entries! {
-                self.diaryEntries.append(key)
+            for entry in entries! {
+                self.diaryEntries.append(DiaryEntry(entry))
             }
             self.migraineTableView.reloadData()
-            
         }
         
     }
@@ -48,9 +50,7 @@ class AddNewViewController: UIViewController, UITableViewDelegate, UITableViewDa
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         if let cell = tableView.dequeueReusableCell(withIdentifier: "DiaryEntryTableViewCellId", for: indexPath) as? DiaryEntryTableViewCell {
             let diary = diaryEntries[indexPath.row]
-                cell.dateLabel.text = diary
-            
-            //cell.dateLabel.text = (diary as AnyObject).key
+            cell.configureWith(diary: diary)
             return cell
         }
         return UITableViewCell()
@@ -63,13 +63,13 @@ class AddNewViewController: UIViewController, UITableViewDelegate, UITableViewDa
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         
         if let destination = segue.destination as? UINavigationController {
-            if(!isInMorning()){
-                if let stressVC = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "StressVC") as? StressViewController{
-                    stressVC.cancelButton.isEnabled = true;
-                    stressVC.cancelButton.tintColor = UIColor.lightText
-                    destination.setViewControllers([stressVC], animated: false)
-                }
-            }
+          //  if(!isInMorning()){
+//                if let stressVC = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "StressVC") as? StressViewController{
+//                    stressVC.cancelButton.isEnabled = true;
+//                    stressVC.cancelButton.tintColor = UIColor.lightText
+//                    destination.setViewControllers([stressVC], animated: false)
+//                }
+         //   }
         }
     }
     

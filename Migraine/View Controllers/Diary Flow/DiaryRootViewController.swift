@@ -12,7 +12,7 @@ class DiaryRootViewController: UIViewController, UITableViewDataSource, UITableV
     
     private let questionInfoArray:[QuestionInfo] = [
         QuestionInfo(text: "How long did you sleep last night?", infoKey: InfoKey.SLEEPDURATIONMINUTES),
-        QuestionInfo(text: "Quality of your sleep?", infoKey: InfoKey.SLEEPQUALITY)]
+        QuestionInfo(text: "Quality of your sleep?", infoKey: InfoKey.SLEEPQUALITY, sliderLabels: ["Sleep was awesome", "Felt rested in the morning", "Usual night's sleep", "Ok, could be better", "Felt like crap in the morning"])]
     
     private let textEditTableViewCellId = "textEditTableViewCellId"
     private let sliderTableViewCellId = "sliderTableViewCellId"
@@ -28,6 +28,16 @@ class DiaryRootViewController: UIViewController, UITableViewDataSource, UITableV
         saveButtonFooter.saveDelagate = self
         saveButtonFooter.setTitle(title: "Next")
 
+        HealthDeviceManager.sharedInstance.authorizeHealthKit { (authorized,  _error) -> Void in
+            if authorized {
+                print("HealthKit authorization received.")
+                HealthDeviceManager.sharedInstance.observeAllChanges()
+            } else {
+                print("HealthKit authorization denied!")
+                print("error: ", _error)
+            }
+        }
+        
         let editCellNib = UINib(nibName: "TextEditTableViewCell", bundle: nil)
         tableView.register(editCellNib, forCellReuseIdentifier: self.textEditTableViewCellId)
         let sliderCellNib = UINib(nibName: "SliderTableViewCell", bundle: nil)
@@ -67,7 +77,7 @@ class DiaryRootViewController: UIViewController, UITableViewDataSource, UITableV
             break
         case .SLEEPQUALITY:
             if let cell = tableView.dequeueReusableCell(withIdentifier: sliderTableViewCellId, for: indexPath) as? SliderTableViewCell {
-                cell.setQuestionInfo(questionInfo, scale: 10, labels: nil)
+                cell.setQuestionInfo(questionInfo, scale: 4)
                 cell.editDelegate = self
                 return cell
             }
@@ -99,7 +109,10 @@ class DiaryRootViewController: UIViewController, UITableViewDataSource, UITableV
                         action: #selector(DiaryRootViewController.donePressed(sender:)))
         globalInputTextField.inputView = pickerView
         DispatchQueue.main.asyncAfter(deadline: .now()) {
-            let duration = self.currentQuestionInfo?.value == nil ? 8*3600 : self.timeIntervalFromString(string: (self.currentQuestionInfo?.value)!)
+            var duration:Double = 8*3600
+            if let value = self.currentQuestionInfo?.value as? String {
+                duration = self.timeIntervalFromString(string: value)
+            }
             pickerView.countDownDuration = duration
         }
     }
