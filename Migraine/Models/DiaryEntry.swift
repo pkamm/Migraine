@@ -19,7 +19,12 @@ class DiaryEntry{
     
     init(_ object:(key: String, value: AnyObject?)){
         questionInfos = []
-        date = DiaryService.sharedInstance.dateFormatter.date(from:object.key)!
+        // date = DiaryService.sharedInstance.dateFormatter.date(from:object.key)!
+        if let theDate = DiaryService.sharedInstance.dateFormatter.date(from:object.key) {
+            date = theDate
+        } else {
+            date = Date()
+        }
         if let keyValPair = object.value as? NSDictionary {
             for key in keyValPair.allKeys {
                 let questionInfo = QuestionInfo(value: keyValPair[key],
@@ -27,13 +32,13 @@ class DiaryEntry{
                 questionInfos.append(questionInfo)
                 
                 
-//                if let theEntries = entry as? [String:String] {
-//                    for (key, value) in theEntries {
-//                        let questionInfo = QuestionInfo(text: value,
-//                                                        infoKey: InfoKey(rawValue: key)!)
-//                        questionInfos.append(questionInfo)
-//                    }
-//                }
+                //                if let theEntries = entry as? [String:String] {
+                //                    for (key, value) in theEntries {
+                //                        let questionInfo = QuestionInfo(text: value,
+                //                                                        infoKey: InfoKey(rawValue: key)!)
+                //                        questionInfos.append(questionInfo)
+                //                    }
+                //                }
             }
         }
     }
@@ -51,14 +56,14 @@ class DiaryEntry{
         do{
             if try wasMigraine() {
                 switch try migraineSeverity(){
-                    case 0:
-                        return "Mild Migraine"
-                    case 1:
-                        return "Moderate Migraine"
-                    case 2:
-                        return "Severe Migraine"
-                    default:
-                        return "butt"
+                case 0:
+                    return "Mild Migraine"
+                case 1:
+                    return "Moderate Migraine"
+                case 2:
+                    return "Severe Migraine"
+                default:
+                    return "butt"
                 }
             } else {
                 return "No Migraine"
@@ -76,7 +81,7 @@ class DiaryEntry{
         }
         throw DiaryError.runtimeError("Missing info as to whether there was a migraine")
     }
-
-
-
+    
+    
+    
 }

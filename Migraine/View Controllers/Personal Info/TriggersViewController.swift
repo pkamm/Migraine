@@ -52,8 +52,9 @@ class TriggersViewController: UIViewController, SavablePage, UIAlertViewDelegate
         triggerSections = [sectionA, sectionB, sectionC, sectionD, sectionE, sectionF, sectionG, sectionH];
         
         PatientInfoService.sharedInstance.getMedicalConditions { (savedConditions) in
-            if let serverTriggers = savedConditions!["TRIGGERS"] as? [String] {
-                self.selectedTriggers = serverTriggers
+            if let serverSavedConditions = savedConditions,
+                let serverConditions = serverSavedConditions["TRIGGERS"] as? [String]{
+                self.selectedTriggers = serverConditions
                 for trigger in self.selectedTriggers {
                     var isUserAdded = true
                     for triggerSection in self.triggerSections {

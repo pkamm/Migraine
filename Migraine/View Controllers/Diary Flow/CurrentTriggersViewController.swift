@@ -28,7 +28,8 @@ class CurrentTriggersViewController: UIViewController, SavablePage, UIAlertViewD
         let selectableNib = UINib(nibName: "SelectableTableViewCell", bundle: nil)
         tableView.register(selectableNib, forCellReuseIdentifier: selectableTableViewCellId)
         PatientInfoService.sharedInstance.getMedicalConditions { (savedTrigger) in
-            if let serverTrigger = savedTrigger!["TRIGGERS"] as? [String] {
+            if let serverSavedTrigger = savedTrigger,
+                let serverTrigger = serverSavedTrigger["TRIGGERS"] as? [String] {
                 self.triggers = serverTrigger
                 self.tableView.reloadData()
             }

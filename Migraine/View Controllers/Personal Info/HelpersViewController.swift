@@ -29,7 +29,8 @@ class HelpersViewController: UIViewController, SavablePage, UIAlertViewDelegate,
         tableView.register(selectableNib, forCellReuseIdentifier: selectableTableViewCellId)
         
         PatientInfoService.sharedInstance.getMedicalConditions { (savedHelpers) in
-            if let serverHelpers = savedHelpers!["HELPMIGRAINE"] as? [String] {
+            if let serverSavedHelpers = savedHelpers,
+                let serverHelpers = serverSavedHelpers["HELPMIGRAINE"] as? [String] {
                 self.selectedHelpers = serverHelpers
                 for helper in self.selectedHelpers {
                     if !self.helpers.contains(helper) {

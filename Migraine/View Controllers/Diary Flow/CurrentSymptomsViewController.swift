@@ -28,7 +28,8 @@ class CurrentSymptomsViewController: UIViewController, SavablePage, UIAlertViewD
         let selectableNib = UINib(nibName: "SelectableTableViewCell", bundle: nil)
         tableView.register(selectableNib, forCellReuseIdentifier: selectableTableViewCellId)
         PatientInfoService.sharedInstance.getMedicalConditions { (savedSymptoms) in
-            if let serverSymptoms = savedSymptoms!["SYMPTOMS"] as? [String] {
+            if let serverSavedSymptoms = savedSymptoms,
+                let serverSymptoms = serverSavedSymptoms["SYMPTOMS"] as? [String] {
                 self.symptoms = serverSymptoms
                 self.tableView.reloadData()
             }

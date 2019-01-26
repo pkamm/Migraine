@@ -28,7 +28,8 @@ class CurrentPreventionsViewController: UIViewController, SavablePage, UIAlertVi
         let selectableNib = UINib(nibName: "SelectableTableViewCell", bundle: nil)
         tableView.register(selectableNib, forCellReuseIdentifier: selectableTableViewCellId)
         PatientInfoService.sharedInstance.getMedicalConditions { (savedHelper) in
-            if let serverHelper = savedHelper!["HELPERS"] as? [String] {
+            if let savedServerHelper = savedHelper,
+                let serverHelper = savedServerHelper["HELPERS"] as? [String] {
                 self.helpers = serverHelper
                 self.tableView.reloadData()
             }

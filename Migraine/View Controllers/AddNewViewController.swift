@@ -63,13 +63,13 @@ class AddNewViewController: UIViewController, UITableViewDelegate, UITableViewDa
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         
         if let destination = segue.destination as? UINavigationController {
-          //  if(!isInMorning()){
-//                if let stressVC = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "StressVC") as? StressViewController{
-//                    stressVC.cancelButton.isEnabled = true;
-//                    stressVC.cancelButton.tintColor = UIColor.lightText
-//                    destination.setViewControllers([stressVC], animated: false)
-//                }
-         //   }
+            if(!isInMorning()){
+                if let stressVC = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "StressVC") as? StressViewController{
+                    stressVC.cancelButton.isEnabled = true;
+                    stressVC.cancelButton.tintColor = UIColor.lightText
+                    destination.setViewControllers([stressVC], animated: false)
+                }
+            }
         }
     }
     

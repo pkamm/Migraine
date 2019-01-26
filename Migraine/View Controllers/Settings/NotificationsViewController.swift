@@ -131,8 +131,8 @@ class NotificationsViewController: UIViewController, UITableViewDataSource, UITa
         guard let dateString = questionInfo.value as? String,
             let date = dateFormatter.date(from: dateString) else { return }
         let content = UNMutableNotificationContent()
-        content.title = "Time to journal title"
-        content.body = "Rise and shine! It's morning time!"
+        content.title = "Let's Talk"
+        content.body = "Regards, Your Migraine Diary"
         let calendar = Calendar.current
         let comp = calendar.dateComponents([.hour, .minute], from: date)
         var dateInfo = DateComponents()

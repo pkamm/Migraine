@@ -53,11 +53,12 @@ class PatientInfoService {
                 var latestMedications:[String]? = nil
                 var latestDate = Date.distantPast
                 for (dateIndex, medicationArray) in thing {
-                    let date = self.dateFormatter.date(from: dateIndex)
-                    if date! > latestDate, let newMedicationArray = medicationArray as? [String]{
-                        self.patientMedications = newMedicationArray as [String]
-                        latestMedications = newMedicationArray
-                        latestDate = date!
+                    if let date = self.dateFormatter.date(from: dateIndex){
+                        if date > latestDate, let newMedicationArray = medicationArray as? [String]{
+                            self.patientMedications = newMedicationArray as [String]
+                            latestMedications = newMedicationArray
+                            latestDate = date
+                        }
                     }
                 }
                 completion(latestMedications)
@@ -88,11 +89,12 @@ class PatientInfoService {
                 var latestHealthObject:[String : AnyObject]? = nil
                 var latestDate = Date.distantPast
                 for (dateIndex, healthObject) in thing {
-                    let date = self.dateFormatter.date(from: dateIndex)
-                    if date! > latestDate, let healthDict = healthObject as? [String:AnyObject]{
-                        self.patientInfo = healthDict as [String : AnyObject]
-                        latestHealthObject = healthDict
-                        latestDate = date!
+                    if let date = self.dateFormatter.date(from: dateIndex){
+                        if date > latestDate, let healthDict = healthObject as? [String:AnyObject]{
+                            self.patientInfo = healthDict as [String : AnyObject]
+                            latestHealthObject = healthDict
+                            latestDate = date
+                        }
                     }
                 }
                 completion(latestHealthObject)
@@ -139,6 +141,17 @@ class PatientInfoService {
         
         usersRef.child(UserDefaults.standard.value(forKey: "uid") as! String).child(curDate).setValue(dict)
         print("done uploading user healthkit")
+    }
+    
+    func sendNotesToFirebase(notes: String) {
+        UIApplication.shared.isNetworkActivityIndicatorVisible = true
+        if let userId = Auth.auth().currentUser?.uid {
+            let usersRef = self.dbRef.child("patient-records").child("patient-notes")
+            let curDate = dateFormatter.string(from: Date())
+            usersRef.child(userId).child(curDate).setValue(notes)
+        }
+        UIApplication.shared.isNetworkActivityIndicatorVisible = false
+        
     }
 
 }

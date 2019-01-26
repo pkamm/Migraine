@@ -25,7 +25,7 @@ class MigraineLocationViewController: UIViewController, SavablePage {
     }
 
     @IBAction func button1Pressed(_ sender: UIButton) {
-        buttonSelected(button: sender, location:"In the mouth/jaw")
+        buttonSelected(button: sender, location:"Mouth/jaw")
     }
     
     @IBAction func button2Pressed(_ sender: UIButton) {

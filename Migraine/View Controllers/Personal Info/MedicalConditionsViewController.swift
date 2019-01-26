@@ -29,7 +29,8 @@ class MedicalConditionsViewController: UIViewController, SavablePage, UIAlertVie
         tableView.register(selectableNib, forCellReuseIdentifier: selectableTableViewCellId)
         
         PatientInfoService.sharedInstance.getMedicalConditions { (savedConditions) in
-            if let serverConditions = savedConditions!["CONDITIONS"] as? [String] {
+            if let serverSavedConditions = savedConditions,
+                let serverConditions = serverSavedConditions["CONDITIONS"] as? [String] {
                 self.selectedConditions = serverConditions
                 for condition in self.selectedConditions {
                     if !self.conditions.contains(condition) {

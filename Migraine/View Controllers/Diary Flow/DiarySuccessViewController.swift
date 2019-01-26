@@ -27,6 +27,12 @@ class DiarySuccessViewController: UIViewController, SavablePage, CLLocationManag
         super.viewDidLoad()
         saveButtonFooter.setTitle(title: "Close")
         saveButtonFooter.saveDelagate = self
+        if CLLocationManager.authorizationStatus() == .notDetermined {
+            locationManager.requestWhenInUseAuthorization()
+        }
+        if CLLocationManager.locationServicesEnabled() {
+            locationManager.startUpdatingLocation()
+        }
     }
 
     override func didReceiveMemoryWarning() {
@@ -59,6 +65,7 @@ class DiarySuccessViewController: UIViewController, SavablePage, CLLocationManag
                 print("location unknown")
             case CLError.denied:
                 print("denied")
+                locationManager.requestWhenInUseAuthorization()
             default:
                 print("other Core Location error")
             }

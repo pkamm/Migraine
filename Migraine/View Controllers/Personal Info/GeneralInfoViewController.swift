@@ -56,7 +56,9 @@ class GeneralInfoViewController: StandardBaseClassStyle, SavablePage, EditDelega
         tableView.register(segmentCellNib, forCellReuseIdentifier: self.segmentedSelectTableViewCellId)
         tableView.backgroundColor = UIColor.darkBackgroundColor()
         PatientInfoService.sharedInstance.getMedicalConditions { (conditionsDictionary) in
-            self.updateTextFields(healthDictionary: conditionsDictionary!)
+            if let conditionsDict = conditionsDictionary {
+                self.updateTextFields(healthDictionary: conditionsDict)
+            }
         }
     }
     

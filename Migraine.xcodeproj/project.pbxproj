@@ -41,6 +41,9 @@
 		881E7FC91FBBAB2A00F4D9C0 /* DataService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 881E7FC81FBBAB2A00F4D9C0 /* DataService.swift */; };
 		881E7FCA1FBBAB2A00F4D9C0 /* DataService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 881E7FC81FBBAB2A00F4D9C0 /* DataService.swift */; };
 		881E7FCB1FBBAB2A00F4D9C0 /* DataService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 881E7FC81FBBAB2A00F4D9C0 /* DataService.swift */; };
+		8826AE4B21E4D141003D4A16 /* NotesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8826AE4A21E4D141003D4A16 /* NotesViewController.swift */; };
+		8826AE4C21E4D141003D4A16 /* NotesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8826AE4A21E4D141003D4A16 /* NotesViewController.swift */; };
+		8826AE4D21E4D141003D4A16 /* NotesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8826AE4A21E4D141003D4A16 /* NotesViewController.swift */; };
 		883A8D062119C3BA004DC71F /* AddNewViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 883A8D052119C3BA004DC71F /* AddNewViewController.swift */; };
 		883A8D072119C3BA004DC71F /* AddNewViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 883A8D052119C3BA004DC71F /* AddNewViewController.swift */; };
 		883A8D082119C3BA004DC71F /* AddNewViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 883A8D052119C3BA004DC71F /* AddNewViewController.swift */; };
@@ -311,6 +314,7 @@
 		88119137211BC3FE00D851DB /* SliderTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SliderTableViewCell.swift; sourceTree = "<group>"; };
 		88119138211BC3FE00D851DB /* SliderTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SliderTableViewCell.xib; sourceTree = "<group>"; };
 		881E7FC81FBBAB2A00F4D9C0 /* DataService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataService.swift; sourceTree = "<group>"; };
+		8826AE4A21E4D141003D4A16 /* NotesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotesViewController.swift; sourceTree = "<group>"; };
 		883A8D052119C3BA004DC71F /* AddNewViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddNewViewController.swift; sourceTree = "<group>"; };
 		883A8D09211B18D7004DC71F /* DiaryService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiaryService.swift; sourceTree = "<group>"; };
 		883C2A821FA255E000701D57 /* DiaryRootViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiaryRootViewController.swift; sourceTree = "<group>"; };
@@ -554,6 +558,7 @@
 				885F5B651FBDE60E00F80BB9 /* SettingsTableViewController.swift */,
 				880B4A721FCE14C5001FA594 /* NotificationsViewController.swift */,
 				888005FF20745820003AF1DA /* TermsOfServiceViewController.swift */,
+				8826AE4A21E4D141003D4A16 /* NotesViewController.swift */,
 			);
 			path = Settings;
 			sourceTree = "<group>";
@@ -923,12 +928,18 @@
 			);
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-Migraine/Pods-Migraine-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/GTMSessionFetcher/GTMSessionFetcher.framework",
 				"${BUILT_PRODUCTS_DIR}/GoogleToolboxForMac/GoogleToolboxForMac.framework",
+				"${BUILT_PRODUCTS_DIR}/IHKeyboardAvoiding/IHKeyboardAvoiding.framework",
+				"${BUILT_PRODUCTS_DIR}/leveldb-library/leveldb.framework",
 				"${BUILT_PRODUCTS_DIR}/nanopb/nanopb.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GTMSessionFetcher.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleToolboxForMac.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/IHKeyboardAvoiding.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/leveldb.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/nanopb.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -951,7 +962,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
 		85DE0B2F5024FB3BA73E142B /* [CP] Copy Pods Resources */ = {
@@ -992,6 +1003,7 @@
 				88DAFD342061B8290001B0D3 /* GeneralInfoViewController.swift in Sources */,
 				889A318E1FB4F4F300D2E0E5 /* CreateAccountViewController.swift in Sources */,
 				88DAFD282061B1380001B0D3 /* SaveButtonFooterView.swift in Sources */,
+				8826AE4B21E4D141003D4A16 /* NotesViewController.swift in Sources */,
 				886325BC21D4410C00511F8B /* MigraineLocationViewController.swift in Sources */,
 				883A8D062119C3BA004DC71F /* AddNewViewController.swift in Sources */,
 				881E7FC91FBBAB2A00F4D9C0 /* DataService.swift in Sources */,
@@ -1082,6 +1094,7 @@
 				88D8A4A121A1BDD5000BB0BB /* HealthDeviceManager.swift in Sources */,
 				886325BD21D4410C00511F8B /* MigraineLocationViewController.swift in Sources */,
 				88DAFD312061B38B0001B0D3 /* NibFileOwnerLoadable.swift in Sources */,
+				8826AE4C21E4D141003D4A16 /* NotesViewController.swift in Sources */,
 				889A31931FB4F54D00D2E0E5 /* LogInViewController.swift in Sources */,
 				00130DFC1FA11FA300D8FBB6 /* DiaryEntry.swift in Sources */,
 				00130DF81FA11F9700D8FBB6 /* User.swift in Sources */,
@@ -1134,6 +1147,7 @@
 				88D8A4A221A1BDD5000BB0BB /* HealthDeviceManager.swift in Sources */,
 				886325BE21D4410C00511F8B /* MigraineLocationViewController.swift in Sources */,
 				88DAFD322061B38B0001B0D3 /* NibFileOwnerLoadable.swift in Sources */,
+				8826AE4D21E4D141003D4A16 /* NotesViewController.swift in Sources */,
 				889A31941FB4F54D00D2E0E5 /* LogInViewController.swift in Sources */,
 				00130DFD1FA11FA300D8FBB6 /* DiaryEntry.swift in Sources */,
 				00130DF91FA11F9700D8FBB6 /* User.swift in Sources */,

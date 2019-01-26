@@ -29,7 +29,8 @@ class SymptomsViewController: UIViewController, SavablePage, UIAlertViewDelegate
         tableView.register(selectableNib, forCellReuseIdentifier: selectableTableViewCellId)
         
         PatientInfoService.sharedInstance.getMedicalConditions { (savedSymptoms) in
-            if let serverSymptoms = savedSymptoms!["SYMPTOMS"] as? [String] {
+            if let serverSavedSymptoms = savedSymptoms,
+                let serverSymptoms = serverSavedSymptoms["SYMPTOMS"] as? [String] {
                 self.selectedSymptoms = serverSymptoms
                 for symptom in self.selectedSymptoms {
                     if !self.symptoms.contains(symptom) {

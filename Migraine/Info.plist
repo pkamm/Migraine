@@ -17,7 +17,7 @@
 	<key>CFBundleShortVersionString</key>
 	<string>1.0</string>
 	<key>CFBundleVersion</key>
-	<string>2</string>
+	<string>11</string>
 	<key>Fabric</key>
 	<dict>
 		<key>APIKey</key>
@@ -34,6 +34,10 @@
 	</dict>
 	<key>LSRequiresIPhoneOS</key>
 	<true/>
+	<key>NSHealthShareUsageDescription</key>
+	<string>MigraineAid needs access to health information.</string>
+	<key>NSLocationWhenInUseUsageDescription</key>
+	<string>MigraineAid would like to access you location information.</string>
 	<key>UIAppFonts</key>
 	<array>
 		<string>SFProText-Semibold.otf</string>
@@ -72,7 +76,5 @@
 		<string>UIInterfaceOrientationLandscapeLeft</string>
 		<string>UIInterfaceOrientationLandscapeRight</string>
 	</array>
-	<key>NSHealthShareUsageDescription</key>
-	<string>MigraineAid needs access to health information.</string>
 </dict>
 </plist>
