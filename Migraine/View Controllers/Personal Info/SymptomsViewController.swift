@@ -10,7 +10,7 @@ import UIKit
 
 class SymptomsViewController: UIViewController, SavablePage, UIAlertViewDelegate, UITabBarDelegate, UITableViewDataSource, UITableViewDelegate {
 
-    var symptoms = ["Sensitivity to Light", "Sensitivity to Sound", "Sensitivity to Smells", "Dizziness", "Moodiness/Irritability", "Fatigue", "Cravings", "Tinnitus", "Fever", "Decreased Appetite", "Nausea", "Pale", "Feeling Hot or Cold", "Body Pain", "Vomiting", "Seizures", "Abdominal Pain"]
+    var symptoms = ["Sensitivity to Light", "Sensitivity to Sound", "Sensitivity to Smells","Fatigue", "Nausea", "Vomiting","Dizziness", "Body Pain", "Abdominal Pain", "Moodiness/Irritability", "Cravings",  "Decreased Appetite", "Fever", "Pallor", "Feeling Hot or Cold",  "Seizures", "Tinnitus (ringing in the ears)", "Weakness in an Arm or a Leg"]
     
     var selectedSymptoms = [String]()
     

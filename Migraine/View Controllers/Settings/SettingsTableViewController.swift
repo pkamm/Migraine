@@ -54,6 +54,7 @@ class SettingsTableViewController: UITableViewController {
         default:
             return
         }
+        tableView.deselectRow(at: indexPath, animated: true)
     }
     
 //    override func numberOfSections(in tableView: UITableView) -> Int {

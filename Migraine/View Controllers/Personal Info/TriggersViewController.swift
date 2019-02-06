@@ -17,7 +17,7 @@ struct Section {
     init(title: String, objects : [String]) {
         heading = title
         items = objects
-        collapsed = false
+        collapsed = true
     }
 }
 
@@ -25,7 +25,7 @@ class TriggersViewController: UIViewController, SavablePage, UIAlertViewDelegate
 
     // for triggers
     let sectionA = Section(title: "Everyday Stressors", objects: ["Emotional Stress", "Hunger", "Dehydration", "Gaps in Between Meals", "Sexual Activity", "Infections", "Too Much Sleep", "Lack of Sleep", "Tiring Activity", "Exercise"])
-    let sectionB = Section(title: "Foods", objects: ["MSG", "Onions", "Citrus/Bananas", "Cheese", "Chocolate", "Nitrites", "Processed Foods", "Gluten", "Tyramine", "Dyes in Food", "Artificial Sweetners", "Aspartame", "Saccharin", "Sucralose - Chlorinated Sucrose"])
+    let sectionB = Section(title: "Foods", objects: ["MSG", "Onions", "Citrus/Bananas", "Cheese", "Chocolate", "Food With Nitrates e.g. Cold Cuts of Meat", "Processed Foods", "Gluten Containing Foods e.g. Wheat and Barley", "Tyramine Containing Foods", "Dyes in Food", "Artificial Sweetners", "Aspartame - Equal", "Saccharin - Sweet n Low", "Stevia", "Sucralose - Chlorinated Sucrose"])
     let sectionC = Section(title: "Hormonal", objects: ["Menstruation", "Birth Control Pill"])
     let sectionD = Section(title: "Sensory Overload", objects: ["Light", "Noise", "Motion", "Perfumes"])
     let sectionE = Section(title: "Weather", objects: ["High Barometeric Pressure", "High Humidity", "High Temperature", "Wind", "Change in Temperature", "Cold Temperature", "Lightning", "Drop in Barometric Pressure", "Flying"])

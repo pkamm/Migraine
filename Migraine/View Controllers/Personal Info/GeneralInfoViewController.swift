@@ -27,7 +27,7 @@ class GeneralInfoViewController: StandardBaseClassStyle, SavablePage, EditDelega
         QuestionInfo(text: "Anticipated date of next period", infoKey: InfoKey.NEXTPERIOD),
         QuestionInfo(text: "Methods of birth control", infoKey: InfoKey.BIRTHCONTROL)]
     
-    private let genderOptions = ["Female", "Male", "Other"]
+    private let genderOptions = ["Female", "Male"]
     private let birthControlOptions = ["None", "Estrogen/Progestin Pill", "Only Progestin Pill", "Patch", "Ring", "Progestin Shot", "Progestin Implant", "Hormone IUD", "Copper IUD"]
     private let genderBornAsOptions = ["Female", "Male"]
     private let hormoneTherapyOptions = ["None", "Estrogen", "Testosterone"]
@@ -98,7 +98,7 @@ class GeneralInfoViewController: StandardBaseClassStyle, SavablePage, EditDelega
     func saveButtonPressed(_ sender: Any) {
         var userInfoDictionary = [String: String?]()
         for (index, questionInfo) in questionInfoArray.enumerated() {
-            if let value = self.currentQuestionInfo?.value as? String {
+            if let value = questionInfo.value as? String {
                 userInfoDictionary[questionInfo.infoKey.rawValue] = value
             }
             if (index == 3 && isMaleSelected) { break }

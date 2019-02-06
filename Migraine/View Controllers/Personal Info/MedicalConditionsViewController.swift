@@ -10,7 +10,7 @@ import UIKit
 
 class MedicalConditionsViewController: UIViewController, SavablePage, UIAlertViewDelegate, UITabBarDelegate, UITableViewDataSource, UITableViewDelegate {
 
-    var conditions = ["High Blood Pressure", "Diabetes", "Heart Attack/Coronary Artery Disease", "Cancer", "Stroke", "Irritable Bowel Syndrome", "Thyroid Problem", "Benign Prostatic Hypertrophy", "Eating Disorders", "Polycystic Ovarian Disease", "Obesity", "HIV", "Depression", "Anxiety", "Schizophrenia/Bipolar Disorder", "Attention Deficit Hyperactivity Disorder", "Attention Deficit Disorder", "Panic Disorder", "Food Allergies"]
+    var conditions = ["Hypertension","Diabetes Mellitus","History of heart attack or coronary artery disease","History of stroke","Irritable bowel disease","Food Allergies","Depression","Anxiety","Panic disorder","Eating disorder","Schizophrenia or bipolar disorder","Obesity","Polycystic ovarian disorder","Attention deficit disorder","Hyperactivity disorder","Cancer"]
     
     var selectedConditions = [String]()
     
