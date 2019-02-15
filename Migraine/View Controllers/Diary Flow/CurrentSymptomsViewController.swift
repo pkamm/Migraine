@@ -62,6 +62,8 @@ class CurrentSymptomsViewController: UIViewController, SavablePage, UIAlertViewD
         if newSymptom != "" {
             if !symptoms.contains(newSymptom) {
                 symptoms.append(newSymptom)
+                let symptomDictionary = ["SYMPTOMS": symptoms]
+                PatientInfoService.sharedInstance.saveUser(infoDictionary: symptomDictionary as [String : AnyObject])
                 selectedSymptoms.append(newSymptom)
                 tableView.reloadData()
             } else {

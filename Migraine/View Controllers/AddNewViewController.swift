@@ -24,16 +24,21 @@ class AddNewViewController: UIViewController, UITableViewDelegate, UITableViewDa
         migraineTableView.tableHeaderView?.frame = CGRect(x: 0, y: 0, width: (migraineTableView.tableHeaderView?.bounds.width)!, height: 48)
         buttonStackView?.frame = (migraineTableView.tableHeaderView?.frame)!
         buttonStackView.updateConstraints()
+        NotificationCenter.default.addObserver(self, selector: #selector(reloadData), name: Notification.Name("ReloadDiaryDataNotification"), object: nil)
+        reloadData()
+    }
 
+    @objc func reloadData() {
         DiaryService.sharedInstance.getDiaryEntries { (entries) in
+            self.diaryEntries = []
             for entry in entries! {
                 self.diaryEntries.append(DiaryEntry(entry))
             }
+            self.diaryEntries.sort(by: { $0.date > $1.date })
             self.migraineTableView.reloadData()
         }
-        
     }
-
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
@@ -55,15 +60,22 @@ class AddNewViewController: UIViewController, UITableViewDelegate, UITableViewDa
         }
         return UITableViewCell()
     }
-    
 
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let diary = diaryEntries[indexPath.row]
+        performSegue(withIdentifier: "EditDiarySegue", sender: diary)
+    }
     
     // MARK: - Navigation
 
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        
         if let destination = segue.destination as? UINavigationController {
-            if(!isInMorning()){
+            if segue.identifier == "EditDiarySegue" {
+                if let destinationRoot = destination.viewControllers.first as? EditDiaryViewController,
+                    let diary = sender as? DiaryEntry {
+                    destinationRoot.editableDiaryEntry = diary
+                }
+            } else if(!isInMorning()){
                 if let stressVC = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "StressVC") as? StressViewController{
                     stressVC.cancelButton.isEnabled = true;
                     stressVC.cancelButton.tintColor = UIColor.lightText

@@ -26,12 +26,18 @@ class SliderTableViewCell: UITableViewCell {
         questionLabel.text = newQuestionInfo.text
         slider.maximumValue = Float(scale)
         slider.isContinuous = false
+        if let sliderValue = questionInfo?.value as? Float {
+            slider.value = sliderValue
+        } else if let sliderValue = questionInfo?.value as? Int {
+            slider.value = Float(sliderValue)
+        }
         sliderValueChanged(slider)
     }
 
     @IBAction func sliderValueChanged(_ sender: UISlider) {
         let fixedSliderValue = roundf(sender.value)
         sender.setValue(fixedSliderValue, animated: true)
+        questionInfo?.value = Int(fixedSliderValue)
         selectionLabel.text = questionInfo?.sliderLabels == nil ? String(fixedSliderValue) : questionInfo?.sliderLabels![Int(fixedSliderValue)]
     }
     

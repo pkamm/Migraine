@@ -42,7 +42,9 @@ class DiarySuccessViewController: UIViewController, SavablePage, CLLocationManag
     
 
     func saveButtonPressed(_ sender: Any) {
-        self.navigationController?.dismiss(animated: true, completion:nil);
+        self.navigationController?.dismiss(animated: true, completion: {
+            NotificationCenter.default.post(name: Notification.Name("ReloadDiaryDataNotification"), object: nil)
+        })
     }
     
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {

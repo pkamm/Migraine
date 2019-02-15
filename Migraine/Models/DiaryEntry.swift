@@ -55,15 +55,19 @@ class DiaryEntry{
     func migraineSeverityText() -> String {
         do{
             if try wasMigraine() {
-                switch try migraineSeverity(){
-                case 0:
-                    return "Mild Migraine"
-                case 1:
-                    return "Moderate Migraine"
-                case 2:
-                    return "Severe Migraine"
-                default:
-                    return "butt"
+                do{
+                    switch try migraineSeverity(){
+                    case 0:
+                        return "Mild Migraine"
+                    case 1:
+                        return "Moderate Migraine"
+                    case 2:
+                        return "Severe Migraine"
+                    default:
+                        return "Migraine"
+                    }
+                }catch{
+                    return "Migraine"
                 }
             } else {
                 return "No Migraine"

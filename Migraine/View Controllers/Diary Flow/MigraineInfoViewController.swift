@@ -108,6 +108,10 @@ class MigraineInfoViewController: UIViewController, UITableViewDataSource, UITab
         globalInputTextField.inputView = pickerView
     }
     
+    @IBAction func cancelButtonPressed(_ sender: Any) {
+        self.navigationController?.dismiss(animated: true, completion: nil)
+    }
+    
     @objc func dateChanged(_ datePicker: UIDatePicker) {
         currentQuestionInfo?.value = dateFormatter.string(from: datePicker.date)
         tableView.reloadData()

@@ -44,6 +44,9 @@
 		8826AE4B21E4D141003D4A16 /* NotesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8826AE4A21E4D141003D4A16 /* NotesViewController.swift */; };
 		8826AE4C21E4D141003D4A16 /* NotesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8826AE4A21E4D141003D4A16 /* NotesViewController.swift */; };
 		8826AE4D21E4D141003D4A16 /* NotesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8826AE4A21E4D141003D4A16 /* NotesViewController.swift */; };
+		882B59D92217029600BE46EB /* EditDiaryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 882B59D82217029600BE46EB /* EditDiaryViewController.swift */; };
+		882B59DA2217029600BE46EB /* EditDiaryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 882B59D82217029600BE46EB /* EditDiaryViewController.swift */; };
+		882B59DB2217029600BE46EB /* EditDiaryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 882B59D82217029600BE46EB /* EditDiaryViewController.swift */; };
 		883A8D062119C3BA004DC71F /* AddNewViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 883A8D052119C3BA004DC71F /* AddNewViewController.swift */; };
 		883A8D072119C3BA004DC71F /* AddNewViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 883A8D052119C3BA004DC71F /* AddNewViewController.swift */; };
 		883A8D082119C3BA004DC71F /* AddNewViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 883A8D052119C3BA004DC71F /* AddNewViewController.swift */; };
@@ -315,6 +318,7 @@
 		88119138211BC3FE00D851DB /* SliderTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SliderTableViewCell.xib; sourceTree = "<group>"; };
 		881E7FC81FBBAB2A00F4D9C0 /* DataService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataService.swift; sourceTree = "<group>"; };
 		8826AE4A21E4D141003D4A16 /* NotesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotesViewController.swift; sourceTree = "<group>"; };
+		882B59D82217029600BE46EB /* EditDiaryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditDiaryViewController.swift; sourceTree = "<group>"; };
 		883A8D052119C3BA004DC71F /* AddNewViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddNewViewController.swift; sourceTree = "<group>"; };
 		883A8D09211B18D7004DC71F /* DiaryService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiaryService.swift; sourceTree = "<group>"; };
 		883C2A821FA255E000701D57 /* DiaryRootViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiaryRootViewController.swift; sourceTree = "<group>"; };
@@ -505,6 +509,7 @@
 			isa = PBXGroup;
 			children = (
 				883A8D052119C3BA004DC71F /* AddNewViewController.swift */,
+				882B59D82217029600BE46EB /* EditDiaryViewController.swift */,
 				889A31891FB4F0AE00D2E0E5 /* MainTabBarController.swift */,
 				8817B17F21492D5900CD11D0 /* Login */,
 				8817B17D21492D3300CD11D0 /* Diary Flow */,
@@ -1014,6 +1019,7 @@
 				883A8D0A211B18D7004DC71F /* DiaryService.swift in Sources */,
 				88D407A721245245002D1326 /* ForgotPasswordViewController.swift in Sources */,
 				889A318A1FB4F0AE00D2E0E5 /* MainTabBarController.swift in Sources */,
+				882B59D92217029600BE46EB /* EditDiaryViewController.swift in Sources */,
 				88651554208576E800103378 /* SelectableTableViewCell.swift in Sources */,
 				008592DA1FD9A82300FE0245 /* MedicalConditionsViewController.swift in Sources */,
 				88119136211BA17400D851DB /* UIPickerView+Customizations.swift in Sources */,
@@ -1075,6 +1081,7 @@
 				888005842072C571003AF1DA /* UIColors+Additions.swift in Sources */,
 				88BB175D212DE7160087A35B /* DiarySuccessViewController.swift in Sources */,
 				889A318F1FB4F4F300D2E0E5 /* CreateAccountViewController.swift in Sources */,
+				882B59DA2217029600BE46EB /* EditDiaryViewController.swift in Sources */,
 				88BC1580208A854D00AC29CC /* PatientInfoService.swift in Sources */,
 				00130E001FA11FB300D8FBB6 /* MigraineEntry.swift in Sources */,
 				88BB1759212D94E40087A35B /* StressViewController.swift in Sources */,
@@ -1128,6 +1135,7 @@
 				888005852072C571003AF1DA /* UIColors+Additions.swift in Sources */,
 				88BB175E212DE7160087A35B /* DiarySuccessViewController.swift in Sources */,
 				889A31901FB4F4F300D2E0E5 /* CreateAccountViewController.swift in Sources */,
+				882B59DB2217029600BE46EB /* EditDiaryViewController.swift in Sources */,
 				88BC1581208A854D00AC29CC /* PatientInfoService.swift in Sources */,
 				00130E011FA11FB300D8FBB6 /* MigraineEntry.swift in Sources */,
 				88BB175A212D94E40087A35B /* StressViewController.swift in Sources */,

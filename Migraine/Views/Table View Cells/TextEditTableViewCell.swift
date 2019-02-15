@@ -41,6 +41,9 @@ class TextEditTableViewCell: UITableViewCell {
         self.addTitleText(newQuestionInfo.text)
         if let value = newQuestionInfo.value as? String {
             self.addValueText(value)
+        } else if let value = newQuestionInfo.value as? [String] {
+            let arrayText = value.joined(separator: ", ")
+            self.addValueText(arrayText)
         }
     }
     
@@ -74,6 +77,8 @@ class TextEditTableViewCell: UITableViewCell {
     }
     
     @IBAction func editButtonPressed(_ sender: Any) {
-        self.editDelegate?.editButtonPressed(questionInfo!)
+        if let qInfo = questionInfo {
+            self.editDelegate?.editButtonPressed(qInfo)
+        }
     }
 }

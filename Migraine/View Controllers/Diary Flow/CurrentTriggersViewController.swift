@@ -62,6 +62,8 @@ class CurrentTriggersViewController: UIViewController, SavablePage, UIAlertViewD
         if newTrigger != "" {
             if !triggers.contains(newTrigger) {
                 triggers.append(newTrigger)
+                let triggerDictionary = ["TRIGGERS": triggers]
+                PatientInfoService.sharedInstance.saveUser(infoDictionary: triggerDictionary as [String : AnyObject])
                 selectedTriggers.append(newTrigger)
                 tableView.reloadData()
             } else {

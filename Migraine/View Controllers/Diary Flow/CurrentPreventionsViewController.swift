@@ -29,7 +29,7 @@ class CurrentPreventionsViewController: UIViewController, SavablePage, UIAlertVi
         tableView.register(selectableNib, forCellReuseIdentifier: selectableTableViewCellId)
         PatientInfoService.sharedInstance.getMedicalConditions { (savedHelper) in
             if let savedServerHelper = savedHelper,
-                let serverHelper = savedServerHelper["HELPERS"] as? [String] {
+                let serverHelper = savedServerHelper["HELPMIGRAINE"] as? [String] {
                 self.helpers = serverHelper
                 self.tableView.reloadData()
             }
@@ -63,7 +63,9 @@ class CurrentPreventionsViewController: UIViewController, SavablePage, UIAlertVi
     func addNewHelper(_ newHelper:String!) {
         if newHelper != "" {
             if !helpers.contains(newHelper) {
-                helpers.append(newHelper)
+                self.helpers.append(newHelper)
+                let helperDictionary = ["HELPMIGRAINE": self.helpers]
+                PatientInfoService.sharedInstance.saveUser(infoDictionary: helperDictionary as [String : AnyObject])
                 selectedHelpers.append(newHelper)
                 tableView.reloadData()
             } else {
