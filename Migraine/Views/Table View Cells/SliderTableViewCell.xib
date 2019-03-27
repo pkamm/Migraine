@@ -37,16 +37,16 @@
                         <constraints>
                             <constraint firstAttribute="height" constant="20" id="7d9-48-z4r"/>
                         </constraints>
-                        <fontDescription key="fontDescription" name="SFProText-Regular" family="SF Pro Text" pointSize="15"/>
+                        <fontDescription key="fontDescription" name="SFProText-Regular" family="SF Pro Text" pointSize="17"/>
                         <color key="textColor" red="0.58999999999999997" green="0.41999999999999998" blue="0.38" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NsW-5p-r9b">
-                        <rect key="frame" x="16" y="19" width="43.5" height="16"/>
+                        <rect key="frame" x="16" y="19" width="49" height="16"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="16" id="DIC-mg-1hV"/>
                         </constraints>
-                        <fontDescription key="fontDescription" name="SFProText-Regular" family="SF Pro Text" pointSize="17"/>
+                        <fontDescription key="fontDescription" name="SFProText-Regular" family="SF Pro Text" pointSize="19"/>
                         <color key="textColor" red="0.78000000000000003" green="0.78000000000000003" blue="0.78000000000000003" alpha="1" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
                     </label>

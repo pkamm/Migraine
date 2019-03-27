@@ -15,10 +15,11 @@ class AddNewViewController: UIViewController, UITableViewDelegate, UITableViewDa
     @IBOutlet weak var migraineTableView: UITableView!
     @IBOutlet weak var buttonStackView: UIStackView!
     
-    var diaryEntries:[DiaryEntry] = []
+    var diaryService:DiaryService?
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        diaryService = DiaryService.sharedInstance
         newDiaryButton.layer.cornerRadius = 8;
         newMigraineButton.layer.cornerRadius = 8;
         migraineTableView.tableHeaderView?.frame = CGRect(x: 0, y: 0, width: (migraineTableView.tableHeaderView?.bounds.width)!, height: 48)
@@ -28,24 +29,41 @@ class AddNewViewController: UIViewController, UITableViewDelegate, UITableViewDa
         reloadData()
     }
 
+    
     @objc func reloadData() {
         DiaryService.sharedInstance.getDiaryEntries { (entries) in
-            self.diaryEntries = []
-            for entry in entries! {
-                self.diaryEntries.append(DiaryEntry(entry))
-            }
-            self.diaryEntries.sort(by: { $0.date > $1.date })
             self.migraineTableView.reloadData()
+            if DiaryService.sharedInstance.getUnfinishedMigraineDiaryEntry() != nil {
+                self.showMigraineFinishedAlert()
+            }
         }
+    }
+    
+    func showMigraineFinishedAlert(){
+        let alert = UIAlertController(title: "Has your last migraine ended?",
+                                      message: nil,
+                                      preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "Yes", style: .default, handler: { (action) in
+            alert.dismiss(animated: true, completion: nil)
+            self.performSegue(withIdentifier: "NewDiarySegueId", sender: nil)
+        }))
+        alert.addAction(UIAlertAction(title: "Not Yet", style: .default, handler: { (action) in
+            alert.dismiss(animated: true, completion: nil)
+            let sorryAlert = UIAlertController(title: "Feel better soon (you can log this migraine when you are feeling better).",
+                                               message: nil,
+                                               preferredStyle: .alert)
+            sorryAlert.addAction(UIAlertAction(title: "Ok", style: .cancel, handler:nil))
+            self.present(sorryAlert, animated: true, completion: nil)
+        }))
+        present(alert, animated: true, completion: nil)
     }
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return diaryEntries.count;
+        return diaryService!.diaryEntries.count;
     }
     
     func numberOfSections(in tableView: UITableView) -> Int {
@@ -54,7 +72,7 @@ class AddNewViewController: UIViewController, UITableViewDelegate, UITableViewDa
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         if let cell = tableView.dequeueReusableCell(withIdentifier: "DiaryEntryTableViewCellId", for: indexPath) as? DiaryEntryTableViewCell {
-            let diary = diaryEntries[indexPath.row]
+            let diary = diaryService!.diaryEntries[indexPath.row]
             cell.configureWith(diary: diary)
             return cell
         }
@@ -62,8 +80,9 @@ class AddNewViewController: UIViewController, UITableViewDelegate, UITableViewDa
     }
 
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let diary = diaryEntries[indexPath.row]
+        let diary = diaryService!.diaryEntries[indexPath.row]
         performSegue(withIdentifier: "EditDiarySegue", sender: diary)
+        tableView.deselectRow(at: indexPath, animated: true)
     }
     
     // MARK: - Navigation
@@ -75,23 +94,37 @@ class AddNewViewController: UIViewController, UITableViewDelegate, UITableViewDa
                     let diary = sender as? DiaryEntry {
                     destinationRoot.editableDiaryEntry = diary
                 }
-            } else if(!isInMorning()){
-                if let stressVC = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "StressVC") as? StressViewController{
-                    stressVC.cancelButton.isEnabled = true;
-                    stressVC.cancelButton.tintColor = UIColor.lightText
-                    destination.setViewControllers([stressVC], animated: false)
+            } else {
+                if let unfinishedMigraineEntry = DiaryService.sharedInstance.getUnfinishedMigraineDiaryEntry() {
+                    DiaryService.sharedInstance.pendingDiaryEntry = unfinishedMigraineEntry
+                } else {
+                    DiaryService.sharedInstance.pendingDiaryEntry = DiaryEntry()
+                }
+                if(DiaryService.sharedInstance.hasEnteredSleepDataToday()){
+                    destination.viewControllers.first?.performSegue(withIdentifier: "StressSegue", sender: nil)
                 }
             }
         }
     }
     
-    func isInMorning()->Bool {
-        let date = Date()
-        let calendar = Calendar.current
-        let hour = calendar.component(.hour, from: date)
-        return (hour < 12)
+    func hasSavedSleepEntry() -> Bool {
+        return false;
+    }
+    
+    @IBAction func newMigraineButtonPressed(_ sender: Any) {
+        let alert = UIAlertController(title: "Feel better soon (you can log this migraine when you are feeling better).",
+                                      message: nil,
+                                      preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "OK", style: .default, handler: { (action) in
+            let questionInfo = QuestionInfo(value: "yes", infoKey: .HADMIGRAINE)
+            DiaryService.sharedInstance.submit(questionInfos: [questionInfo], date: Date(), completion:{})
+            alert.dismiss(animated: true, completion: nil)
+        }))
+        alert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
+        present(alert, animated: true, completion: nil)
     }
 
+    
 }
 
 class MigraineTableViewCell: UITableViewCell {
@@ -100,6 +133,5 @@ class MigraineTableViewCell: UITableViewCell {
     @IBOutlet weak var migraineMainLabel: UILabel!
     @IBOutlet weak var migraineSecondaryLabel: UILabel!
     @IBOutlet weak var migraineDateLabel: UILabel!
-    
     
 }

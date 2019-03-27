@@ -29,7 +29,7 @@
                         <constraints>
                             <constraint firstAttribute="height" constant="56" id="wvg-Nx-goy"/>
                         </constraints>
-                        <fontDescription key="fontDescription" name="SFProText-Semibold" family="SF Pro Text" pointSize="17"/>
+                        <fontDescription key="fontDescription" name="SFProText-Semibold" family="SF Pro Text" pointSize="19"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>

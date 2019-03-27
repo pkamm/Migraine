@@ -186,6 +186,13 @@ class TriggersViewController: UIViewController, SavablePage, UIAlertViewDelegate
         }
     }
     
+    @IBAction func infoButtonPressed(_ sender: Any) {
+        let alert = UIAlertController(title: "Triggers", message: "Trigger are foods, actions, or other stimuli that tend to initiate migraines for you.", preferredStyle: .alert)
+        let action = UIAlertAction(title: "OK", style: .default, handler: nil)
+        alert.addAction(action)
+        self.present(alert, animated: true, completion: nil)
+    }
+    
     /*
     // MARK: - Navigation
 

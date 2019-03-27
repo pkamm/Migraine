@@ -49,7 +49,7 @@ class TextEditTableViewCell: UITableViewCell {
     
     func addTitleText(_ text:String) {
         let textString = NSMutableAttributedString(string: text, attributes: [
-            .font: UIFont(name: "SFProText-Semibold", size: 17)!
+            .font: UIFont(name: "SFProText-Semibold", size: 19)!
             ])
         let textRange = NSRange(location: 0, length: textString.length)
         let paragraphStyle = NSMutableParagraphStyle()
@@ -62,7 +62,7 @@ class TextEditTableViewCell: UITableViewCell {
     func addValueText(_ text:String?) {
         let displayValue = (text == nil) ? "" : text
         let textString = NSMutableAttributedString(string: displayValue!, attributes: [
-            .font: UIFont(name: "SFProText-Regular", size: 15)!
+            .font: UIFont(name: "SFProText-Regular", size: 16)!
             ])
         let textRange = NSRange(location: 0, length: textString.length)
         let paragraphStyle = NSMutableParagraphStyle()

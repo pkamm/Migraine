@@ -16,10 +16,14 @@ class DiaryEntry{
     
     var questionInfos: [QuestionInfo] = []
     var date: Date
+
+    
+    init(){
+        date = Date()
+    }
     
     init(_ object:(key: String, value: AnyObject?)){
         questionInfos = []
-        // date = DiaryService.sharedInstance.dateFormatter.date(from:object.key)!
         if let theDate = DiaryService.sharedInstance.dateFormatter.date(from:object.key) {
             date = theDate
         } else {
@@ -30,19 +34,10 @@ class DiaryEntry{
                 let questionInfo = QuestionInfo(value: keyValPair[key],
                                                 infoKey: InfoKey(rawValue: key as! String)!)
                 questionInfos.append(questionInfo)
-                
-                
-                //                if let theEntries = entry as? [String:String] {
-                //                    for (key, value) in theEntries {
-                //                        let questionInfo = QuestionInfo(text: value,
-                //                                                        infoKey: InfoKey(rawValue: key)!)
-                //                        questionInfos.append(questionInfo)
-                //                    }
-                //                }
             }
         }
     }
-    
+
     func wasMigraine() throws -> Bool {
         for questionInfo in questionInfos {
             if questionInfo.infoKey == .HADMIGRAINE, let stringValue = questionInfo.value as? String {
@@ -50,6 +45,25 @@ class DiaryEntry{
             }
         }
         throw DiaryError.runtimeError("Missing info as to whether there was a migraine")
+    }
+    
+    func migraineEndDate() -> String? {
+        for questionInfo in questionInfos {
+            if questionInfo.infoKey == .MIGRAINEEND, let stringValue = questionInfo.value as? String {
+                return stringValue
+            }
+        }
+        return nil
+    }
+    
+    func hasSleepData() -> Bool {
+        for questionInfo in questionInfos {
+            if questionInfo.infoKey == .SLEEPQUALITY,
+                let stringValue = questionInfo.value {
+                return true
+            }
+        }
+        return false
     }
     
     func migraineSeverityText() -> String {

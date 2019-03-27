@@ -144,7 +144,6 @@ class DiaryRootViewController: UIViewController, UITableViewDataSource, UITableV
     @objc func donePressed(sender: UIBarButtonItem) {
         globalInputTextField.resignFirstResponder()
     }
-
  
 
 }

@@ -32,6 +32,11 @@ enum InfoKey: String {
     case MORNINGNOTIFICATION
     case EVENINGNOTIFICATION
     case HEADACHELOCATIONS
+    case HEADACHEDURATION
+    case HEADACHESIDE
+    case GETAURA
+    case AURANOTES
+    case DIARYNOTES
 }
 
 

@@ -142,7 +142,13 @@ class HelpersViewController: UIViewController, SavablePage, UIAlertViewDelegate,
             selectedHelpers = selectedHelpers.filter(){$0 != helper}
         }
     }
-    
+
+    @IBAction func infoButtonPressed(_ sender: Any) {
+        let alert = UIAlertController(title: "Helpers", message: "Helpers are foods, actions, or other stimuli that tend to help allievate migraines when you have them.", preferredStyle: .alert)
+        let action = UIAlertAction(title: "OK", style: .default, handler: nil)
+        alert.addAction(action)
+        self.present(alert, animated: true, completion: nil)
+    }
 
     /*
     // MARK: - Navigation

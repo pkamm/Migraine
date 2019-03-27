@@ -136,6 +136,13 @@ class EditDiaryViewController: UIViewController, UITableViewDelegate, UITableVie
                 return cell
             }
             break
+        case .DIARYNOTES:
+            if let cell = tableView.dequeueReusableCell(withIdentifier: textEditTableViewCellId, for: indexPath) as? TextEditTableViewCell {
+                cell.setQuestionInfo(questionInfo)
+                cell.editDelegate = self
+                return cell
+            }
+            break
         case .SLEEPQUALITY:
             if let cell = tableView.dequeueReusableCell(withIdentifier: sliderTableViewCellId, for: indexPath) as? SliderTableViewCell {
                 cell.setQuestionInfo(questionInfo, scale: 4)
