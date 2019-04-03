@@ -160,14 +160,19 @@ class GeneralInfoViewController: StandardBaseClassStyle, SavablePage, EditDelega
             return
         case .AGE:
             createPicker(title: "Age")
+            break
         case .BIRTHCONTROL:
             createPicker(title: "Birth Control")
+            break
         case .HORMONETHERAPY:
             createPicker(title: "Hormone Therapy")
+            break
         case .LMP:
             createDatePicker(title: "LMP")
+            break
         case .NEXTPERIOD:
             createDatePicker(title: "Last Period")
+            break
         default:
             return;
         }

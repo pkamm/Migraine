@@ -437,7 +437,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Welcome to MigraineAid" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ToR-Vf-gWp">
-                                <rect key="frame" x="57" y="424" width="261.5" height="26"/>
+                                <rect key="frame" x="67.5" y="424" width="240" height="26"/>
                                 <fontDescription key="fontDescription" name="SFProText-Semibold" family="SF Pro Text" pointSize="22"/>
                                 <color key="textColor" red="0.78000000000000003" green="0.78000000000000003" blue="0.78000000000000003" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
@@ -719,7 +719,7 @@
                                                     </constraints>
                                                 </imageView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Usual Day" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Uv3-t7-StX">
-                                                    <rect key="frame" x="71" y="13" width="81" height="18"/>
+                                                    <rect key="frame" x="71" y="13" width="77.5" height="18"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="18" id="uJE-Ju-n9d"/>
                                                     </constraints>
@@ -728,7 +728,7 @@
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qKv-rN-Aor">
-                                                    <rect key="frame" x="329" y="22" width="31" height="18"/>
+                                                    <rect key="frame" x="330.5" y="22" width="29.5" height="18"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="18" id="32S-11-Qfw"/>
                                                     </constraints>
@@ -737,7 +737,7 @@
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" text="No Migraine" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Qv2-4i-O7T">
-                                                    <rect key="frame" x="71" y="31" width="250" height="18"/>
+                                                    <rect key="frame" x="71" y="31" width="251.5" height="18"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="18" id="R7m-KQ-iJa"/>
                                                     </constraints>
@@ -1678,7 +1678,7 @@
                                         </tableViewCellContentView>
                                         <color key="backgroundColor" red="0.08235294118" green="0.062745098040000002" blue="0.050980392159999999" alpha="1" colorSpace="calibratedRGB"/>
                                         <connections>
-                                            <segue destination="XT8-Lc-5sN" kind="show" id="XhW-V4-7OK"/>
+                                            <segue destination="Oej-OY-OGr" kind="show" id="XAE-3c-ENH"/>
                                         </connections>
                                     </tableViewCell>
                                 </cells>
@@ -2754,12 +2754,12 @@
             </objects>
             <point key="canvasLocation" x="1628" y="-1013"/>
         </scene>
-        <!--General Info-->
+        <!--Headache Details-->
         <scene sceneID="XvY-65-U91">
             <objects>
-                <viewController title="General Info" id="Oej-OY-OGr" customClass="GeneralInfoViewController" customModule="Migraine" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController title="Headache Details" id="Oej-OY-OGr" customClass="HeadacheDetailsViewController" customModule="Migraine" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="zed-l1-nn0">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="502"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="hdk-zA-DUX">
@@ -2772,7 +2772,7 @@
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" allowsSelection="NO" rowHeight="104" estimatedRowHeight="-1" sectionHeaderHeight="-1" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="ecF-Om-T3g">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="591"/>
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="426"/>
                                 <color key="backgroundColor" red="0.08235294118" green="0.062745098040000002" blue="0.050980392159999999" alpha="1" colorSpace="calibratedRGB"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="8NI-vo-Ndi">
@@ -2790,7 +2790,7 @@
                                 </connections>
                             </tableView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="FDb-18-DLf" customClass="SaveButtonFooterView" customModule="Migraine" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="591" width="375" height="76"/>
+                                <rect key="frame" x="0.0" y="426" width="375" height="76"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="76" id="TfI-Aj-jdO"/>
@@ -2811,10 +2811,10 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="FdE-Ds-gea"/>
                     </view>
-                    <navigationItem key="navigationItem" id="VsJ-dU-wie"/>
+                    <navigationItem key="navigationItem" title="Headache Details" id="04d-bk-3un"/>
                     <connections>
                         <outlet property="globalInputTextField" destination="hdk-zA-DUX" id="o0a-Rv-TA4"/>
-                        <outlet property="saveButtonFooter" destination="FDb-18-DLf" id="Z1V-8q-zGG"/>
+                        <outlet property="saveButtonFooter" destination="FDb-18-DLf" id="ZqN-9E-vVg"/>
                         <outlet property="tableView" destination="ecF-Om-T3g" id="n1l-bA-e9B"/>
                     </connections>
                 </viewController>
@@ -2845,7 +2845,6 @@
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="bxf-Mb-gFl"/>
-        <segue reference="3re-Id-prx"/>
         <segue reference="ckt-f4-VXe"/>
     </inferredMetricsTieBreakers>
 </document>

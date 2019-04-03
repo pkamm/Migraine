@@ -12,8 +12,8 @@ protocol EditDelegate: class {
     func editButtonPressed(_ questionInfo:QuestionInfo!)
 }
 
-class TextEditTableViewCell: UITableViewCell {
-    
+class TextEditTableViewCell: UITableViewCell, QuestionInfoTableViewCell {
+
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var currentValueLabel: UILabel!
     @IBOutlet weak var editButton: UIButton!
@@ -36,12 +36,12 @@ class TextEditTableViewCell: UITableViewCell {
         backgroundColor = UIColor.darkBackgroundColor()
     }
     
-    func setQuestionInfo(_ newQuestionInfo:QuestionInfo!) {
-        questionInfo = newQuestionInfo
-        self.addTitleText(newQuestionInfo.text)
-        if let value = newQuestionInfo.value as? String {
+    func setQuestionInfo(_ questionInfo:QuestionInfo!) {
+        self.questionInfo = questionInfo
+        self.addTitleText(questionInfo.text)
+        if let value = questionInfo.value as? String {
             self.addValueText(value)
-        } else if let value = newQuestionInfo.value as? [String] {
+        } else if let value = questionInfo.value as? [String] {
             let arrayText = value.joined(separator: ", ")
             self.addValueText(arrayText)
         }
@@ -81,4 +81,9 @@ class TextEditTableViewCell: UITableViewCell {
             self.editDelegate?.editButtonPressed(qInfo)
         }
     }
+    
+    func setEditDelegate(_ editDelegate: EditDelegate) {
+        self.editDelegate = editDelegate
+    }
+    
 }

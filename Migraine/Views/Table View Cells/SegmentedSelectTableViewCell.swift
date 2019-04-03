@@ -8,7 +8,7 @@
 
 import UIKit
 
-class SegmentedSelectTableViewCell: UITableViewCell {
+class SegmentedSelectTableViewCell: UITableViewCell, QuestionInfoTableViewCell {
 
     @IBOutlet weak var segmentedControl: UISegmentedControl!
     @IBOutlet weak var titleLabel: UILabel!
@@ -64,6 +64,12 @@ class SegmentedSelectTableViewCell: UITableViewCell {
             }
         }
     }
+    
+    func setEditDelegate(_ editDelegate: EditDelegate) {
+        self.editDelegate = editDelegate
+    }
+    
+
     
     @IBAction func selectedValueChanged(_ sender: UISegmentedControl) {
         questionInfo?.value = sender.titleForSegment(at: sender.selectedSegmentIndex)

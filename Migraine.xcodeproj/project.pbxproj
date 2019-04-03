@@ -35,9 +35,6 @@
 		8811913C211BC3FE00D851DB /* SliderTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 88119138211BC3FE00D851DB /* SliderTableViewCell.xib */; };
 		8811913D211BC3FE00D851DB /* SliderTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 88119138211BC3FE00D851DB /* SliderTableViewCell.xib */; };
 		8811913E211BC3FE00D851DB /* SliderTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 88119138211BC3FE00D851DB /* SliderTableViewCell.xib */; };
-		881E7FC91FBBAB2A00F4D9C0 /* DataService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 881E7FC81FBBAB2A00F4D9C0 /* DataService.swift */; };
-		881E7FCA1FBBAB2A00F4D9C0 /* DataService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 881E7FC81FBBAB2A00F4D9C0 /* DataService.swift */; };
-		881E7FCB1FBBAB2A00F4D9C0 /* DataService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 881E7FC81FBBAB2A00F4D9C0 /* DataService.swift */; };
 		8826AE4B21E4D141003D4A16 /* NotesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8826AE4A21E4D141003D4A16 /* NotesViewController.swift */; };
 		8826AE4C21E4D141003D4A16 /* NotesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8826AE4A21E4D141003D4A16 /* NotesViewController.swift */; };
 		8826AE4D21E4D141003D4A16 /* NotesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8826AE4A21E4D141003D4A16 /* NotesViewController.swift */; };
@@ -192,6 +189,7 @@
 		8880060020745820003AF1DA /* TermsOfServiceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 888005FF20745820003AF1DA /* TermsOfServiceViewController.swift */; };
 		8880060120745820003AF1DA /* TermsOfServiceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 888005FF20745820003AF1DA /* TermsOfServiceViewController.swift */; };
 		8880060220745820003AF1DA /* TermsOfServiceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 888005FF20745820003AF1DA /* TermsOfServiceViewController.swift */; };
+		8880154C22552A85000ADE0C /* QuestionInfoTableViewCellProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8880154B22552A85000ADE0C /* QuestionInfoTableViewCellProtocol.swift */; };
 		888E46E4211DC1BD00CFC42A /* RemoveElementTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 888E46E2211DC1BD00CFC42A /* RemoveElementTableViewCell.swift */; };
 		888E46E5211DC1BD00CFC42A /* RemoveElementTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 888E46E2211DC1BD00CFC42A /* RemoveElementTableViewCell.swift */; };
 		888E46E6211DC1BD00CFC42A /* RemoveElementTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 888E46E2211DC1BD00CFC42A /* RemoveElementTableViewCell.swift */; };
@@ -318,7 +316,6 @@
 		88119135211BA17400D851DB /* UIPickerView+Customizations.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIPickerView+Customizations.swift"; sourceTree = "<group>"; };
 		88119137211BC3FE00D851DB /* SliderTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SliderTableViewCell.swift; sourceTree = "<group>"; };
 		88119138211BC3FE00D851DB /* SliderTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SliderTableViewCell.xib; sourceTree = "<group>"; };
-		881E7FC81FBBAB2A00F4D9C0 /* DataService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataService.swift; sourceTree = "<group>"; };
 		8826AE4A21E4D141003D4A16 /* NotesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotesViewController.swift; sourceTree = "<group>"; };
 		882B59D82217029600BE46EB /* EditDiaryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditDiaryViewController.swift; sourceTree = "<group>"; };
 		882B59DC22176AA500BE46EB /* HeadacheDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeadacheDetailsViewController.swift; sourceTree = "<group>"; };
@@ -371,6 +368,7 @@
 		888005A32072D31D003AF1DA /* SF-Pro-Display-BoldItalic.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SF-Pro-Display-BoldItalic.otf"; sourceTree = "<group>"; };
 		888005A42072D31D003AF1DA /* SF-Pro-Text-SemiboldItalic.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SF-Pro-Text-SemiboldItalic.otf"; sourceTree = "<group>"; };
 		888005FF20745820003AF1DA /* TermsOfServiceViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TermsOfServiceViewController.swift; sourceTree = "<group>"; };
+		8880154B22552A85000ADE0C /* QuestionInfoTableViewCellProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuestionInfoTableViewCellProtocol.swift; sourceTree = "<group>"; };
 		888E46E2211DC1BD00CFC42A /* RemoveElementTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemoveElementTableViewCell.swift; sourceTree = "<group>"; };
 		888E46E3211DC1BD00CFC42A /* RemoveElementTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RemoveElementTableViewCell.xib; sourceTree = "<group>"; };
 		889A31891FB4F0AE00D2E0E5 /* MainTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabBarController.swift; sourceTree = "<group>"; };
@@ -500,7 +498,6 @@
 				00130DF61FA11F9700D8FBB6 /* User.swift */,
 				00130DFA1FA11FA300D8FBB6 /* DiaryEntry.swift */,
 				883A8D09211B18D7004DC71F /* DiaryService.swift */,
-				881E7FC81FBBAB2A00F4D9C0 /* DataService.swift */,
 				88BC157A208A293E00AC29CC /* QuestionInfo.swift */,
 				88BC157E208A854D00AC29CC /* PatientInfoService.swift */,
 				88D8A49F21A1BDD5000BB0BB /* HealthDeviceManager.swift */,
@@ -581,6 +578,7 @@
 				88DAFD122061A5840001B0D3 /* StandardBaseClassStyle.swift */,
 				88DAFD2F2061B38B0001B0D3 /* NibFileOwnerLoadable.swift */,
 				886571A12098E8FE001F9AB7 /* SuccessAlert.swift */,
+				8880154B22552A85000ADE0C /* QuestionInfoTableViewCellProtocol.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -1019,7 +1017,6 @@
 				8826AE4B21E4D141003D4A16 /* NotesViewController.swift in Sources */,
 				886325BC21D4410C00511F8B /* MigraineLocationViewController.swift in Sources */,
 				883A8D062119C3BA004DC71F /* AddNewViewController.swift in Sources */,
-				881E7FC91FBBAB2A00F4D9C0 /* DataService.swift in Sources */,
 				88D8A4A021A1BDD5000BB0BB /* HealthDeviceManager.swift in Sources */,
 				883C2A971FA2747C00701D57 /* CurrentPreventionsViewController.swift in Sources */,
 				882B59DD22176AA500BE46EB /* HeadacheDetailsViewController.swift in Sources */,
@@ -1028,6 +1025,7 @@
 				883A8D0A211B18D7004DC71F /* DiaryService.swift in Sources */,
 				88D407A721245245002D1326 /* ForgotPasswordViewController.swift in Sources */,
 				889A318A1FB4F0AE00D2E0E5 /* MainTabBarController.swift in Sources */,
+				8880154C22552A85000ADE0C /* QuestionInfoTableViewCellProtocol.swift in Sources */,
 				882B59D92217029600BE46EB /* EditDiaryViewController.swift in Sources */,
 				88651554208576E800103378 /* SelectableTableViewCell.swift in Sources */,
 				008592DA1FD9A82300FE0245 /* MedicalConditionsViewController.swift in Sources */,
@@ -1080,7 +1078,6 @@
 				882B59DE22176AA500BE46EB /* HeadacheDetailsViewController.swift in Sources */,
 				883A8D072119C3BA004DC71F /* AddNewViewController.swift in Sources */,
 				00130DD91FA1041800D8FBB6 /* MigraineTests.swift in Sources */,
-				881E7FCA1FBBAB2A00F4D9C0 /* DataService.swift in Sources */,
 				88DAFD292061B1380001B0D3 /* SaveButtonFooterView.swift in Sources */,
 				88BC157C208A293E00AC29CC /* QuestionInfo.swift in Sources */,
 				88DAFD3B2061C2260001B0D3 /* SegmentedSelectTableViewCell.swift in Sources */,
@@ -1135,7 +1132,6 @@
 				882B59DF22176AA500BE46EB /* HeadacheDetailsViewController.swift in Sources */,
 				883A8D082119C3BA004DC71F /* AddNewViewController.swift in Sources */,
 				00130DE41FA1041800D8FBB6 /* MigraineUITests.swift in Sources */,
-				881E7FCB1FBBAB2A00F4D9C0 /* DataService.swift in Sources */,
 				88DAFD2A2061B1380001B0D3 /* SaveButtonFooterView.swift in Sources */,
 				88BC157D208A293E00AC29CC /* QuestionInfo.swift in Sources */,
 				88DAFD3C2061C2260001B0D3 /* SegmentedSelectTableViewCell.swift in Sources */,
