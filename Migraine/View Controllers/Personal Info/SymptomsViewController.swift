@@ -16,6 +16,7 @@ class SymptomsViewController: UIViewController, SavablePage, UIAlertViewDelegate
     
     @IBOutlet weak var saveButtonFooter: SaveButtonFooterView!
     @IBOutlet weak var tableView: UITableView!
+    var isOnboarding = false
     
     private let addElementTableViewCellId = "AddElementViewControllerId"
     private let selectableTableViewCellId = "SelectableTableViewCellId"
@@ -59,14 +60,11 @@ class SymptomsViewController: UIViewController, SavablePage, UIAlertViewDelegate
     func saveButtonPressed(_ sender: Any) {
         let symptomDictionary = ["SYMPTOMS": selectedSymptoms]
         PatientInfoService.sharedInstance.saveUser(infoDictionary: symptomDictionary as [String : AnyObject])
-    
-        let alert = UIAlertController(title: "\n\n\nSymptoms Saved!", message: nil, preferredStyle: .alert)
-        let action = UIAlertAction(title: "OK", style: .default, handler: { (action) in
-            self.navigationController?.popViewController(animated: true)
-        })
-        alert.addAction(action)
-        alert.addCheckMark()
-        self.present(alert, animated: true, completion: nil)
+        if isOnboarding {
+            performSegue(withIdentifier: "OnboardingTriggersSegue", sender: self)
+        } else {
+            showSavedAlert("Symptoms Saved!")
+        }
     }
     
     func showAddNewSymptomAlert() {
@@ -140,6 +138,12 @@ class SymptomsViewController: UIViewController, SavablePage, UIAlertViewDelegate
         let symptom = symptoms[indexPath.row]
         if selectedSymptoms.contains(symptom) {
             selectedSymptoms = selectedSymptoms.filter(){$0 != symptom}
+        }
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if let onboardingVC = segue.destination as? TriggersViewController {
+            onboardingVC.isOnboarding = true
         }
     }
 

@@ -27,9 +27,13 @@ class OnboardingViewController: UIViewController, OnboardingPageViewControllerDe
         // Dispose of any resources that can be recreated.
     }
     
+    
     @IBAction func nextButtonPressed(_ sender: Any) {
         if( pageIndex >= pageCount - 1){
-            dismiss(animated: true, completion: nil)
+            dismiss(animated: true) {
+        NotificationCenter.default.post(name: Notification.Name("ShowAddPersonalInfoNotification"), object: nil)
+                
+            }
         } else {
             pageViewController?.scrollToNextViewController()
         }
@@ -51,12 +55,6 @@ class OnboardingViewController: UIViewController, OnboardingPageViewControllerDe
 
     /*
     // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
     */
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if let pageVC = segue.destination as? OnboardingPageViewController {

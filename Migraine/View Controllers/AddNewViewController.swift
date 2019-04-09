@@ -26,9 +26,13 @@ class AddNewViewController: UIViewController, UITableViewDelegate, UITableViewDa
         buttonStackView?.frame = (migraineTableView.tableHeaderView?.frame)!
         buttonStackView.updateConstraints()
         NotificationCenter.default.addObserver(self, selector: #selector(reloadData), name: Notification.Name("ReloadDiaryDataNotification"), object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(showAddPersonalInfo), name: Notification.Name("ShowAddPersonalInfoNotification"), object: nil)
         reloadData()
     }
-
+    
+    @objc func showAddPersonalInfo() {
+        performSegue(withIdentifier: "InfoSegue", sender: self)
+    }
     
     @objc func reloadData() {
         DiaryService.sharedInstance.getDiaryEntries { (entries) in
@@ -94,6 +98,10 @@ class AddNewViewController: UIViewController, UITableViewDelegate, UITableViewDa
                     let diary = sender as? DiaryEntry {
                     destinationRoot.editableDiaryEntry = diary
                 }
+            } else if segue.identifier == "InfoSegue" {
+                if let root = destination.viewControllers.first as? GeneralInfoViewController{
+                    root.isOnboarding = true
+                }
             } else {
                 if let unfinishedMigraineEntry = DiaryService.sharedInstance.getUnfinishedMigraineDiaryEntry() {
                     DiaryService.sharedInstance.pendingDiaryEntry = unfinishedMigraineEntry
@@ -109,6 +117,10 @@ class AddNewViewController: UIViewController, UITableViewDelegate, UITableViewDa
     
     func hasSavedSleepEntry() -> Bool {
         return false;
+    }
+    @IBAction func testet(_ sender: Any) {
+        NotificationCenter.default.post(name: Notification.Name("ShowAddPersonalInfoNotification"), object: nil)
+
     }
     
     @IBAction func newMigraineButtonPressed(_ sender: Any) {

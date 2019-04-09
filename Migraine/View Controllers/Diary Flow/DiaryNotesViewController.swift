@@ -34,11 +34,11 @@ class DiaryNotesViewController: UIViewController, SavablePage, UITextViewDelegat
             notesText != "" {
             let notesQuestionInfo = QuestionInfo(value: notesText, infoKey: .DIARYNOTES)
             DiaryService.sharedInstance.addQuestionInfosToPendingDiaryEntry(questionInfos: [notesQuestionInfo])
-            DiaryService.sharedInstance.submitPendingDiaryEntry {
-                self.performSegue(withIdentifier: "SuccessSegue", sender: nil)
-            }
         }
-        dismiss(animated: true, completion: nil)
+        DiaryService.sharedInstance.submitPendingDiaryEntry {
+            self.performSegue(withIdentifier: "SuccessSegue", sender: nil)
+        }
+        //dismiss(animated: true, completion: nil)
     }
 
 }

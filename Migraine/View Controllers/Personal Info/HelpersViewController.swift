@@ -12,6 +12,7 @@ class HelpersViewController: UIViewController, SavablePage, UIAlertViewDelegate,
 
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var saveButtonFooter: SaveButtonFooterView!
+    var isOnboarding = false
     
     var selectedHelpers = [String]()
     var helpers = ["Sleep", "Medications", "Exercise", "Drinking Water", "Caffeine", "Chocolate", "Glasses to Prevent Glare", "Yoga"]
@@ -55,14 +56,11 @@ class HelpersViewController: UIViewController, SavablePage, UIAlertViewDelegate,
     func saveButtonPressed(_ sender: Any) {
         let helperDictionary = ["HELPMIGRAINE": selectedHelpers]
         PatientInfoService.sharedInstance.saveUser(infoDictionary: helperDictionary as [String : AnyObject])
-        
-        let alert = UIAlertController(title: "\n\n\nHelpers Saved!", message: nil, preferredStyle: .alert)
-        let action = UIAlertAction(title: "OK", style: .default, handler: { (action) in
-            self.navigationController?.popViewController(animated: true)
-        })
-        alert.addAction(action)
-        alert.addCheckMark()
-        self.present(alert, animated: true, completion: nil)
+        if isOnboarding {
+            performSegue(withIdentifier: "OnboardingHeadacheSegue", sender: self)
+        } else {
+            showSavedAlert("Helpers Saved!")
+        }
     }
     
     func showAddNewHelperAlert() {
@@ -150,14 +148,10 @@ class HelpersViewController: UIViewController, SavablePage, UIAlertViewDelegate,
         self.present(alert, animated: true, completion: nil)
     }
 
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+        if let onboardingVC = segue.destination as? HeadacheDetailsViewController {
+            onboardingVC.isOnboarding = true
+        }
     }
-    */
 
 }

@@ -35,7 +35,8 @@ class TriggersViewController: UIViewController, SavablePage, UIAlertViewDelegate
     
     var triggerSections:[Section] = []
     var selectedTriggers = [String]()
-    
+    var isOnboarding = false
+
     @IBOutlet weak var saveButtonFooter: SaveButtonFooterView!
     @IBOutlet weak var tableView: UITableView!
     
@@ -79,13 +80,12 @@ class TriggersViewController: UIViewController, SavablePage, UIAlertViewDelegate
     func saveButtonPressed(_ sender: Any) {
         let triggerDictionary = ["TRIGGERS": selectedTriggers]
         PatientInfoService.sharedInstance.saveUser(infoDictionary: triggerDictionary as [String : AnyObject])
-        let alert = UIAlertController(title: "\n\n\nTriggers Saved!", message: nil, preferredStyle: .alert)
-        let action = UIAlertAction(title: "OK", style: .default, handler: { (action) in
-            self.navigationController?.popViewController(animated: true)
-        })
-        alert.addAction(action)
-        alert.addCheckMark()
-        self.present(alert, animated: true, completion: nil)
+        if isOnboarding {
+            performSegue(withIdentifier: "OnboardingHelpersSegue", sender: self)
+        } else {
+            showSavedAlert("Triggers Saved!")
+        }
+
     }
     
     
@@ -193,14 +193,10 @@ class TriggersViewController: UIViewController, SavablePage, UIAlertViewDelegate
         self.present(alert, animated: true, completion: nil)
     }
     
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+        if let onboardingVC = segue.destination as? HelpersViewController {
+            onboardingVC.isOnboarding = true
+        }
     }
-    */
 
 }

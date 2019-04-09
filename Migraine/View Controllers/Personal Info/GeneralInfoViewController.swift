@@ -32,7 +32,9 @@ class GeneralInfoViewController: StandardBaseClassStyle, SavablePage, EditDelega
     
     private var currentQuestionInfo: QuestionInfo?
     private var isMaleSelected: Bool = false
+    var isOnboarding = false
     
+    @IBOutlet weak var saveButtonHeight: NSLayoutConstraint!
     @IBOutlet weak var saveButtonFooter: SaveButtonFooterView!
     let maxUserAge = 120
     
@@ -46,6 +48,9 @@ class GeneralInfoViewController: StandardBaseClassStyle, SavablePage, EditDelega
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        if isOnboarding {
+            saveButtonHeight.constant = 110
+        }
         saveButtonFooter.saveDelagate = self
         dateFormatter.dateStyle = .medium
         let editCellNib = UINib(nibName: "TextEditTableViewCell", bundle: nil)
@@ -53,13 +58,15 @@ class GeneralInfoViewController: StandardBaseClassStyle, SavablePage, EditDelega
         let segmentCellNib = UINib(nibName: "SegmentedSelectTableViewCell", bundle: nil)
         tableView.register(segmentCellNib, forCellReuseIdentifier: self.segmentedSelectTableViewCellId)
         tableView.backgroundColor = UIColor.darkBackgroundColor()
+        let saveButtonText = isOnboarding ? "Next" : "Save"
+        saveButtonFooter.setTitle(title: saveButtonText)
         PatientInfoService.sharedInstance.getMedicalConditions { (conditionsDictionary) in
             if let conditionsDict = conditionsDictionary {
                 self.updateTextFields(healthDictionary: conditionsDict)
             }
         }
     }
-    
+
     func updateTextFields(healthDictionary: [String:AnyObject?]) {
         for (healthKey, healthValue) in healthDictionary {
             if let healthV = healthValue as? String, healthV != "" {
@@ -102,14 +109,11 @@ class GeneralInfoViewController: StandardBaseClassStyle, SavablePage, EditDelega
             if (index == 1 && isMaleSelected) { break }
         }
         PatientInfoService.sharedInstance.saveUser(infoDictionary: userInfoDictionary as [String : AnyObject])
-        
-        let alert = UIAlertController(title: "\n\n\nInfo Saved!", message: nil, preferredStyle: .alert)
-        let action = UIAlertAction(title: "OK", style: .default, handler: { (action) in
-            self.navigationController?.popViewController(animated: true)
-        })
-        alert.addAction(action)
-        alert.addCheckMark()
-        self.present(alert, animated: true, completion: nil)
+        if isOnboarding {
+            performSegue(withIdentifier: "OnboardingMedicalInfoSegue", sender: self)
+        } else {
+            showSavedAlert("Info Saved")
+        }
     }
     
     // Mark TableViewDelegate Methods
@@ -258,6 +262,12 @@ class GeneralInfoViewController: StandardBaseClassStyle, SavablePage, EditDelega
         picker.dataSource = self
         picker.delegate = self
         return toolBar
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if let onboardingVC = segue.destination as? MedicalConditionsViewController {
+            onboardingVC.isOnboarding = true
+        }
     }
 }
 

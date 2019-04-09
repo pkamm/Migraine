@@ -12,7 +12,8 @@ class MedicationsViewController: UIViewController, SavablePage, DeleteDelegate, 
 
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var saveButtonFooter: SaveButtonFooterView!
-    
+    var isOnboarding = false
+
     @IBOutlet weak var addMedicationButton: UIButton!
     @IBOutlet weak var medicationTextField: UITextField!
     
@@ -78,25 +79,19 @@ class MedicationsViewController: UIViewController, SavablePage, DeleteDelegate, 
     
     func saveButtonPressed(_ sender: Any) {
         PatientInfoService.sharedInstance.save(medications: medications) {
-            let alert = UIAlertController(title: "\n\n\nMedications Saved!", message: nil, preferredStyle: .alert)
-            let action = UIAlertAction(title: "OK", style: .default, handler: { (action) in
-                self.navigationController?.popViewController(animated: true)
-            })
-            alert.addAction(action)
-            alert.addCheckMark()
-            self.present(alert, animated: true, completion: nil)
+            if self.isOnboarding {
+                self.performSegue(withIdentifier: "OnboardingSymptomsSegue", sender: self)
+            } else {
+                self.showSavedAlert("Medications Saved!")
+            }
         }
     }
     
     
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+        if let onboardingVC = segue.destination as? SymptomsViewController {
+            onboardingVC.isOnboarding = true
+        }
     }
-    */
 
 }

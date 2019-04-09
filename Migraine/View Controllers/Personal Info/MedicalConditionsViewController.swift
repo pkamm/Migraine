@@ -16,6 +16,8 @@ class MedicalConditionsViewController: UIViewController, SavablePage, UIAlertVie
     
     @IBOutlet weak var saveButtonFooter: SaveButtonFooterView!
     @IBOutlet weak var tableView: UITableView!
+    var isOnboarding = false
+
     
     private let addElementTableViewCellId = "AddElementViewControllerId"
     private let selectableTableViewCellId = "SelectableTableViewCellId"
@@ -59,13 +61,11 @@ class MedicalConditionsViewController: UIViewController, SavablePage, UIAlertVie
     func saveButtonPressed(_ sender: Any) {
         let conditionDictionary = ["CONDITIONS": selectedConditions]
         PatientInfoService.sharedInstance.saveUser(infoDictionary: conditionDictionary as [String : AnyObject])
-        let alert = UIAlertController(title: "\n\n\nConditions Saved!", message: nil, preferredStyle: .alert)
-        let action = UIAlertAction(title: "OK", style: .default, handler: { (action) in
-            self.navigationController?.popViewController(animated: true)
-        })
-        alert.addAction(action)
-        alert.addCheckMark()
-        self.present(alert, animated: true, completion: nil)
+        if isOnboarding {
+            performSegue(withIdentifier: "OnboardingMedicationsSegue", sender: self)
+        } else {
+            showSavedAlert("Conditions Saved!")
+        }
     }
     
     func showAddNewConditionAlert() {
@@ -144,15 +144,12 @@ class MedicalConditionsViewController: UIViewController, SavablePage, UIAlertVie
             }
         }
     }
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
+    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+        if let onboardingVC = segue.destination as? MedicationsViewController {
+            onboardingVC.isOnboarding = true
+        }
     }
-    */
+
 
 }

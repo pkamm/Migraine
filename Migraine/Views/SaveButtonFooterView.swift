@@ -11,6 +11,18 @@ import UIKit
 public protocol SavablePage: class {
     func saveButtonPressed(_ sender:Any)
 }
+extension UIViewController {
+    func showSavedAlert(_ message:String){
+        let titleText = "\n\n\n" + message
+        let alert = UIAlertController(title: titleText, message: nil, preferredStyle: .alert)
+        let action = UIAlertAction(title: "OK", style: .default, handler: { (action) in
+            self.navigationController?.popViewController(animated: true)
+        })
+        alert.addAction(action)
+        alert.addCheckMark()
+        self.present(alert, animated: true, completion: nil)
+    }
+}
 
 class SaveButtonFooterView: UIView, NibFileOwnerLoadable {
 
@@ -53,5 +65,6 @@ class SaveButtonFooterView: UIView, NibFileOwnerLoadable {
         textString.addAttribute(.foregroundColor, value:UIColor.majorTextColor(), range: textRange)
         saveButton.setAttributedTitle(textString, for: .normal)
     }
+    
 
 }

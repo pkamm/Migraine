@@ -13,6 +13,8 @@ class HeadacheDetailsViewController: UIViewController, SavablePage, EditDelegate
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var globalInputTextField: UITextField!
     @IBOutlet weak var saveButtonFooter: SaveButtonFooterView!
+    var isOnboarding = false
+    @IBOutlet weak var saveButtonHeight: NSLayoutConstraint!
     
     private let dateFormatter = DateFormatter()
     
@@ -39,6 +41,9 @@ class HeadacheDetailsViewController: UIViewController, SavablePage, EditDelegate
     override func viewDidLoad() {
         super.viewDidLoad()
         saveButtonFooter.saveDelagate = self
+        if isOnboarding {
+            saveButtonHeight.constant = 110
+        }
         dateFormatter.dateStyle = .medium
         let editCellNib = UINib(nibName: "TextEditTableViewCell", bundle: nil)
         tableView.register(editCellNib, forCellReuseIdentifier: self.textEditTableViewCellId)
@@ -93,14 +98,11 @@ class HeadacheDetailsViewController: UIViewController, SavablePage, EditDelegate
             }
         }
         PatientInfoService.sharedInstance.saveUser(infoDictionary: userInfoDictionary as [String : AnyObject])
-        
-        let alert = UIAlertController(title: "\n\n\nInfo Saved!", message: nil, preferredStyle: .alert)
-        let action = UIAlertAction(title: "OK", style: .default, handler: { (action) in
-            self.navigationController?.popViewController(animated: true)
-        })
-        alert.addAction(action)
-        alert.addCheckMark()
-        self.present(alert, animated: true, completion: nil)
+        if isOnboarding{
+            performSegue(withIdentifier: "OnboardingNotificationSegue", sender: self)
+        } else {
+            showSavedAlert("Info Saved!")
+        }
     }
     
     // Mark TableViewDelegate Methods
@@ -284,6 +286,12 @@ class HeadacheDetailsViewController: UIViewController, SavablePage, EditDelegate
         picker.dataSource = self
         picker.delegate = self
         return toolBar
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if let onboardingVC = segue.destination as? NotificationsViewController {
+            onboardingVC.isOnboarding = true
+        }
     }
 
 }

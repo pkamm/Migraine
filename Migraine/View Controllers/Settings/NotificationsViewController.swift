@@ -18,10 +18,12 @@ class NotificationsViewController: UIViewController, UITableViewDataSource, UITa
     @IBOutlet weak var saveButtonFooter: SaveButtonFooterView!
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var globalInputTextField: UITextField!
+    @IBOutlet weak var clearNotificationButton: UIButton!
     
     private let textEditTableViewCellId = "textEditTableViewCellId"
     private var currentQuestionInfo: QuestionInfo?
     private let dateFormatter = DateFormatter()
+    var isOnboarding = false
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -30,6 +32,9 @@ class NotificationsViewController: UIViewController, UITableViewDataSource, UITa
         tableView.register(editCellNib, forCellReuseIdentifier: self.textEditTableViewCellId)
         saveButtonFooter.saveDelagate = self
         saveButtonFooter.setTitle(title: "Save")
+        clearNotificationButton.layer.cornerRadius = 4
+        clearNotificationButton.layer.borderWidth = 1
+        clearNotificationButton.layer.borderColor = UIColor.minorTextColor().cgColor
         self.getPendingRequests()
     }
 
@@ -90,10 +95,23 @@ class NotificationsViewController: UIViewController, UITableViewDataSource, UITa
                     }
                 }
             }
+            if self.isOnboarding {
+                self.questionInfoArray[0].value = self.dateStringAtTime(hours: 9, minutes: 30)
+                self.questionInfoArray[1].value = self.dateStringAtTime(hours: 19, minutes: 30)
+            }
             OperationQueue.main.addOperation {
                 self.tableView.reloadData()
             }
         }
+    }
+    
+    func dateStringAtTime(hours: Int, minutes: Int) -> String {
+        var dateComponents = DateComponents()
+        dateComponents.hour = hours
+        dateComponents.minute = minutes
+        let userCalendar = Calendar.current
+        let someDateTime = userCalendar.date(from: dateComponents)
+        return self.dateFormatter.string(from: someDateTime!)
     }
     
     func scheduleNotifications(){
@@ -102,8 +120,23 @@ class NotificationsViewController: UIViewController, UITableViewDataSource, UITa
             self.scheduleNotification(for: questionInfo)
         }
         OperationQueue.main.addOperation {
-            self.navigationController?.popViewController(animated: true)
+            if self.isOnboarding{
+                self.showOnboardingComplete()
+            } else {
+                self.navigationController?.popViewController(animated: true)
+            }
         }
+    }
+    
+    func showOnboardingComplete(){
+        let titleText = "\n\n\n" + "All Info Saved!"
+        let alert = UIAlertController(title: titleText, message: nil, preferredStyle: .alert)
+        let action = UIAlertAction(title: "OK", style: .default, handler: { (action) in
+            self.navigationController?.dismiss(animated: true, completion:   nil)
+        })
+        alert.addAction(action)
+        alert.addCheckMark()
+        present(alert, animated: true, completion: nil)
     }
     
     func editButtonPressed(_ questionInfo:QuestionInfo!) {
@@ -114,7 +147,7 @@ class NotificationsViewController: UIViewController, UITableViewDataSource, UITa
     
     func createDatePicker(title:String) {
         let pickerView = UIDatePicker()
-        pickerView.datePickerMode = .time//
+        pickerView.datePickerMode = .time
         pickerView.addTarget(self, action: #selector(dateChanged(_:)), for: .valueChanged)
         globalInputTextField.inputAccessoryView =
             toolBarWith(title:title,
@@ -146,6 +179,12 @@ class NotificationsViewController: UIViewController, UITableViewDataSource, UITa
                 print(theError.localizedDescription)
             }
         }
+    }
+    
+    @IBAction func clearNotificationsButtonPressed(_ sender: Any) {
+        self.questionInfoArray[0].value = nil
+        self.questionInfoArray[1].value = nil
+        tableView.reloadData()
     }
     
     func removeExistingNotifications() {
