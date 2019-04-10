@@ -128,7 +128,7 @@ class AddNewViewController: UIViewController, UITableViewDelegate, UITableViewDa
                                       message: nil,
                                       preferredStyle: .alert)
         alert.addAction(UIAlertAction(title: "OK", style: .default, handler: { (action) in
-            let questionInfo = QuestionInfo(value: "yes", infoKey: .HADMIGRAINE)
+            let questionInfo = QuestionInfo(value: true, infoKey: .HADMIGRAINE)
             DiaryService.sharedInstance.submit(questionInfos: [questionInfo], date: Date(), completion:{})
             alert.dismiss(animated: true, completion: nil)
         }))

@@ -34,6 +34,9 @@ class SegmentedSelectTableViewCell: UITableViewCell, QuestionInfoTableViewCell {
         addTitleText(newQuestionInfo.text)
         if let value = newQuestionInfo.value as? String {
             addValueText(value)
+        } else if let value = newQuestionInfo.value as? Bool {
+            let valueText = value ? "Yes" : "No"
+            addValueText(valueText)
         }
     }
     

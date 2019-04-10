@@ -17,7 +17,6 @@ class DiaryEntry{
     var questionInfos: [QuestionInfo] = []
     var date: Date
 
-    
     init(){
         date = Date()
     }
@@ -40,8 +39,13 @@ class DiaryEntry{
 
     func wasMigraine() throws -> Bool {
         for questionInfo in questionInfos {
-            if questionInfo.infoKey == .HADMIGRAINE, let stringValue = questionInfo.value as? String {
+            if questionInfo.infoKey == .HADMIGRAINE,
+                let stringValue = questionInfo.value as? String {
                 return (stringValue.lowercased() == "yes")
+            }
+            if questionInfo.infoKey == .HADMIGRAINE,
+                let stringValue = questionInfo.value as? Bool {
+                return stringValue
             }
         }
         throw DiaryError.runtimeError("Missing info as to whether there was a migraine")

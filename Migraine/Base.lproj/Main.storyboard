@@ -1820,26 +1820,52 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="502"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" allowsMultipleSelection="YES" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="ZXI-BI-YwU">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" allowsMultipleSelection="YES" rowHeight="63" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="ZXI-BI-YwU">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="426"/>
                                 <color key="backgroundColor" red="0.08235294118" green="0.062745098040000002" blue="0.050980392159999999" alpha="1" colorSpace="calibratedRGB"/>
                                 <view key="tableHeaderView" contentMode="scaleToFill" id="1FO-Pb-thx">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="120"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="195"/>
                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     <subviews>
-                                        <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="line" placeholder="Enter Medication" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="igg-Jk-klg">
-                                            <rect key="frame" x="8" y="20" width="268" height="80"/>
+                                        <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="line" placeholder="Medication" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="igg-Jk-klg">
+                                            <rect key="frame" x="8" y="20" width="236" height="48"/>
                                             <color key="backgroundColor" red="0.78000000000000003" green="0.78000000000000003" blue="0.78000000000000003" alpha="1" colorSpace="calibratedRGB"/>
                                             <constraints>
-                                                <constraint firstAttribute="width" constant="268" id="Ps6-u1-mWp"/>
+                                                <constraint firstAttribute="height" constant="48" id="x4C-Yb-Gdu"/>
+                                            </constraints>
+                                            <color key="textColor" red="0.08235294118" green="0.062745098040000002" blue="0.050980392159999999" alpha="1" colorSpace="calibratedRGB"/>
+                                            <fontDescription key="fontDescription" name="SFProText-Regular" family="SF Pro Text" pointSize="18"/>
+                                            <textInputTraits key="textInputTraits" autocapitalizationType="words" returnKeyType="next" enablesReturnKeyAutomatically="YES"/>
+                                            <connections>
+                                                <outlet property="delegate" destination="Kra-qD-KAg" id="tCq-9M-d1d"/>
+                                            </connections>
+                                        </textField>
+                                        <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="line" placeholder="Frequency" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Dmt-in-aQu">
+                                            <rect key="frame" x="8" y="77" width="236" height="48"/>
+                                            <color key="backgroundColor" red="0.78000000000000003" green="0.78000000000000003" blue="0.78000000000000003" alpha="1" colorSpace="calibratedRGB"/>
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="48" id="aig-Xp-1rl"/>
                                             </constraints>
                                             <color key="textColor" red="0.08235294118" green="0.062745098040000002" blue="0.050980392159999999" alpha="1" colorSpace="calibratedRGB"/>
                                             <fontDescription key="fontDescription" name="SFProText-Regular" family="SF Pro Text" pointSize="18"/>
                                             <textInputTraits key="textInputTraits" autocapitalizationType="words" enablesReturnKeyAutomatically="YES"/>
                                         </textField>
+                                        <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="line" placeholder="Dosage" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="9bA-IP-NLP">
+                                            <rect key="frame" x="8" y="134" width="179" height="48"/>
+                                            <color key="backgroundColor" red="0.78000000000000003" green="0.78000000000000003" blue="0.78000000000000003" alpha="1" colorSpace="calibratedRGB"/>
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="48" id="33O-Ek-PhX"/>
+                                            </constraints>
+                                            <color key="textColor" red="0.08235294118" green="0.062745098040000002" blue="0.050980392159999999" alpha="1" colorSpace="calibratedRGB"/>
+                                            <fontDescription key="fontDescription" name="SFProText-Regular" family="SF Pro Text" pointSize="18"/>
+                                            <textInputTraits key="textInputTraits" keyboardType="numberPad" enablesReturnKeyAutomatically="YES"/>
+                                        </textField>
                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="E4m-eM-Mcb">
-                                            <rect key="frame" x="284" y="20" width="87" height="80"/>
+                                            <rect key="frame" x="252" y="20" width="103" height="104"/>
                                             <color key="backgroundColor" red="0.58999999999999997" green="0.41999999999999998" blue="0.38" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            <constraints>
+                                                <constraint firstAttribute="width" constant="103" id="hpF-bL-f6E"/>
+                                            </constraints>
                                             <fontDescription key="fontDescription" name="SFProText-Semibold" family="SF Pro Text" pointSize="16"/>
                                             <state key="normal" title="Add">
                                                 <color key="titleColor" red="0.78000000000000003" green="0.78000000000000003" blue="0.78000000000000003" alpha="1" colorSpace="calibratedRGB"/>
@@ -1848,17 +1874,36 @@
                                                 <action selector="addMedicationButtonPressed:" destination="Kra-qD-KAg" eventType="touchUpInside" id="W7e-7V-Fhc"/>
                                             </connections>
                                         </button>
+                                        <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="jyZ-vH-EKf">
+                                            <rect key="frame" x="206" y="144" width="149" height="29"/>
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="28" id="ArV-e3-wDX"/>
+                                                <constraint firstAttribute="width" constant="149" id="WP7-ek-Lny"/>
+                                            </constraints>
+                                            <segments>
+                                                <segment title="mcg"/>
+                                                <segment title="mg"/>
+                                                <segment title="gram"/>
+                                            </segments>
+                                            <color key="tintColor" red="0.58999999999999997" green="0.41999999999999998" blue="0.38" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        </segmentedControl>
                                     </subviews>
                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     <constraints>
-                                        <constraint firstItem="igg-Jk-klg" firstAttribute="top" secondItem="1FO-Pb-thx" secondAttribute="top" constant="20" id="2hl-1Z-Mfn"/>
-                                        <constraint firstAttribute="trailing" secondItem="E4m-eM-Mcb" secondAttribute="trailing" constant="4" id="CLC-gH-Cre"/>
-                                        <constraint firstItem="igg-Jk-klg" firstAttribute="leading" secondItem="1FO-Pb-thx" secondAttribute="leading" constant="8" id="HRe-qM-Uhl"/>
-                                        <constraint firstAttribute="bottom" secondItem="igg-Jk-klg" secondAttribute="bottom" constant="20" id="Icp-lQ-FxU"/>
-                                        <constraint firstItem="E4m-eM-Mcb" firstAttribute="leading" secondItem="igg-Jk-klg" secondAttribute="trailing" constant="8" id="PV5-Ca-uqt"/>
-                                        <constraint firstAttribute="height" constant="120" id="iWf-4e-6l3"/>
-                                        <constraint firstAttribute="bottom" secondItem="E4m-eM-Mcb" secondAttribute="bottom" constant="20" id="kF8-gf-PS6"/>
-                                        <constraint firstItem="E4m-eM-Mcb" firstAttribute="top" secondItem="1FO-Pb-thx" secondAttribute="top" constant="20" id="pso-uX-qUp"/>
+                                        <constraint firstItem="igg-Jk-klg" firstAttribute="top" secondItem="1FO-Pb-thx" secondAttribute="top" constant="20" id="C3U-Nv-7aE"/>
+                                        <constraint firstItem="igg-Jk-klg" firstAttribute="leading" secondItem="1FO-Pb-thx" secondAttribute="leading" constant="8" id="CP7-Nz-khu"/>
+                                        <constraint firstItem="E4m-eM-Mcb" firstAttribute="top" secondItem="1FO-Pb-thx" secondAttribute="top" constant="20" id="Nxq-Lu-Spy"/>
+                                        <constraint firstAttribute="trailing" secondItem="jyZ-vH-EKf" secondAttribute="trailing" constant="20" id="PYg-9y-mBj"/>
+                                        <constraint firstItem="jyZ-vH-EKf" firstAttribute="top" secondItem="E4m-eM-Mcb" secondAttribute="bottom" constant="20" id="X8d-j4-nmg"/>
+                                        <constraint firstItem="9bA-IP-NLP" firstAttribute="leading" secondItem="1FO-Pb-thx" secondAttribute="leading" constant="8" id="Z78-rY-zK9"/>
+                                        <constraint firstItem="Dmt-in-aQu" firstAttribute="top" secondItem="igg-Jk-klg" secondAttribute="bottom" constant="9" id="Znz-Ad-2IE"/>
+                                        <constraint firstItem="E4m-eM-Mcb" firstAttribute="leading" secondItem="Dmt-in-aQu" secondAttribute="trailing" constant="8" id="f7p-b0-y5f"/>
+                                        <constraint firstItem="jyZ-vH-EKf" firstAttribute="leading" secondItem="9bA-IP-NLP" secondAttribute="trailing" constant="19" id="iYg-3E-aHf"/>
+                                        <constraint firstItem="Dmt-in-aQu" firstAttribute="leading" secondItem="1FO-Pb-thx" secondAttribute="leading" constant="8" id="k9S-ms-Cl3"/>
+                                        <constraint firstItem="E4m-eM-Mcb" firstAttribute="leading" secondItem="igg-Jk-klg" secondAttribute="trailing" constant="8" id="lhI-AV-RLs"/>
+                                        <constraint firstAttribute="trailing" secondItem="E4m-eM-Mcb" secondAttribute="trailing" constant="20" id="u6G-Y3-yRt"/>
+                                        <constraint firstAttribute="bottom" secondItem="jyZ-vH-EKf" secondAttribute="bottom" constant="23" id="umd-nv-QBi"/>
+                                        <constraint firstAttribute="bottom" secondItem="9bA-IP-NLP" secondAttribute="bottom" constant="13" id="xXz-1T-FuI"/>
                                     </constraints>
                                 </view>
                                 <connections>
@@ -1890,6 +1935,9 @@
                     </view>
                     <connections>
                         <outlet property="addMedicationButton" destination="E4m-eM-Mcb" id="rt6-RE-XR7"/>
+                        <outlet property="dosageSegmentedControl" destination="jyZ-vH-EKf" id="XuH-1q-2LD"/>
+                        <outlet property="dosageTextField" destination="9bA-IP-NLP" id="dPI-hg-1db"/>
+                        <outlet property="frequencyTextField" destination="Dmt-in-aQu" id="lBy-ya-K8Y"/>
                         <outlet property="medicationTextField" destination="igg-Jk-klg" id="Zhl-9m-8bL"/>
                         <outlet property="saveButtonFooter" destination="0IY-fB-sVe" id="XRO-8c-5Nb"/>
                         <outlet property="tableView" destination="ZXI-BI-YwU" id="nwm-Jn-eyb"/>
@@ -2905,7 +2953,7 @@
         <segue reference="bxf-Mb-gFl"/>
         <segue reference="3re-Id-prx"/>
         <segue reference="SZr-Bu-czo"/>
-        <segue reference="g01-IG-2T2"/>
+        <segue reference="4kl-iF-6SQ"/>
         <segue reference="Fhs-C7-aJu"/>
         <segue reference="dia-lf-sEf"/>
         <segue reference="A7d-Jw-ndi"/>

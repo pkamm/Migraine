@@ -9,26 +9,33 @@
 import UIKit
 
 protocol DeleteDelegate: class {
-    func delete(element: String?)
+    func delete(element: Any?)
 }
 
-class RemoveElementTableViewCell: UITableViewCell {
+class MedicationTableViewCell: UITableViewCell {
 
     @IBOutlet weak var titleLabel: UILabel!
+    @IBOutlet weak var dosageLabel: UILabel!
+    
     weak var deleteDelegate:DeleteDelegate?
+    var medication:Medication?
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        // Initialization code
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
-
-        // Configure the view for the selected state
+    }
+    
+    func setMedication(_ medication:Medication){
+        self.medication = medication
+        titleLabel.text = medication.name
+        let dosageText = medication.dosage + ", " + medication.frequency.description
+        dosageLabel.text = dosageText
     }
     
     @IBAction func removeButtonPressed(_ sender: Any) {
-        deleteDelegate?.delete(element: titleLabel.text)
+        deleteDelegate?.delete(element: medication)
     }
 }

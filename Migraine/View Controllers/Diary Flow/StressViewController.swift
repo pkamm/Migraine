@@ -79,6 +79,8 @@ class StressViewController: UIViewController, UITableViewDataSource, UITableView
         case .HADMIGRAINE:
             if let value = questionInfo.value as? String {
                 isMigraine = (value == "Yes")
+            } else if let value = questionInfo.value as? Bool {
+                isMigraine = value
             }
         default:
             return;

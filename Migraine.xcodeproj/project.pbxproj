@@ -190,12 +190,12 @@
 		8880060120745820003AF1DA /* TermsOfServiceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 888005FF20745820003AF1DA /* TermsOfServiceViewController.swift */; };
 		8880060220745820003AF1DA /* TermsOfServiceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 888005FF20745820003AF1DA /* TermsOfServiceViewController.swift */; };
 		8880154C22552A85000ADE0C /* QuestionInfoTableViewCellProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8880154B22552A85000ADE0C /* QuestionInfoTableViewCellProtocol.swift */; };
-		888E46E4211DC1BD00CFC42A /* RemoveElementTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 888E46E2211DC1BD00CFC42A /* RemoveElementTableViewCell.swift */; };
-		888E46E5211DC1BD00CFC42A /* RemoveElementTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 888E46E2211DC1BD00CFC42A /* RemoveElementTableViewCell.swift */; };
-		888E46E6211DC1BD00CFC42A /* RemoveElementTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 888E46E2211DC1BD00CFC42A /* RemoveElementTableViewCell.swift */; };
-		888E46E7211DC1BD00CFC42A /* RemoveElementTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 888E46E3211DC1BD00CFC42A /* RemoveElementTableViewCell.xib */; };
-		888E46E8211DC1BD00CFC42A /* RemoveElementTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 888E46E3211DC1BD00CFC42A /* RemoveElementTableViewCell.xib */; };
-		888E46E9211DC1BD00CFC42A /* RemoveElementTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 888E46E3211DC1BD00CFC42A /* RemoveElementTableViewCell.xib */; };
+		888E46E4211DC1BD00CFC42A /* MedicationTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 888E46E2211DC1BD00CFC42A /* MedicationTableViewCell.swift */; };
+		888E46E5211DC1BD00CFC42A /* MedicationTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 888E46E2211DC1BD00CFC42A /* MedicationTableViewCell.swift */; };
+		888E46E6211DC1BD00CFC42A /* MedicationTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 888E46E2211DC1BD00CFC42A /* MedicationTableViewCell.swift */; };
+		888E46E7211DC1BD00CFC42A /* MedicationTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 888E46E3211DC1BD00CFC42A /* MedicationTableViewCell.xib */; };
+		888E46E8211DC1BD00CFC42A /* MedicationTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 888E46E3211DC1BD00CFC42A /* MedicationTableViewCell.xib */; };
+		888E46E9211DC1BD00CFC42A /* MedicationTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 888E46E3211DC1BD00CFC42A /* MedicationTableViewCell.xib */; };
 		889A318A1FB4F0AE00D2E0E5 /* MainTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 889A31891FB4F0AE00D2E0E5 /* MainTabBarController.swift */; };
 		889A318B1FB4F0AE00D2E0E5 /* MainTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 889A31891FB4F0AE00D2E0E5 /* MainTabBarController.swift */; };
 		889A318C1FB4F0AE00D2E0E5 /* MainTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 889A31891FB4F0AE00D2E0E5 /* MainTabBarController.swift */; };
@@ -232,6 +232,9 @@
 		88BC158B2090998000AC29CC /* SymptomsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88BC158A2090998000AC29CC /* SymptomsViewController.swift */; };
 		88BC158C2090998000AC29CC /* SymptomsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88BC158A2090998000AC29CC /* SymptomsViewController.swift */; };
 		88BC158D2090998000AC29CC /* SymptomsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88BC158A2090998000AC29CC /* SymptomsViewController.swift */; };
+		88BC93A2225E291200AF443C /* Medication.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88BC93A1225E291200AF443C /* Medication.swift */; };
+		88BC93A3225E291200AF443C /* Medication.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88BC93A1225E291200AF443C /* Medication.swift */; };
+		88BC93A4225E291200AF443C /* Medication.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88BC93A1225E291200AF443C /* Medication.swift */; };
 		88CABAAA1FD87879001F948A /* Crashlytics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 88CABAA81FD87879001F948A /* Crashlytics.framework */; };
 		88CABAAB1FD87879001F948A /* Fabric.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 88CABAA91FD87879001F948A /* Fabric.framework */; };
 		88D407A721245245002D1326 /* ForgotPasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88D407A621245245002D1326 /* ForgotPasswordViewController.swift */; };
@@ -369,8 +372,8 @@
 		888005A42072D31D003AF1DA /* SF-Pro-Text-SemiboldItalic.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SF-Pro-Text-SemiboldItalic.otf"; sourceTree = "<group>"; };
 		888005FF20745820003AF1DA /* TermsOfServiceViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TermsOfServiceViewController.swift; sourceTree = "<group>"; };
 		8880154B22552A85000ADE0C /* QuestionInfoTableViewCellProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuestionInfoTableViewCellProtocol.swift; sourceTree = "<group>"; };
-		888E46E2211DC1BD00CFC42A /* RemoveElementTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemoveElementTableViewCell.swift; sourceTree = "<group>"; };
-		888E46E3211DC1BD00CFC42A /* RemoveElementTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RemoveElementTableViewCell.xib; sourceTree = "<group>"; };
+		888E46E2211DC1BD00CFC42A /* MedicationTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MedicationTableViewCell.swift; sourceTree = "<group>"; };
+		888E46E3211DC1BD00CFC42A /* MedicationTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MedicationTableViewCell.xib; sourceTree = "<group>"; };
 		889A31891FB4F0AE00D2E0E5 /* MainTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabBarController.swift; sourceTree = "<group>"; };
 		889A318D1FB4F4F300D2E0E5 /* CreateAccountViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateAccountViewController.swift; sourceTree = "<group>"; };
 		889A31911FB4F54D00D2E0E5 /* LogInViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogInViewController.swift; sourceTree = "<group>"; };
@@ -383,6 +386,7 @@
 		88BC1582208FFA2900AC29CC /* TriggersViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TriggersViewController.swift; sourceTree = "<group>"; };
 		88BC1586208FFB8400AC29CC /* HelpersViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HelpersViewController.swift; sourceTree = "<group>"; };
 		88BC158A2090998000AC29CC /* SymptomsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SymptomsViewController.swift; sourceTree = "<group>"; };
+		88BC93A1225E291200AF443C /* Medication.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Medication.swift; sourceTree = "<group>"; };
 		88CABAA81FD87879001F948A /* Crashlytics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Crashlytics.framework; sourceTree = "<group>"; };
 		88CABAA91FD87879001F948A /* Fabric.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Fabric.framework; sourceTree = "<group>"; };
 		88D407A621245245002D1326 /* ForgotPasswordViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForgotPasswordViewController.swift; sourceTree = "<group>"; };
@@ -497,6 +501,7 @@
 			children = (
 				00130DF61FA11F9700D8FBB6 /* User.swift */,
 				00130DFA1FA11FA300D8FBB6 /* DiaryEntry.swift */,
+				88BC93A1225E291200AF443C /* Medication.swift */,
 				883A8D09211B18D7004DC71F /* DiaryService.swift */,
 				88BC157A208A293E00AC29CC /* QuestionInfo.swift */,
 				88BC157E208A854D00AC29CC /* PatientInfoService.swift */,
@@ -655,8 +660,8 @@
 				88DAFD392061C2260001B0D3 /* SegmentedSelectTableViewCell.xib */,
 				88651552208576E800103378 /* SelectableTableViewCell.swift */,
 				88651553208576E800103378 /* SelectableTableViewCell.xib */,
-				888E46E2211DC1BD00CFC42A /* RemoveElementTableViewCell.swift */,
-				888E46E3211DC1BD00CFC42A /* RemoveElementTableViewCell.xib */,
+				888E46E2211DC1BD00CFC42A /* MedicationTableViewCell.swift */,
+				888E46E3211DC1BD00CFC42A /* MedicationTableViewCell.xib */,
 				88BC1572208A22E700AC29CC /* AddElementTableViewCell.swift */,
 				88BC1573208A22E700AC29CC /* AddElementTableViewCell.xib */,
 				88119137211BC3FE00D851DB /* SliderTableViewCell.swift */,
@@ -822,7 +827,7 @@
 				00130DCB1FA1041800D8FBB6 /* Assets.xcassets in Resources */,
 				888005D82072D31D003AF1DA /* SF-Pro-Display-UltralightItalic.otf in Resources */,
 				888005CC2072D31D003AF1DA /* SF-Pro-Text-Bold.otf in Resources */,
-				888E46E7211DC1BD00CFC42A /* RemoveElementTableViewCell.xib in Resources */,
+				888E46E7211DC1BD00CFC42A /* MedicationTableViewCell.xib in Resources */,
 				00130DC91FA1041800D8FBB6 /* Main.storyboard in Resources */,
 				888005DE2072D31D003AF1DA /* SF-Pro-Display-BlackItalic.otf in Resources */,
 				888005ED2072D31D003AF1DA /* SF-Pro-Text-HeavyItalic.otf in Resources */,
@@ -867,7 +872,7 @@
 				888005FA2072D31D003AF1DA /* SF-Pro-Display-BoldItalic.otf in Resources */,
 				88DAFD212061B0230001B0D3 /* TitleHeaderView.xib in Resources */,
 				888005C12072D31D003AF1DA /* SF-Pro-Display-Heavy.otf in Resources */,
-				888E46E8211DC1BD00CFC42A /* RemoveElementTableViewCell.xib in Resources */,
+				888E46E8211DC1BD00CFC42A /* MedicationTableViewCell.xib in Resources */,
 				888005B82072D31D003AF1DA /* SF-Pro-Text-MediumItalic.otf in Resources */,
 				88DAFD2D2061B14F0001B0D3 /* SaveButtonFooterView.xib in Resources */,
 				888005EB2072D31D003AF1DA /* SF-Pro-Text-Semibold.otf in Resources */,
@@ -912,7 +917,7 @@
 				888005FB2072D31D003AF1DA /* SF-Pro-Display-BoldItalic.otf in Resources */,
 				88DAFD222061B0230001B0D3 /* TitleHeaderView.xib in Resources */,
 				888005C22072D31D003AF1DA /* SF-Pro-Display-Heavy.otf in Resources */,
-				888E46E9211DC1BD00CFC42A /* RemoveElementTableViewCell.xib in Resources */,
+				888E46E9211DC1BD00CFC42A /* MedicationTableViewCell.xib in Resources */,
 				888005B92072D31D003AF1DA /* SF-Pro-Text-MediumItalic.otf in Resources */,
 				88DAFD2E2061B14F0001B0D3 /* SaveButtonFooterView.xib in Resources */,
 				888005EC2072D31D003AF1DA /* SF-Pro-Text-Semibold.otf in Resources */,
@@ -1027,11 +1032,12 @@
 				889A318A1FB4F0AE00D2E0E5 /* MainTabBarController.swift in Sources */,
 				8880154C22552A85000ADE0C /* QuestionInfoTableViewCellProtocol.swift in Sources */,
 				882B59D92217029600BE46EB /* EditDiaryViewController.swift in Sources */,
+				88BC93A2225E291200AF443C /* Medication.swift in Sources */,
 				88651554208576E800103378 /* SelectableTableViewCell.swift in Sources */,
 				008592DA1FD9A82300FE0245 /* MedicalConditionsViewController.swift in Sources */,
 				88119136211BA17400D851DB /* UIPickerView+Customizations.swift in Sources */,
 				886571A62098F99F001F9AB7 /* MedicationsViewController.swift in Sources */,
-				888E46E4211DC1BD00CFC42A /* RemoveElementTableViewCell.swift in Sources */,
+				888E46E4211DC1BD00CFC42A /* MedicationTableViewCell.swift in Sources */,
 				00130DC21FA1041800D8FBB6 /* AppDelegate.swift in Sources */,
 				889A31921FB4F54D00D2E0E5 /* LogInViewController.swift in Sources */,
 				88BC158B2090998000AC29CC /* SymptomsViewController.swift in Sources */,
@@ -1101,7 +1107,7 @@
 				884383392135E42A00DCDB6C /* OnboardingViewController.swift in Sources */,
 				883C2A901FA2742500701D57 /* CurrentSymptomsViewController.swift in Sources */,
 				883C2A841FA255E000701D57 /* DiaryRootViewController.swift in Sources */,
-				888E46E5211DC1BD00CFC42A /* RemoveElementTableViewCell.swift in Sources */,
+				888E46E5211DC1BD00CFC42A /* MedicationTableViewCell.swift in Sources */,
 				88BC1584208FFA2900AC29CC /* TriggersViewController.swift in Sources */,
 				886571A72098F99F001F9AB7 /* MedicationsViewController.swift in Sources */,
 				88D8A4A121A1BDD5000BB0BB /* HealthDeviceManager.swift in Sources */,
@@ -1109,6 +1115,7 @@
 				88DAFD312061B38B0001B0D3 /* NibFileOwnerLoadable.swift in Sources */,
 				8826AE4C21E4D141003D4A16 /* NotesViewController.swift in Sources */,
 				889A31931FB4F54D00D2E0E5 /* LogInViewController.swift in Sources */,
+				88BC93A3225E291200AF443C /* Medication.swift in Sources */,
 				00130DFC1FA11FA300D8FBB6 /* DiaryEntry.swift in Sources */,
 				883D4E7C224C1C8C00F602F8 /* DiaryNotesViewController.swift in Sources */,
 				00130DF81FA11F9700D8FBB6 /* User.swift in Sources */,
@@ -1155,7 +1162,7 @@
 				8843833A2135E42A00DCDB6C /* OnboardingViewController.swift in Sources */,
 				883C2A911FA2742500701D57 /* CurrentSymptomsViewController.swift in Sources */,
 				883C2A851FA255E000701D57 /* DiaryRootViewController.swift in Sources */,
-				888E46E6211DC1BD00CFC42A /* RemoveElementTableViewCell.swift in Sources */,
+				888E46E6211DC1BD00CFC42A /* MedicationTableViewCell.swift in Sources */,
 				88BC1585208FFA2900AC29CC /* TriggersViewController.swift in Sources */,
 				886571A82098F99F001F9AB7 /* MedicationsViewController.swift in Sources */,
 				88D8A4A221A1BDD5000BB0BB /* HealthDeviceManager.swift in Sources */,
@@ -1163,6 +1170,7 @@
 				88DAFD322061B38B0001B0D3 /* NibFileOwnerLoadable.swift in Sources */,
 				8826AE4D21E4D141003D4A16 /* NotesViewController.swift in Sources */,
 				889A31941FB4F54D00D2E0E5 /* LogInViewController.swift in Sources */,
+				88BC93A4225E291200AF443C /* Medication.swift in Sources */,
 				00130DFD1FA11FA300D8FBB6 /* DiaryEntry.swift in Sources */,
 				883D4E7D224C1C8C00F602F8 /* DiaryNotesViewController.swift in Sources */,
 				00130DF91FA11F9700D8FBB6 /* User.swift in Sources */,

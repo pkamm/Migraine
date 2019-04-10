@@ -15,7 +15,7 @@ class PatientInfoService {
     let KEYS = ["FULLNAME", "EMAIL", "TERMSAGREED", "BIRTHCONTROL", "AGE", "GENDER", "NEXTPERIOD", "BIRTHCONTROL", "LMP", "CONDITIONS", "MEDICATION", "HEADACHECONDITIONS", "HEADACHEDURATION", "SYMPTOMS", "TRIGGERS", "HELPMIGRAINE", "NUMBERPROMPTS", "SLEEP", "STRESS", "HEADACHELOCATIONS"]
     
     var patientInfo = [String: AnyObject]()
-    var patientMedications = [String]()
+    var patientMedications = [Medication]()
     var dateFormatter: DateFormatter
     
     static let sharedInstance = PatientInfoService()
@@ -30,35 +30,48 @@ class PatientInfoService {
     }
     
     // updates (added/removed) medication of the patient to firebase
-    func save(medications:[String]!, completion: @escaping () -> Void) {
+    func save(medications:[Medication]!, completion: @escaping () -> Void) {
         
         UIApplication.shared.isNetworkActivityIndicatorVisible = true
         let date = NSDate()
         let curDate = dateFormatter.string(from: date as Date)
-        
+        let newMedications = medications.map { (medication) -> [String:Any] in
+            return medication.asDictionary()
+        }
         // upload to firebase
         let userId = Auth.auth().currentUser!.uid
         let medicationRef = self.dbRef.child("patient-records").child("patient-medication")
-        medicationRef.child(userId).child(curDate).setValue(medications)
+        medicationRef.child(userId).child(curDate).setValue(newMedications)
         UIApplication.shared.isNetworkActivityIndicatorVisible = false
         completion()
     }
     
-    func getMedications(completion: @escaping ([String]?) -> Void ) {
+    func getMedications(completion: @escaping ([Medication]?) -> Void ) {
         let usersRef = self.dbRef.child("patient-records").child("patient-medication")
         let userId = Auth.auth().currentUser?.uid
         
         usersRef.child(userId!).queryOrderedByKey().observeSingleEvent(of: .value, with: { (snapshot) in
             if let thing = snapshot.value as? [String:AnyObject] {
-                var latestMedications:[String]? = nil
+                var latestMedications:[Medication]? = nil
                 var latestDate = Date.distantPast
-                for (dateIndex, medicationArray) in thing {
-                    if let date = self.dateFormatter.date(from: dateIndex){
-                        if date > latestDate, let newMedicationArray = medicationArray as? [String]{
-                            self.patientMedications = newMedicationArray as [String]
-                            latestMedications = newMedicationArray
-                            latestDate = date
+                for (dateIndex, medicationDictionaryArray) in thing {
+                    if let date = self.dateFormatter.date(from: dateIndex),
+                    date > latestDate {
+                        var newMedications:[Medication] = []
+                        if let newMedicationArray = medicationDictionaryArray as? [String]{
+                            for medicationName in newMedicationArray {
+                                let newMedication = Medication(medicationName, frequency: .Other, dosage: "Unknown")
+                                newMedications.append(newMedication)
+                            }
+                        } else if let newMedicationArray = medicationDictionaryArray as? [[String:Any]] {
+                            for medicationDictionary in newMedicationArray {
+                                let newMedication = Medication(fromDictionary: medicationDictionary)
+                                newMedications.append(newMedication)
+                            }
                         }
+                        self.patientMedications = newMedications
+                        latestMedications = newMedications
+                        latestDate = date
                     }
                 }
                 completion(latestMedications)
