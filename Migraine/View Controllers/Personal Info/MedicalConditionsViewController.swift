@@ -14,6 +14,7 @@ class MedicalConditionsViewController: UIViewController, SavablePage, UIAlertVie
     
     var selectedConditions = [String]()
     
+    @IBOutlet weak var pageControl: UIPageControl!
     @IBOutlet weak var saveButtonFooter: SaveButtonFooterView!
     @IBOutlet weak var tableView: UITableView!
     var isOnboarding = false
@@ -25,6 +26,12 @@ class MedicalConditionsViewController: UIViewController, SavablePage, UIAlertVie
     override func viewDidLoad() {
         super.viewDidLoad()
         saveButtonFooter.saveDelagate = self
+        if isOnboarding {
+            saveButtonFooter.setTitle(title: "Next")
+        } else {
+            pageControl.isHidden = true
+            saveButtonFooter.setTitle(title: "Save")
+        }
         let allElementNib = UINib(nibName: "AddElementTableViewCell", bundle: nil)
         tableView.register(allElementNib, forCellReuseIdentifier: addElementTableViewCellId)
         let selectableNib = UINib(nibName: "SelectableTableViewCell", bundle: nil)
@@ -110,7 +117,6 @@ class MedicalConditionsViewController: UIViewController, SavablePage, UIAlertVie
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        
         if indexPath.row == conditions.count, let cell = tableView.dequeueReusableCell(withIdentifier: addElementTableViewCellId, for: indexPath) as? AddElementTableViewCell {
             return cell
         } else {

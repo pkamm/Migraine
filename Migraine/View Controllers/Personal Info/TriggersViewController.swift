@@ -39,6 +39,7 @@ class TriggersViewController: UIViewController, SavablePage, UIAlertViewDelegate
 
     @IBOutlet weak var saveButtonFooter: SaveButtonFooterView!
     @IBOutlet weak var tableView: UITableView!
+    @IBOutlet weak var pageControl: UIPageControl!
     
     private let addElementTableViewCellId = "AddElementViewControllerId"
     private let selectableTableViewCellId = "SelectableTableViewCellId"
@@ -46,6 +47,12 @@ class TriggersViewController: UIViewController, SavablePage, UIAlertViewDelegate
     override func viewDidLoad() {
         super.viewDidLoad()
         saveButtonFooter.saveDelagate = self
+        if isOnboarding {
+            saveButtonFooter.setTitle(title: "Next")
+        } else {
+            pageControl.isHidden = true
+            saveButtonFooter.setTitle(title: "Save")
+        }
         let allElementNib = UINib(nibName: "AddElementTableViewCell", bundle: nil)
         tableView.register(allElementNib, forCellReuseIdentifier: addElementTableViewCellId)
         let selectableNib = UINib(nibName: "SelectableTableViewCell", bundle: nil)

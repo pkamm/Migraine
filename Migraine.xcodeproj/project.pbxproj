@@ -44,6 +44,12 @@
 		882B59DD22176AA500BE46EB /* HeadacheDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 882B59DC22176AA500BE46EB /* HeadacheDetailsViewController.swift */; };
 		882B59DE22176AA500BE46EB /* HeadacheDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 882B59DC22176AA500BE46EB /* HeadacheDetailsViewController.swift */; };
 		882B59DF22176AA500BE46EB /* HeadacheDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 882B59DC22176AA500BE46EB /* HeadacheDetailsViewController.swift */; };
+		882F9212230DF9E600975908 /* SleepTrendsChartViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 882F9211230DF9E600975908 /* SleepTrendsChartViewController.swift */; };
+		882F9213230DF9E600975908 /* SleepTrendsChartViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 882F9211230DF9E600975908 /* SleepTrendsChartViewController.swift */; };
+		882F9214230DF9E600975908 /* SleepTrendsChartViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 882F9211230DF9E600975908 /* SleepTrendsChartViewController.swift */; };
+		882F9216230DFA0300975908 /* StressTrendsChartViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 882F9215230DFA0300975908 /* StressTrendsChartViewController.swift */; };
+		882F9217230DFA0300975908 /* StressTrendsChartViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 882F9215230DFA0300975908 /* StressTrendsChartViewController.swift */; };
+		882F9218230DFA0300975908 /* StressTrendsChartViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 882F9215230DFA0300975908 /* StressTrendsChartViewController.swift */; };
 		883A8D062119C3BA004DC71F /* AddNewViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 883A8D052119C3BA004DC71F /* AddNewViewController.swift */; };
 		883A8D072119C3BA004DC71F /* AddNewViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 883A8D052119C3BA004DC71F /* AddNewViewController.swift */; };
 		883A8D082119C3BA004DC71F /* AddNewViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 883A8D052119C3BA004DC71F /* AddNewViewController.swift */; };
@@ -68,6 +74,7 @@
 		883D4E7B224C1C8C00F602F8 /* DiaryNotesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 883D4E7A224C1C8C00F602F8 /* DiaryNotesViewController.swift */; };
 		883D4E7C224C1C8C00F602F8 /* DiaryNotesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 883D4E7A224C1C8C00F602F8 /* DiaryNotesViewController.swift */; };
 		883D4E7D224C1C8C00F602F8 /* DiaryNotesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 883D4E7A224C1C8C00F602F8 /* DiaryNotesViewController.swift */; };
+		884103A7230B7983005936F4 /* DataGenerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 884103A6230B7983005936F4 /* DataGenerator.swift */; };
 		884383382135E42A00DCDB6C /* OnboardingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 884383372135E42A00DCDB6C /* OnboardingViewController.swift */; };
 		884383392135E42A00DCDB6C /* OnboardingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 884383372135E42A00DCDB6C /* OnboardingViewController.swift */; };
 		8843833A2135E42A00DCDB6C /* OnboardingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 884383372135E42A00DCDB6C /* OnboardingViewController.swift */; };
@@ -90,6 +97,12 @@
 		886571A62098F99F001F9AB7 /* MedicationsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 886571A52098F99F001F9AB7 /* MedicationsViewController.swift */; };
 		886571A72098F99F001F9AB7 /* MedicationsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 886571A52098F99F001F9AB7 /* MedicationsViewController.swift */; };
 		886571A82098F99F001F9AB7 /* MedicationsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 886571A52098F99F001F9AB7 /* MedicationsViewController.swift */; };
+		8871DEE122FDAD6D00F8B81D /* MigraineTrendsChartViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8871DEE022FDAD6D00F8B81D /* MigraineTrendsChartViewController.swift */; };
+		8871DEE222FDAD6D00F8B81D /* MigraineTrendsChartViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8871DEE022FDAD6D00F8B81D /* MigraineTrendsChartViewController.swift */; };
+		8871DEE322FDAD6D00F8B81D /* MigraineTrendsChartViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8871DEE022FDAD6D00F8B81D /* MigraineTrendsChartViewController.swift */; };
+		8871DEE722FDB6C600F8B81D /* DayAxisValueFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8871DEE622FDB6C500F8B81D /* DayAxisValueFormatter.swift */; };
+		8871DEE822FDB6C600F8B81D /* DayAxisValueFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8871DEE622FDB6C500F8B81D /* DayAxisValueFormatter.swift */; };
+		8871DEE922FDB6C600F8B81D /* DayAxisValueFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8871DEE622FDB6C500F8B81D /* DayAxisValueFormatter.swift */; };
 		88754C612142ABE600641D3B /* DiaryEntryTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88754C602142ABE600641D3B /* DiaryEntryTableViewCell.swift */; };
 		88754C622142ABE600641D3B /* DiaryEntryTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88754C602142ABE600641D3B /* DiaryEntryTableViewCell.swift */; };
 		88754C632142ABE600641D3B /* DiaryEntryTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88754C602142ABE600641D3B /* DiaryEntryTableViewCell.swift */; };
@@ -190,6 +203,9 @@
 		8880060120745820003AF1DA /* TermsOfServiceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 888005FF20745820003AF1DA /* TermsOfServiceViewController.swift */; };
 		8880060220745820003AF1DA /* TermsOfServiceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 888005FF20745820003AF1DA /* TermsOfServiceViewController.swift */; };
 		8880154C22552A85000ADE0C /* QuestionInfoTableViewCellProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8880154B22552A85000ADE0C /* QuestionInfoTableViewCellProtocol.swift */; };
+		8882E3EC22FCB98900FFCF6E /* TrendsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8882E3EB22FCB98900FFCF6E /* TrendsViewController.swift */; };
+		8882E3ED22FCB98900FFCF6E /* TrendsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8882E3EB22FCB98900FFCF6E /* TrendsViewController.swift */; };
+		8882E3EE22FCB98900FFCF6E /* TrendsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8882E3EB22FCB98900FFCF6E /* TrendsViewController.swift */; };
 		888E46E4211DC1BD00CFC42A /* MedicationTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 888E46E2211DC1BD00CFC42A /* MedicationTableViewCell.swift */; };
 		888E46E5211DC1BD00CFC42A /* MedicationTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 888E46E2211DC1BD00CFC42A /* MedicationTableViewCell.swift */; };
 		888E46E6211DC1BD00CFC42A /* MedicationTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 888E46E2211DC1BD00CFC42A /* MedicationTableViewCell.swift */; };
@@ -322,6 +338,8 @@
 		8826AE4A21E4D141003D4A16 /* NotesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotesViewController.swift; sourceTree = "<group>"; };
 		882B59D82217029600BE46EB /* EditDiaryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditDiaryViewController.swift; sourceTree = "<group>"; };
 		882B59DC22176AA500BE46EB /* HeadacheDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeadacheDetailsViewController.swift; sourceTree = "<group>"; };
+		882F9211230DF9E600975908 /* SleepTrendsChartViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SleepTrendsChartViewController.swift; sourceTree = "<group>"; };
+		882F9215230DFA0300975908 /* StressTrendsChartViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StressTrendsChartViewController.swift; sourceTree = "<group>"; };
 		883A8D052119C3BA004DC71F /* AddNewViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddNewViewController.swift; sourceTree = "<group>"; };
 		883A8D09211B18D7004DC71F /* DiaryService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiaryService.swift; sourceTree = "<group>"; };
 		883C2A821FA255E000701D57 /* DiaryRootViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiaryRootViewController.swift; sourceTree = "<group>"; };
@@ -330,6 +348,7 @@
 		883C2A961FA2747C00701D57 /* CurrentPreventionsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrentPreventionsViewController.swift; sourceTree = "<group>"; };
 		883CE8CD21357C4700B2719D /* OnboardingPageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingPageViewController.swift; sourceTree = "<group>"; };
 		883D4E7A224C1C8C00F602F8 /* DiaryNotesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiaryNotesViewController.swift; sourceTree = "<group>"; };
+		884103A6230B7983005936F4 /* DataGenerator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataGenerator.swift; sourceTree = "<group>"; };
 		884383372135E42A00DCDB6C /* OnboardingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingViewController.swift; sourceTree = "<group>"; };
 		885F5B5B1FBDDB8000F80BB9 /* String+Additions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Additions.swift"; sourceTree = "<group>"; };
 		885F5B651FBDE60E00F80BB9 /* SettingsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsTableViewController.swift; sourceTree = "<group>"; };
@@ -338,6 +357,8 @@
 		88651553208576E800103378 /* SelectableTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SelectableTableViewCell.xib; sourceTree = "<group>"; };
 		886571A12098E8FE001F9AB7 /* SuccessAlert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SuccessAlert.swift; sourceTree = "<group>"; };
 		886571A52098F99F001F9AB7 /* MedicationsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MedicationsViewController.swift; sourceTree = "<group>"; };
+		8871DEE022FDAD6D00F8B81D /* MigraineTrendsChartViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MigraineTrendsChartViewController.swift; sourceTree = "<group>"; };
+		8871DEE622FDB6C500F8B81D /* DayAxisValueFormatter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DayAxisValueFormatter.swift; sourceTree = "<group>"; };
 		88754C602142ABE600641D3B /* DiaryEntryTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiaryEntryTableViewCell.swift; sourceTree = "<group>"; };
 		888005822072C571003AF1DA /* UIColors+Additions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColors+Additions.swift"; sourceTree = "<group>"; };
 		888005872072D31D003AF1DA /* SF-Pro-Display-Thin.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SF-Pro-Display-Thin.otf"; sourceTree = "<group>"; };
@@ -372,6 +393,7 @@
 		888005A42072D31D003AF1DA /* SF-Pro-Text-SemiboldItalic.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SF-Pro-Text-SemiboldItalic.otf"; sourceTree = "<group>"; };
 		888005FF20745820003AF1DA /* TermsOfServiceViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TermsOfServiceViewController.swift; sourceTree = "<group>"; };
 		8880154B22552A85000ADE0C /* QuestionInfoTableViewCellProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuestionInfoTableViewCellProtocol.swift; sourceTree = "<group>"; };
+		8882E3EB22FCB98900FFCF6E /* TrendsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrendsViewController.swift; sourceTree = "<group>"; };
 		888E46E2211DC1BD00CFC42A /* MedicationTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MedicationTableViewCell.swift; sourceTree = "<group>"; };
 		888E46E3211DC1BD00CFC42A /* MedicationTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MedicationTableViewCell.xib; sourceTree = "<group>"; };
 		889A31891FB4F0AE00D2E0E5 /* MainTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabBarController.swift; sourceTree = "<group>"; };
@@ -513,6 +535,12 @@
 		00130E021FA120F200D8FBB6 /* View Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				8882E3EB22FCB98900FFCF6E /* TrendsViewController.swift */,
+				8871DEE022FDAD6D00F8B81D /* MigraineTrendsChartViewController.swift */,
+				882F9211230DF9E600975908 /* SleepTrendsChartViewController.swift */,
+				882F9215230DFA0300975908 /* StressTrendsChartViewController.swift */,
+				884103A6230B7983005936F4 /* DataGenerator.swift */,
+				8871DEE622FDB6C500F8B81D /* DayAxisValueFormatter.swift */,
 				883A8D052119C3BA004DC71F /* AddNewViewController.swift */,
 				882B59D82217029600BE46EB /* EditDiaryViewController.swift */,
 				889A31891FB4F0AE00D2E0E5 /* MainTabBarController.swift */,
@@ -944,6 +972,7 @@
 			);
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-Migraine/Pods-Migraine-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/Charts/Charts.framework",
 				"${BUILT_PRODUCTS_DIR}/GTMSessionFetcher/GTMSessionFetcher.framework",
 				"${BUILT_PRODUCTS_DIR}/GoogleToolboxForMac/GoogleToolboxForMac.framework",
 				"${BUILT_PRODUCTS_DIR}/IHKeyboardAvoiding/IHKeyboardAvoiding.framework",
@@ -952,6 +981,7 @@
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Charts.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GTMSessionFetcher.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleToolboxForMac.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/IHKeyboardAvoiding.framework",
@@ -1022,6 +1052,7 @@
 				8826AE4B21E4D141003D4A16 /* NotesViewController.swift in Sources */,
 				886325BC21D4410C00511F8B /* MigraineLocationViewController.swift in Sources */,
 				883A8D062119C3BA004DC71F /* AddNewViewController.swift in Sources */,
+				8871DEE722FDB6C600F8B81D /* DayAxisValueFormatter.swift in Sources */,
 				88D8A4A021A1BDD5000BB0BB /* HealthDeviceManager.swift in Sources */,
 				883C2A971FA2747C00701D57 /* CurrentPreventionsViewController.swift in Sources */,
 				882B59DD22176AA500BE46EB /* HeadacheDetailsViewController.swift in Sources */,
@@ -1032,6 +1063,7 @@
 				889A318A1FB4F0AE00D2E0E5 /* MainTabBarController.swift in Sources */,
 				8880154C22552A85000ADE0C /* QuestionInfoTableViewCellProtocol.swift in Sources */,
 				882B59D92217029600BE46EB /* EditDiaryViewController.swift in Sources */,
+				882F9212230DF9E600975908 /* SleepTrendsChartViewController.swift in Sources */,
 				88BC93A2225E291200AF443C /* Medication.swift in Sources */,
 				88651554208576E800103378 /* SelectableTableViewCell.swift in Sources */,
 				008592DA1FD9A82300FE0245 /* MedicalConditionsViewController.swift in Sources */,
@@ -1039,7 +1071,9 @@
 				886571A62098F99F001F9AB7 /* MedicationsViewController.swift in Sources */,
 				888E46E4211DC1BD00CFC42A /* MedicationTableViewCell.swift in Sources */,
 				00130DC21FA1041800D8FBB6 /* AppDelegate.swift in Sources */,
+				8871DEE122FDAD6D00F8B81D /* MigraineTrendsChartViewController.swift in Sources */,
 				889A31921FB4F54D00D2E0E5 /* LogInViewController.swift in Sources */,
+				882F9216230DFA0300975908 /* StressTrendsChartViewController.swift in Sources */,
 				88BC158B2090998000AC29CC /* SymptomsViewController.swift in Sources */,
 				883D4E7B224C1C8C00F602F8 /* DiaryNotesViewController.swift in Sources */,
 				883C2A8F1FA2742500701D57 /* CurrentSymptomsViewController.swift in Sources */,
@@ -1061,6 +1095,8 @@
 				00130DFB1FA11FA300D8FBB6 /* DiaryEntry.swift in Sources */,
 				88DAFD302061B38B0001B0D3 /* NibFileOwnerLoadable.swift in Sources */,
 				886571A22098E8FE001F9AB7 /* SuccessAlert.swift in Sources */,
+				884103A7230B7983005936F4 /* DataGenerator.swift in Sources */,
+				8882E3EC22FCB98900FFCF6E /* TrendsViewController.swift in Sources */,
 				883C2A931FA2745700701D57 /* CurrentTriggersViewController.swift in Sources */,
 				88119139211BC3FE00D851DB /* SliderTableViewCell.swift in Sources */,
 				88BC1574208A22E700AC29CC /* AddElementTableViewCell.swift in Sources */,
@@ -1076,6 +1112,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				88BC1588208FFB8400AC29CC /* HelpersViewController.swift in Sources */,
+				8871DEE822FDB6C600F8B81D /* DayAxisValueFormatter.swift in Sources */,
 				886571A32098E8FE001F9AB7 /* SuccessAlert.swift in Sources */,
 				88754C622142ABE600641D3B /* DiaryEntryTableViewCell.swift in Sources */,
 				88DAFD142061A5840001B0D3 /* StandardBaseClassStyle.swift in Sources */,
@@ -1090,6 +1127,8 @@
 				88DAFD352061B8290001B0D3 /* GeneralInfoViewController.swift in Sources */,
 				008592DB1FD9A82300FE0245 /* MedicalConditionsViewController.swift in Sources */,
 				889A318B1FB4F0AE00D2E0E5 /* MainTabBarController.swift in Sources */,
+				882F9217230DFA0300975908 /* StressTrendsChartViewController.swift in Sources */,
+				8882E3ED22FCB98900FFCF6E /* TrendsViewController.swift in Sources */,
 				8880060120745820003AF1DA /* TermsOfServiceViewController.swift in Sources */,
 				888005842072C571003AF1DA /* UIColors+Additions.swift in Sources */,
 				88BB175D212DE7160087A35B /* DiarySuccessViewController.swift in Sources */,
@@ -1119,8 +1158,10 @@
 				00130DFC1FA11FA300D8FBB6 /* DiaryEntry.swift in Sources */,
 				883D4E7C224C1C8C00F602F8 /* DiaryNotesViewController.swift in Sources */,
 				00130DF81FA11F9700D8FBB6 /* User.swift in Sources */,
+				8871DEE222FDAD6D00F8B81D /* MigraineTrendsChartViewController.swift in Sources */,
 				883C2A941FA2745700701D57 /* CurrentTriggersViewController.swift in Sources */,
 				880B4A741FCE14C5001FA594 /* NotificationsViewController.swift in Sources */,
+				882F9213230DF9E600975908 /* SleepTrendsChartViewController.swift in Sources */,
 				883A8D0B211B18D7004DC71F /* DiaryService.swift in Sources */,
 				883CE8CF21357C4700B2719D /* OnboardingPageViewController.swift in Sources */,
 			);
@@ -1131,6 +1172,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				88BC1589208FFB8400AC29CC /* HelpersViewController.swift in Sources */,
+				8871DEE922FDB6C600F8B81D /* DayAxisValueFormatter.swift in Sources */,
 				886571A42098E8FE001F9AB7 /* SuccessAlert.swift in Sources */,
 				88754C632142ABE600641D3B /* DiaryEntryTableViewCell.swift in Sources */,
 				88DAFD152061A5840001B0D3 /* StandardBaseClassStyle.swift in Sources */,
@@ -1145,6 +1187,8 @@
 				88DAFD362061B8290001B0D3 /* GeneralInfoViewController.swift in Sources */,
 				008592DC1FD9A82300FE0245 /* MedicalConditionsViewController.swift in Sources */,
 				889A318C1FB4F0AE00D2E0E5 /* MainTabBarController.swift in Sources */,
+				882F9218230DFA0300975908 /* StressTrendsChartViewController.swift in Sources */,
+				8882E3EE22FCB98900FFCF6E /* TrendsViewController.swift in Sources */,
 				8880060220745820003AF1DA /* TermsOfServiceViewController.swift in Sources */,
 				888005852072C571003AF1DA /* UIColors+Additions.swift in Sources */,
 				88BB175E212DE7160087A35B /* DiarySuccessViewController.swift in Sources */,
@@ -1174,8 +1218,10 @@
 				00130DFD1FA11FA300D8FBB6 /* DiaryEntry.swift in Sources */,
 				883D4E7D224C1C8C00F602F8 /* DiaryNotesViewController.swift in Sources */,
 				00130DF91FA11F9700D8FBB6 /* User.swift in Sources */,
+				8871DEE322FDAD6D00F8B81D /* MigraineTrendsChartViewController.swift in Sources */,
 				883C2A951FA2745700701D57 /* CurrentTriggersViewController.swift in Sources */,
 				880B4A751FCE14C5001FA594 /* NotificationsViewController.swift in Sources */,
+				882F9214230DF9E600975908 /* SleepTrendsChartViewController.swift in Sources */,
 				883A8D0C211B18D7004DC71F /* DiaryService.swift in Sources */,
 				883CE8D021357C4700B2719D /* OnboardingPageViewController.swift in Sources */,
 			);

@@ -10,6 +10,7 @@ import UIKit
 
 class HelpersViewController: UIViewController, SavablePage, UIAlertViewDelegate, UITabBarDelegate, UITableViewDataSource, UITableViewDelegate  {
 
+    @IBOutlet weak var pageControl: UIPageControl!
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var saveButtonFooter: SaveButtonFooterView!
     var isOnboarding = false
@@ -22,7 +23,12 @@ class HelpersViewController: UIViewController, SavablePage, UIAlertViewDelegate,
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        if isOnboarding {
+            saveButtonFooter.setTitle(title: "Next")
+        } else {
+            pageControl.isHidden = true
+            saveButtonFooter.setTitle(title: "Save")
+        }
         saveButtonFooter.saveDelagate = self
         let allElementNib = UINib(nibName: "AddElementTableViewCell", bundle: nil)
         tableView.register(allElementNib, forCellReuseIdentifier: addElementTableViewCellId)

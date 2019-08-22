@@ -15,6 +15,7 @@ class HeadacheDetailsViewController: UIViewController, SavablePage, EditDelegate
     @IBOutlet weak var saveButtonFooter: SaveButtonFooterView!
     var isOnboarding = false
     @IBOutlet weak var saveButtonHeight: NSLayoutConstraint!
+    @IBOutlet weak var pageControl: UIPageControl!
     
     private let dateFormatter = DateFormatter()
     
@@ -42,7 +43,11 @@ class HeadacheDetailsViewController: UIViewController, SavablePage, EditDelegate
         super.viewDidLoad()
         saveButtonFooter.saveDelagate = self
         if isOnboarding {
+            saveButtonFooter.setTitle(title: "Next")
             saveButtonHeight.constant = 110
+        } else {
+            pageControl.isHidden = true
+            saveButtonFooter.setTitle(title: "Save")
         }
         dateFormatter.dateStyle = .medium
         let editCellNib = UINib(nibName: "TextEditTableViewCell", bundle: nil)

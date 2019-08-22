@@ -20,26 +20,48 @@ class DiaryService {
     
     var dateFormatter: DateFormatter
     var dateFormatterShort: DateFormatter
+    var oldDateFormatter: DateFormatter
     
     init() {
         self.dbRef = Database.database().reference()
         dateFormatter = DateFormatter()
         dateFormatter.dateStyle = .long
         dateFormatter.timeStyle = .long
+        dateFormatter.locale = Locale(identifier: "en_US_POSIX")
+        print(Locale.current.identifier)
+
+        dateFormatter.locale = Locale.current
+        print(Locale.current.identifier)
+
         dateFormatterShort = DateFormatter()
         dateFormatterShort.dateStyle = .short
+        
+        oldDateFormatter = DateFormatter()
+        oldDateFormatter.dateFormat = "MMMM dd, yyyy 'at' HH:mm:ss zzz"
+        
     }
     
     func addQuestionInfosToPendingDiaryEntry(questionInfos: [QuestionInfo]){
         for questionInfo:QuestionInfo in questionInfos {
             if questionInfo.value != nil {
+                removeQuestionInfoFromPendingDiaryEntry(questionInfo)
                 pendingDiaryEntry?.questionInfos.append(questionInfo)
             }
         }
     }
     
+    func removeQuestionInfoFromPendingDiaryEntry(_ questionInfo: QuestionInfo){
+        if var questionInfos = pendingDiaryEntry?.questionInfos {
+            questionInfos = questionInfos.filter({ (existingQuestionInfo) -> Bool in
+                return questionInfo.infoKey != existingQuestionInfo.infoKey
+            })
+            pendingDiaryEntry?.questionInfos = questionInfos
+        }
+    }
+    
     func submitPendingDiaryEntry(completion: @escaping () -> Void) {
         if let diary = pendingDiaryEntry {
+            deleteExistingDiaryOf(date: diary.date)
             let usersRef = self.dbRef.child("patient-records").child("patient-diaries")
             let userId = Auth.auth().currentUser?.uid
             let curDate = dateFormatter.string(from: diary.date)
@@ -50,6 +72,17 @@ class DiaryService {
             usersRef.child(userId!).child(curDate).setValue(keyValues)
             pendingDiaryEntry = nil;
             completion()
+        }
+    }
+    
+    func deleteExistingDiaryOf(date:Date){
+        for diaryEntry in self.diaryEntries {
+            if diaryEntry.date == date {
+                let usersRef = self.dbRef.child("patient-records").child("patient-diaries")
+                let userId = Auth.auth().currentUser?.uid
+                let curDate = oldDateFormatter.string(from: date)
+                usersRef.child(userId!).child(curDate).removeValue()
+            }
         }
     }
     
@@ -71,8 +104,10 @@ class DiaryService {
     func getUnfinishedMigraineDiaryEntry() -> DiaryEntry? {
         do{
             for diary in diaryEntries {
-                if try diary.wasMigraine() && diary.migraineEndDate() == nil {
-                    return diary
+                if try diary.wasMigraine() && diary.migraineEndDateString() == nil {
+                    if Calendar.current.dateComponents([.day], from: diary.date, to: Date()).day ?? 5 < 3 {
+                        return diary
+                    }
                 }
             }
         } catch { return nil }

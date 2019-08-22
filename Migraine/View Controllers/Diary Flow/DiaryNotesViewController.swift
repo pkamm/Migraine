@@ -13,12 +13,14 @@ class DiaryNotesViewController: UIViewController, SavablePage, UITextViewDelegat
     @IBOutlet weak var notesTextView: UITextView!
     @IBOutlet weak var saveButtonFooter: SaveButtonFooterView!
     @IBOutlet weak var globalInputTextField: UITextField!
+    @IBOutlet weak var pageControl: UIPageControl!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         notesTextView.layer.cornerRadius = 5
         saveButtonFooter.saveDelagate = self
         saveButtonFooter.setTitle(title: "Next")
+        setPageControl()
     }
     
     func textView(_ textView: UITextView, shouldChangeTextIn range: NSRange, replacementText text: String) -> Bool {
@@ -27,6 +29,16 @@ class DiaryNotesViewController: UIViewController, SavablePage, UITextViewDelegat
             return false
         }
         return true
+    }
+    
+    func setPageControl(){
+        var numberOfPages = 5
+        numberOfPages += DiaryService.sharedInstance.hasEnteredSleepDataToday() ? 0 : 1
+        do{
+            numberOfPages += try (DiaryService.sharedInstance.pendingDiaryEntry?.wasMigraine())! ? 2 : 0
+        } catch {}
+        pageControl.numberOfPages = numberOfPages
+        pageControl.currentPage = numberOfPages - 1
     }
     
     func saveButtonPressed(_ sender: Any) {

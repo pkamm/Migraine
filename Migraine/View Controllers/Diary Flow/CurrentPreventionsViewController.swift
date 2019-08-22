@@ -15,6 +15,7 @@ class CurrentPreventionsViewController: UIViewController, SavablePage, UIAlertVi
     
     @IBOutlet weak var saveButtonFooter: SaveButtonFooterView!
     @IBOutlet weak var tableView: UITableView!
+    @IBOutlet weak var pageControl: UIPageControl!
     
     private let addElementTableViewCellId = "AddElementViewControllerId"
     private let selectableTableViewCellId = "SelectableTableViewCellId"
@@ -23,6 +24,7 @@ class CurrentPreventionsViewController: UIViewController, SavablePage, UIAlertVi
         super.viewDidLoad()
         saveButtonFooter.saveDelagate = self
         saveButtonFooter.setTitle(title: "Next")
+        setPageControl()
         let allElementNib = UINib(nibName: "AddElementTableViewCell", bundle: nil)
         tableView.register(allElementNib, forCellReuseIdentifier: addElementTableViewCellId)
         let selectableNib = UINib(nibName: "SelectableTableViewCell", bundle: nil)
@@ -34,6 +36,16 @@ class CurrentPreventionsViewController: UIViewController, SavablePage, UIAlertVi
                 self.tableView.reloadData()
             }
         }
+    }
+    
+    func setPageControl(){
+        var numberOfPages = 5
+        numberOfPages += DiaryService.sharedInstance.hasEnteredSleepDataToday() ? 0 : 1
+        do{
+            numberOfPages += try (DiaryService.sharedInstance.pendingDiaryEntry?.wasMigraine())! ? 2 : 0
+        } catch {}
+        pageControl.numberOfPages = numberOfPages
+        pageControl.currentPage = numberOfPages - 2
     }
     
     override func didReceiveMemoryWarning() {

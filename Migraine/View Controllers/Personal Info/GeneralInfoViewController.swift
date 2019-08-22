@@ -30,6 +30,7 @@ class GeneralInfoViewController: StandardBaseClassStyle, SavablePage, EditDelega
     private let genderBornAsOptions = ["Female", "Male"]
     private let hormoneTherapyOptions = ["None", "Estrogen", "Testosterone"]
     
+    @IBOutlet weak var pageControl: UIPageControl!
     private var currentQuestionInfo: QuestionInfo?
     private var isMaleSelected: Bool = false
     var isOnboarding = false
@@ -50,6 +51,10 @@ class GeneralInfoViewController: StandardBaseClassStyle, SavablePage, EditDelega
         super.viewDidLoad()
         if isOnboarding {
             saveButtonHeight.constant = 110
+            saveButtonFooter.setTitle(title: "Next")
+        } else {
+            pageControl.isHidden = true
+            saveButtonFooter.setTitle(title: "Save")
         }
         saveButtonFooter.saveDelagate = self
         dateFormatter.dateStyle = .medium
@@ -58,8 +63,6 @@ class GeneralInfoViewController: StandardBaseClassStyle, SavablePage, EditDelega
         let segmentCellNib = UINib(nibName: "SegmentedSelectTableViewCell", bundle: nil)
         tableView.register(segmentCellNib, forCellReuseIdentifier: self.segmentedSelectTableViewCellId)
         tableView.backgroundColor = UIColor.darkBackgroundColor()
-        let saveButtonText = isOnboarding ? "Next" : "Save"
-        saveButtonFooter.setTitle(title: saveButtonText)
         PatientInfoService.sharedInstance.getMedicalConditions { (conditionsDictionary) in
             if let conditionsDict = conditionsDictionary {
                 self.updateTextFields(healthDictionary: conditionsDict)

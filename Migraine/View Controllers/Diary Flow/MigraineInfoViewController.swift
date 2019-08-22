@@ -25,12 +25,15 @@ class MigraineInfoViewController: UIViewController, UITableViewDataSource, UITab
     @IBOutlet weak var saveButtonFooter: SaveButtonFooterView!
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var globalInputTextField: UITextField!
+    @IBOutlet weak var pageControl: UIPageControl!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         saveButtonFooter.saveDelagate = self
         saveButtonFooter.setTitle(title: "Next")
-        
+        pageControl.numberOfPages = 8
+        pageControl.currentPage = DiaryService.sharedInstance.hasEnteredSleepDataToday() ? 1 : 2
+
         dateFormatter.dateStyle = .medium
         dateFormatter.timeStyle = .medium
 

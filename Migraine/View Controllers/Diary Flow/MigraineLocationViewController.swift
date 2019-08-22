@@ -14,12 +14,15 @@ class MigraineLocationViewController: UIViewController, SavablePage {
         performSegue(withIdentifier: "SymptomsSegue", sender: self)
     }
 
+    @IBOutlet weak var pageControl: UIPageControl!
     @IBOutlet weak var saveButtonFooter: SaveButtonFooterView!
     private var currentQuestionInfo: QuestionInfo?
     var locations = [String]()
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        pageControl.numberOfPages = 8
+        pageControl.currentPage = DiaryService.sharedInstance.hasEnteredSleepDataToday() ? 2 : 3
         saveButtonFooter.saveDelagate = self
         saveButtonFooter.setTitle(title: "Next")
     }

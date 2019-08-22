@@ -20,10 +20,17 @@ class SymptomsViewController: UIViewController, SavablePage, UIAlertViewDelegate
     
     private let addElementTableViewCellId = "AddElementViewControllerId"
     private let selectableTableViewCellId = "SelectableTableViewCellId"
+    @IBOutlet weak var pageControl: UIPageControl!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         saveButtonFooter.saveDelagate = self
+        if isOnboarding {
+            saveButtonFooter.setTitle(title: "Next")
+        } else {
+            pageControl.isHidden = true
+            saveButtonFooter.setTitle(title: "Save")
+        }
         let allElementNib = UINib(nibName: "AddElementTableViewCell", bundle: nil)
         tableView.register(allElementNib, forCellReuseIdentifier: addElementTableViewCellId)
         let selectableNib = UINib(nibName: "SelectableTableViewCell", bundle: nil)

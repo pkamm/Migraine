@@ -19,6 +19,7 @@ class NotificationsViewController: UIViewController, UITableViewDataSource, UITa
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var globalInputTextField: UITextField!
     @IBOutlet weak var clearNotificationButton: UIButton!
+    @IBOutlet weak var pageControl: UIPageControl!
     
     private let textEditTableViewCellId = "textEditTableViewCellId"
     private var currentQuestionInfo: QuestionInfo?
@@ -27,6 +28,7 @@ class NotificationsViewController: UIViewController, UITableViewDataSource, UITa
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        if !isOnboarding{ pageControl.isHidden = true }
         dateFormatter.timeStyle = .short
         let editCellNib = UINib(nibName: "TextEditTableViewCell", bundle: nil)
         tableView.register(editCellNib, forCellReuseIdentifier: self.textEditTableViewCellId)

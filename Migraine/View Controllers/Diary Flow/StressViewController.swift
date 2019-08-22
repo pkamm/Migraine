@@ -17,7 +17,8 @@ class StressViewController: UIViewController, UITableViewDataSource, UITableView
     @IBOutlet weak var saveButtonFooter: SaveButtonFooterView!
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var cancelButton: UIBarButtonItem!
-
+    @IBOutlet weak var pageControl: UIPageControl!
+    
     private var currentQuestionInfo: QuestionInfo?
     private var isMigraine: Bool = false
     
@@ -26,6 +27,8 @@ class StressViewController: UIViewController, UITableViewDataSource, UITableView
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        pageControl.numberOfPages = 6
+        pageControl.currentPage = DiaryService.sharedInstance.hasEnteredSleepDataToday() ? 0 : 1
         saveButtonFooter.saveDelagate = self
         saveButtonFooter.setTitle(title: "Next")
         let segmentCellNib = UINib(nibName: "SegmentedSelectTableViewCell", bundle: nil)
@@ -82,6 +85,8 @@ class StressViewController: UIViewController, UITableViewDataSource, UITableView
             } else if let value = questionInfo.value as? Bool {
                 isMigraine = value
             }
+            currentQuestionInfo?.value = isMigraine
+            pageControl.numberOfPages = isMigraine ? 8 : 6
         default:
             return;
         }

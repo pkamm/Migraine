@@ -21,5 +21,10 @@ public extension UIColor {
     class func darkBackgroundColor() -> UIColor! {
         return UIColor(red:0.08, green:0.06, blue:0.05, alpha:1);
     }
+    
+    class func secondaryBackgroundColor() -> UIColor! {
+        return UIColor(red:0.590, green:0.420, blue:0.380, alpha:1);
+
+    }
 
 }

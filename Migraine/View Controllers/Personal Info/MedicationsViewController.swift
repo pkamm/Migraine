@@ -20,6 +20,7 @@ class MedicationsViewController: UIViewController, SavablePage, DeleteDelegate, 
     @IBOutlet weak var frequencyTextField: UITextField!
     @IBOutlet weak var dosageTextField: UITextField!
     @IBOutlet weak var dosageSegmentedControl: UISegmentedControl!
+    @IBOutlet weak var pageControl: UIPageControl!
     
     var medications = [Medication]()
     
@@ -34,6 +35,12 @@ class MedicationsViewController: UIViewController, SavablePage, DeleteDelegate, 
         let picker = UIPickerView()
         frequencyTextField.inputView = picker
         saveButtonFooter.saveDelagate = self
+        if isOnboarding {
+            saveButtonFooter.setTitle(title: "Next")
+        } else {
+            pageControl.isHidden = true
+            saveButtonFooter.setTitle(title: "Save")
+        }
         addDoneButtonOnKeyboard()
         frequencyTextField.inputAccessoryView = addToolbarTo(picker: picker, title: "Frequency", action: #selector(MedicationsViewController.donePressed(sender:)))
         let removeElementNib = UINib(nibName: "MedicationTableViewCell", bundle: nil)
