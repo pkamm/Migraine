@@ -158,6 +158,15 @@ class DiaryEntry{
         throw DiaryError.runtimeError("Missing info as to whether there was a migraine")
     }
     
+    func stressLevel() throws -> Int {
+        for questionInfo in questionInfos {
+            if questionInfo.infoKey == .STRESSLEVEL, let severityValue = questionInfo.value as? Int {
+                return severityValue
+            }
+        }
+        throw DiaryError.runtimeError("Missing info as to whether there was a migraine")
+    }
+    
     func sleepQuality() throws -> Int {
         for questionInfo in questionInfos {
             if questionInfo.infoKey == .SLEEPQUALITY, let qualityLevel = questionInfo.value as? Int {

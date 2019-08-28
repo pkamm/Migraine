@@ -28,7 +28,8 @@ class StressTrendsChartViewController: UIViewController, ChartViewDelegate, Tren
             var stressValue = 0
             for diaryEntry in entries {
                 if diaryEntry.date.isBetween(firstDate, and: secondDate) {
-                    do{ stressValue = try diaryEntry.migraineSeverity()
+                    do{
+                        stressValue = try diaryEntry.stressLevel()
                     } catch {
                         
                     }

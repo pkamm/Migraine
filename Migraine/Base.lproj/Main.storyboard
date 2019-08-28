@@ -322,7 +322,7 @@
                                         </connections>
                                     </containerView>
                                     <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="0H0-Ww-nJl">
-                                        <rect key="frame" x="0.0" y="154" width="375" height="147"/>
+                                        <rect key="frame" x="0.0" y="155" width="375" height="147"/>
                                         <connections>
                                             <segue destination="9Ri-Gp-hrX" kind="embed" id="8VE-Nt-USd"/>
                                         </connections>
@@ -2437,7 +2437,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="onboarding2" translatesAutoresizingMaskIntoConstraints="NO" id="M8q-zd-Hhx">
-                                <rect key="frame" x="41" y="196" width="293" height="187.00000000000003"/>
+                                <rect key="frame" x="179.5" y="281.5" width="16" height="16"/>
                             </imageView>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="Mv4-v2-HEm">
                                 <rect key="frame" x="16" y="20" width="343" height="136"/>

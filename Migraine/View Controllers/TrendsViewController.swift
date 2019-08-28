@@ -31,14 +31,19 @@ class TrendsViewController: UIViewController {
     
     func resetCharts(numberOfDays: Int){
         DiaryService.sharedInstance.getDiaryEntries { (entries) in
-            if let allEntries = entries {
-                
-                let entries = allEntries.filter{ (Calendar.current.isDate($0.date, equalTo: Date(), toGranularity: .weekOfMonth)) }
-                for chartVC in self.chartVCs {
-                    chartVC.resetChartData(entries: entries, numberOfBins: numberOfDays)
+            var filteredEntries = [DiaryEntry]()
+            if let allEntries = entries,
+                let startingDate = Calendar.current.date(byAdding: .day, value: -self.numberOfDays, to: Date()){
+                for entry in allEntries{
+                    if startingDate < entry.date {
+                        filteredEntries.append(entry)
+                    }
                 }
-                
             }
+            for chartVC in self.chartVCs {
+                chartVC.resetChartData(entries: filteredEntries, numberOfBins: numberOfDays)
+            }
+            
         }
         
     }
