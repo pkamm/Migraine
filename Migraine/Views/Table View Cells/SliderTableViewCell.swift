@@ -19,6 +19,7 @@ class SliderTableViewCell: UITableViewCell {
     
     override func awakeFromNib() {
         super.awakeFromNib()
+        selectionStyle = .none
     }
     
     func setQuestionInfo(_ newQuestionInfo:QuestionInfo!, scale:Int) {

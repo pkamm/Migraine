@@ -28,13 +28,14 @@ class DiaryRootViewController: UIViewController, UITableViewDataSource, UITableV
         saveButtonFooter.saveDelagate = self
         saveButtonFooter.setTitle(title: "Next")
 
+        
         HealthDeviceManager.sharedInstance.authorizeHealthKit { (authorized,  _error) -> Void in
             if authorized {
                 print("HealthKit authorization received.")
                 HealthDeviceManager.sharedInstance.observeAllChanges()
             } else {
                 print("HealthKit authorization denied!")
-                print("error: ", _error)
+                print("error: ", _error as Any)
             }
         }
         
@@ -42,6 +43,7 @@ class DiaryRootViewController: UIViewController, UITableViewDataSource, UITableV
         tableView.register(editCellNib, forCellReuseIdentifier: self.textEditTableViewCellId)
         let sliderCellNib = UINib(nibName: "SliderTableViewCell", bundle: nil)
         tableView.register(sliderCellNib, forCellReuseIdentifier: self.sliderTableViewCellId)
+        
     }
 
     override func didReceiveMemoryWarning() {
@@ -70,6 +72,9 @@ class DiaryRootViewController: UIViewController, UITableViewDataSource, UITableV
         switch questionInfo.infoKey {
         case .SLEEPDURATIONMINUTES:
             if let cell = tableView.dequeueReusableCell(withIdentifier: textEditTableViewCellId, for: indexPath) as? TextEditTableViewCell {
+                if questionInfo.value == nil {
+                    questionInfo.value = stringFromTimeInterval(interval:TimeInterval(8*3600))
+                }
                 cell.setQuestionInfo(questionInfo)
                 cell.editDelegate = self
                 return cell

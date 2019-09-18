@@ -23,6 +23,7 @@ class SegmentedSelectTableViewCell: UITableViewCell, QuestionInfoTableViewCell {
         titleLabel.textColor = UIColor.majorTextColor()
         segmentedControl.tintColor = UIColor.minorTextColor()
         backgroundColor = UIColor.darkBackgroundColor()
+        selectionStyle = .none
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
@@ -38,6 +39,8 @@ class SegmentedSelectTableViewCell: UITableViewCell, QuestionInfoTableViewCell {
             let valueText = value ? "Yes" : "No"
             addValueText(valueText)
         }
+        segmentedControl.selectedSegmentIndex = 1
+        selectedValueChanged(segmentedControl)
     }
     
     func addTitleText(_ text:String) {
@@ -71,8 +74,6 @@ class SegmentedSelectTableViewCell: UITableViewCell, QuestionInfoTableViewCell {
     func setEditDelegate(_ editDelegate: EditDelegate) {
         self.editDelegate = editDelegate
     }
-    
-
     
     @IBAction func selectedValueChanged(_ sender: UISegmentedControl) {
         questionInfo?.value = sender.titleForSegment(at: sender.selectedSegmentIndex)

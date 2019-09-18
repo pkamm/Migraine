@@ -9,7 +9,7 @@
 import UIKit
 
 class MigraineInfoViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, SavablePage, EditDelegate {
-
+    
     private let questionInfoArray:[QuestionInfo] = [
         QuestionInfo(text: "When did your migraine start?", infoKey: InfoKey.MIGRAINESTART),
         QuestionInfo(text: "When did your migraine end?", infoKey: InfoKey.MIGRAINEEND),
@@ -21,7 +21,7 @@ class MigraineInfoViewController: UIViewController, UITableViewDataSource, UITab
     
     var isQuickAddMigraine: Bool = true
     private var currentQuestionInfo: QuestionInfo?
-
+    
     @IBOutlet weak var saveButtonFooter: SaveButtonFooterView!
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var globalInputTextField: UITextField!
@@ -33,10 +33,10 @@ class MigraineInfoViewController: UIViewController, UITableViewDataSource, UITab
         saveButtonFooter.setTitle(title: "Next")
         pageControl.numberOfPages = 8
         pageControl.currentPage = DiaryService.sharedInstance.hasEnteredSleepDataToday() ? 1 : 2
-
+        
         dateFormatter.dateStyle = .medium
         dateFormatter.timeStyle = .medium
-
+        
         let editCellNib = UINib(nibName: "TextEditTableViewCell", bundle: nil)
         tableView.register(editCellNib, forCellReuseIdentifier: self.textEditTableViewCellId)
         let sliderCellNib = UINib(nibName: "SliderTableViewCell", bundle: nil)
@@ -55,6 +55,15 @@ class MigraineInfoViewController: UIViewController, UITableViewDataSource, UITab
         let questionInfo = questionInfoArray[indexPath.row]
         switch questionInfo.infoKey {
         case .MIGRAINESTART, .MIGRAINEEND:
+            if questionInfo.value == nil {
+                if questionInfo.infoKey == .MIGRAINESTART,
+                    let startDate = Calendar.current.date(byAdding: .hour, value: -4, to: Date()) {
+                    questionInfo.value = dateFormatter.string(from: startDate)
+                }
+                else {
+                    questionInfo.value = dateFormatter.string(from: Date())
+                }
+            }
             if let cell = tableView.dequeueReusableCell(withIdentifier: textEditTableViewCellId, for: indexPath) as? TextEditTableViewCell {
                 cell.setQuestionInfo(questionInfo)
                 cell.editDelegate = self
@@ -72,7 +81,7 @@ class MigraineInfoViewController: UIViewController, UITableViewDataSource, UITab
         }
         return UITableViewCell()
     }
-
+    
     @objc func donePressed(sender: UIBarButtonItem) {
         globalInputTextField.resignFirstResponder()
     }
@@ -99,7 +108,7 @@ class MigraineInfoViewController: UIViewController, UITableViewDataSource, UITab
         }
         globalInputTextField.becomeFirstResponder()
     }
-
+    
     func createDatePicker(title:String) {
         let pickerView = UIDatePicker()
         pickerView.datePickerMode = .dateAndTime
